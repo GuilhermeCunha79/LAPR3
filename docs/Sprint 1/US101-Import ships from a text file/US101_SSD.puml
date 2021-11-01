@@ -1,0 +1,16 @@
+@startuml
+
+actor "TrafficManager" as adm
+participant ":System" as sys
+
+activate adm
+adm -> sys: Starts importing ships from a text file
+activate sys
+sys --> adm: Asks for path to file
+deactivate sys
+adm -> sys: Introduces path
+activate sys
+sys --> adm: Saves the information and informs \noperation success or failure
+deactivate sys
+deactivate adm
+@enduml
