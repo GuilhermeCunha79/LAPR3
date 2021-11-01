@@ -1,0 +1,13 @@
+@startuml
+autonumber
+'hide footbox
+actor "Traffic Manager" as TRAFFIC
+
+participant ":System" as SYSTEM
+
+TRAFFIC -> SYSTEM : Request ships with close/departure coordinates and different Travelled Distance
+activate SYSTEM
+SYSTEM --> TRAFFIC : Returns the list of ships sorted by the MMSI code of the 1st ship \n and in descending order of the Travelled Distance difference
+deactivate SYSTEM
+
+@enduml
