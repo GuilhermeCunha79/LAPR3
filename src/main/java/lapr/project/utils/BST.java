@@ -82,7 +82,10 @@ public class BST<E extends Comparable<E>> implements BSTInterface<E> {
      * So its access level is protected
      */
     protected Node<E> find(Node<E> node, E element){
-        throw new UnsupportedOperationException("Not supported yet.");
+        if(node==null) return null;
+        if (element.compareTo(node.getElement())==0) return node;
+        if (element.compareTo(node.getElement())<0) return find(node.getLeft(),element);
+        else return find(node.getRight(),element);
     }
 
     /*
