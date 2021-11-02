@@ -32,10 +32,3 @@
 | Capacity | Capacidade | Maximum amount that something can contain |
 | Container mapping | Cartografia de contentores | Records of the displacement of the containers in a certain place |
 | Draft | Draft | Vertical distance between the waterline and the bottom of the ship's hull, in meters |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
