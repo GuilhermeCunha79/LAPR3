@@ -1,6 +1,7 @@
 package lapr.project.model;
 
 import lapr.project.utils.CommonMethods;
+import lapr.project.utils.ShipDTO;
 
 public class Ship implements Comparable<Ship> {
 
@@ -31,42 +32,22 @@ public class Ship implements Comparable<Ship> {
     private String transcieverClass;
     private double powerOutput;
 
-    /**
-     * @param mmsi
-     * @param dateTime
-     * @param latitude
-     * @param longitude
-     * @param sog
-     * @param cog
-     * @param heading
-     * @param vesselName
-     * @param imo
-     * @param callSign
-     * @param vesselType
-     * @param length
-     * @param width
-     * @param draft
-     * @param cargo
-     * @param transcieverClass
-     */
-    public Ship(int mmsi, String dateTime, double latitude, double longitude, float sog, float cog, int heading, String vesselName, String imo, String callSign, int vesselType, int length, int width, double draft, String cargo, String transcieverClass) {
-        this.mmsi = mmsi;
-        this.dateTime = dateTime;
-        this.latitude = latitude;
-        this.longitude = longitude;
-        this.sog = sog;
-        this.cog = cog;
-        this.heading = heading;
-        this.vesselName = vesselName;
-        this.imo = imo;
-        this.callSign = callSign;
-        this.vesselType = vesselType;
-        this.length = length;
-        this.width = width;
-        this.draft = draft;
-        this.cargo = cargo;
-        this.transcieverClass = transcieverClass;
-        this.powerOutput = POWER_OUTPUT;
+
+    public Ship(ShipDTO dto) {
+        setMmsi(dto.getMmsi());
+        setDateTime(dto.getDateTime());
+        setLatitude(dto.getLatitude());
+        setLongitude(dto.getLongitude());
+        setSog(dto.getSog());
+        setCog(dto.getCog());
+        setHeading(dto.getHeading());
+        setVesselName(dto.getVesselName());
+        setLength(dto.getLength());
+        setWidth(dto.getWidth());
+        setDraft(dto.getDraft());
+        setCargo(dto.getCargo());
+        setTranscieverClass(dto.getTranscieverClass());
+        setPowerOutput(dto.getPowerOutput());
     }
 
     /**
@@ -178,6 +159,50 @@ public class Ship implements Comparable<Ship> {
     }
 
     /**
+     * Method that returns the Call Sign
+     *
+     * @return callSign
+     */
+    public String getCallSign() {
+        return callSign;
+    }
+
+    /**
+     * Method that returns the Draft
+     *
+     * @return draft
+     */
+    public double getDraft() {
+        return draft;
+    }
+
+    /**
+     * Method that return the Cargo
+     *
+     * @return cargo
+     */
+    public String getCargo() {
+        return cargo;
+    }
+
+    /**
+     * Method that returns the Transciever Class
+     *
+     * @return transcieverClass
+     */
+    public String getTranscieverClass() {
+        return transcieverClass;
+    }
+
+    /**
+     * Method that returns the Power Output
+     * @return powerOutput
+     */
+    public double getPowerOutput() {
+        return powerOutput;
+    }
+
+    /**
      * Method that sets the mmsi code
      *
      * @param mmsi
@@ -283,49 +308,6 @@ public class Ship implements Comparable<Ship> {
         }
     }
 
-    /**
-     * Method that returns the Call Sign
-     *
-     * @return callSign
-     */
-    public String getCallSign() {
-        return callSign;
-    }
-
-    /**
-     * Method that returns the Draft
-     *
-     * @return draft
-     */
-    public double getDraft() {
-        return draft;
-    }
-
-    /**
-     * Method that return the Cargo
-     *
-     * @return cargo
-     */
-    public String getCargo() {
-        return cargo;
-    }
-
-    /**
-     * Method that returns the Transciever Class
-     *
-     * @return transcieverClass
-     */
-    public String getTranscieverClass() {
-        return transcieverClass;
-    }
-
-    /**
-     * Method that returns the Power Output
-     * @return powerOutput
-     */
-    public double getPowerOutput() {
-        return powerOutput;
-    }
 
     /**
      * Method that sets the Call Sign
