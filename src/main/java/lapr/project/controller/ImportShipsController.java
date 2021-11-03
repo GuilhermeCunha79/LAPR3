@@ -1,8 +1,8 @@
 package lapr.project.controller;
 
 import lapr.project.model.Ship;
-import lapr.project.utils.BST;
-import lapr.project.utils.ShipDTO;
+import lapr.project.utils.BST.BST;
+import lapr.project.utils.DTO.ShipDTO;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -14,7 +14,7 @@ public class ImportShipsController {
         BST<Ship> bst = new BST<>();
         File ficheiro = new File(file);
 
-        Scanner scan = new Scanner(file);
+        Scanner scan = new Scanner(ficheiro);
         String line = scan.nextLine();
 
         while(scan.hasNextLine()){

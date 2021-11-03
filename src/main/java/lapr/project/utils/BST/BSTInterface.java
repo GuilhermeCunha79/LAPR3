@@ -1,4 +1,4 @@
-package lapr.project.utils;
+package lapr.project.utils.BST;
 
 import java.util.List;
 import java.util.Map;

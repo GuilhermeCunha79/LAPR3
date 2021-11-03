@@ -1,0 +1,35 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+actor "Traffic Manager" as TF
+participant ":UI" as UI
+participant ":Controller" as CTR
+participant ":Company" as COMP
+participant ":Ship" as SP
+participant ":Store" as STR
+participant ":Mapper" as MPR
+
+TF->UI : Request ships with close/departure coordinates \nand different Travelled Distance
+activate UI
+UI->CTR : shipDto=getShipsClose()
+activate CTR
+CTR->COMP : shipStore=getShipStore()
+activate COMP
+deactivate COMP
+CTR->STR : shipsClose=getShipsClose()
+activate STR
+deactivate STR
+CTR->MPR : shipsCloseDto= toDto(shipsClose)
+activate MPR
+deactivate MPR
+CTR->UI
+deactivate CTR
+UI->TF :
+deactivate UI
+
+
+
+
+@enduml

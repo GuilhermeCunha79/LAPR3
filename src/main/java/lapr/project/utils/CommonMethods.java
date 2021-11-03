@@ -28,4 +28,16 @@ public class CommonMethods {
         }
         return counter == letter.length();
     }
+
+    public static boolean checkIfStringJustHaveNumbers(String number) {
+        int counter = 0;
+        for (int i = 0; i < number.length(); i++) {
+            if (Character.isDigit(number.charAt(i))) {
+                counter++;
+            } else {
+                return false;
+            }
+        }
+        return counter == number.length();
+    }
 }

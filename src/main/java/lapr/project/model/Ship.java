@@ -1,7 +1,7 @@
 package lapr.project.model;
 
 import lapr.project.utils.CommonMethods;
-import lapr.project.utils.ShipDTO;
+import lapr.project.utils.DTO.ShipDTO;
 
 public class Ship implements Comparable<Ship> {
 
@@ -13,6 +13,7 @@ public class Ship implements Comparable<Ship> {
     private static final int MMSI_DIGITS = 9;
     private static final double COG_HEAD_MIN = 0;
     private static final double COG_HEAD_MAX = 359;
+    private static final String myString="not available";
 
     private int mmsi;
     private String dateTime;
@@ -40,11 +41,14 @@ public class Ship implements Comparable<Ship> {
         setLongitude(dto.getLongitude());
         setSog(dto.getSog());
         setCog(dto.getCog());
+        setImo(dto.getImo());
         setHeading(dto.getHeading());
         setVesselName(dto.getVesselName());
+        setVesselType(dto.getVesselType());
         setLength(dto.getLength());
         setWidth(dto.getWidth());
         setDraft(dto.getDraft());
+        setCallSign(dto.getCallSign());
         setCargo(dto.getCargo());
         setTranscieverClass(dto.getTranscieverClass());
         setPowerOutput(dto.getPowerOutput());
@@ -208,7 +212,7 @@ public class Ship implements Comparable<Ship> {
      * @param mmsi
      */
     public void setMmsi(int mmsi) {
-        if (mmsi == MMSI_DIGITS) {
+        if (String.valueOf(mmsi).length()==MMSI_DIGITS) {
             this.mmsi = mmsi;
         } else {
             throw new NullPointerException("The MMSI code must have 9 number digits");
@@ -265,10 +269,10 @@ public class Ship implements Comparable<Ship> {
      * @param cog
      */
     public void setCog(float cog) {
-        if (COG_HEAD_MIN <= cog && cog <= COG_HEAD_MAX) {
+        if (COG_HEAD_MIN <= heading && heading <= COG_HEAD_MAX) {
             this.cog = cog;
         } else {
-            throw new NullPointerException("not available");
+            this.cog=0;// not available
         }
     }
 
@@ -281,7 +285,7 @@ public class Ship implements Comparable<Ship> {
         if (COG_HEAD_MIN <= heading && heading <= COG_HEAD_MAX) {
             this.heading = heading;
         } else {
-            throw new NullPointerException("not available");
+            this.heading=0; //not available
         }
 
     }
@@ -373,7 +377,7 @@ public class Ship implements Comparable<Ship> {
      * @param cargo
      */
     public void setCargo(String cargo) {
-        if (cargo.length() == 2 && CommonMethods.checkIfStringJustHaveLetters(cargo)) {
+        if (cargo.length() == 2 && (CommonMethods.checkIfStringJustHaveLetters(cargo) || CommonMethods.checkIfStringJustHaveNumbers(cargo))) {
             this.cargo = cargo;
         } else {
             throw new NullPointerException("not available");
@@ -386,10 +390,10 @@ public class Ship implements Comparable<Ship> {
      * @param transcieverClass
      */
     public void setTranscieverClass(String transcieverClass) {
-        if (transcieverClass.length() > 1 && CommonMethods.checkIfStringJustHaveLetters(transcieverClass)) {
-            throw new NullPointerException("not available");
-        } else {
+        if (transcieverClass.length() == 1 && CommonMethods.checkIfStringJustHaveLetters(transcieverClass)) {
             this.transcieverClass = transcieverClass;
+        } else {
+            throw new NullPointerException("not available");
         }
     }
 
@@ -407,7 +411,7 @@ public class Ship implements Comparable<Ship> {
      * @return true or false
      */
     public boolean imoVerification(String imo) {
-        return imo.charAt(0) == 'I' && imo.charAt(1) == 'M' && imo.charAt(2) == 'O' && imo.length() == 7;
+        return imo.charAt(0) == 'I' && imo.charAt(1) == 'M' && imo.charAt(2) == 'O' && imo.length() == 10;
     }
 
     /**
