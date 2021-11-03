@@ -36,7 +36,7 @@ class Main {
         bst= ImportShipsController.importShips("sships.csv");
         CalculatorExample calculatorExample = new CalculatorExample();
 
-        int value = calculatorExample.sum(3, 5);
+       // int value = calculatorExample.sum(3, 5);
 
         if (LOGGER.isLoggable(Level.INFO)) {
             LOGGER.log(Level.INFO, bst.toString());
