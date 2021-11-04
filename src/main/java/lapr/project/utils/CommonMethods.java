@@ -17,6 +17,11 @@ public class CommonMethods {
         return true;
     }
 
+    /**
+     * Method that checks is a string just have letters
+     * @param letter
+     * @return
+     */
     public static boolean checkIfStringJustHaveLetters(String letter) {
         int counter = 0;
         for (int i = 0; i < letter.length(); i++) {
@@ -29,6 +34,11 @@ public class CommonMethods {
         return counter == letter.length();
     }
 
+    /**
+     * Method that checks if a string just have numbers
+     * @param number
+     * @return
+     */
     public static boolean checkIfStringJustHaveNumbers(String number) {
         int counter = 0;
         for (int i = 0; i < number.length(); i++) {

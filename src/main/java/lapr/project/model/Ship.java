@@ -1,11 +1,13 @@
 package lapr.project.model;
 
+
 import lapr.project.utils.CommonMethods;
 import lapr.project.utils.DTO.ShipDTO;
 
 public class Ship implements Comparable<Ship> {
 
     private static final double POWER_OUTPUT = 20;
+    private static final int CALL_SIGN__DIGITS=5;
     private static final double LAT_MAX = 90;
     private static final double LAT_MIN = -90;
     private static final double LON_MAX = 180;
@@ -13,7 +15,7 @@ public class Ship implements Comparable<Ship> {
     private static final int MMSI_DIGITS = 9;
     private static final double COG_HEAD_MIN = 0;
     private static final double COG_HEAD_MAX = 359;
-    private static final String myString="not available";
+    private static final String myString = "not available";
 
     private int mmsi;
     private String dateTime;
@@ -200,6 +202,7 @@ public class Ship implements Comparable<Ship> {
 
     /**
      * Method that returns the Power Output
+     *
      * @return powerOutput
      */
     public double getPowerOutput() {
@@ -212,11 +215,10 @@ public class Ship implements Comparable<Ship> {
      * @param mmsi
      */
     public void setMmsi(int mmsi) {
-        if (String.valueOf(mmsi).length()==MMSI_DIGITS) {
+        if (String.valueOf(mmsi).length() == MMSI_DIGITS)
             this.mmsi = mmsi;
-        } else {
-            throw new NullPointerException("The MMSI code must have 9 number digits");
-        }
+        if (String.valueOf(mmsi).length() != MMSI_DIGITS)
+            throw new IllegalArgumentException("The MMSI code must have 9 number digits");
     }
 
     /**
@@ -225,6 +227,8 @@ public class Ship implements Comparable<Ship> {
      * @param dateTime
      */
     public void setDateTime(String dateTime) {
+        if (dateTime == null)
+            throw new NullPointerException("not available");
         this.dateTime = dateTime;
     }
 
@@ -237,7 +241,7 @@ public class Ship implements Comparable<Ship> {
         if (LAT_MIN <= latitude && latitude <= LAT_MAX) {
             this.latitude = latitude;
         } else {
-            throw new NullPointerException("not available");
+            throw new IllegalArgumentException("not available");
         }
     }
 
@@ -250,7 +254,7 @@ public class Ship implements Comparable<Ship> {
         if (LON_MIN <= longitude && longitude <= LON_MAX) {
             this.longitude = longitude;
         } else {
-            throw new NullPointerException("not available");
+            throw new IllegalArgumentException("not available");
         }
     }
 
@@ -272,7 +276,7 @@ public class Ship implements Comparable<Ship> {
         if (COG_HEAD_MIN <= heading && heading <= COG_HEAD_MAX) {
             this.cog = cog;
         } else {
-            this.cog=0;// not available
+            this.cog = 0;// not available
         }
     }
 
@@ -285,7 +289,7 @@ public class Ship implements Comparable<Ship> {
         if (COG_HEAD_MIN <= heading && heading <= COG_HEAD_MAX) {
             this.heading = heading;
         } else {
-            this.heading=0; //not available
+            this.heading = 0; //not available
         }
 
     }
@@ -296,6 +300,8 @@ public class Ship implements Comparable<Ship> {
      * @param vesselName
      */
     public void setVesselName(String vesselName) {
+        if (vesselName == null)
+            throw new NullPointerException("not available");
         this.vesselName = vesselName;
     }
 
@@ -305,11 +311,14 @@ public class Ship implements Comparable<Ship> {
      * @param imo
      */
     public void setImo(String imo) {
+        if (imo == null)
+            throw new NullPointerException("not available");
         if (imoVerification(imo)) {
             this.imo = imo;
         } else {
-            throw new NullPointerException("not available");
+            throw new IllegalArgumentException("The format must be IMOXXXXXXX.");
         }
+
     }
 
 
@@ -319,6 +328,12 @@ public class Ship implements Comparable<Ship> {
      * @param callSign
      */
     public void setCallSign(String callSign) {
+        if (callSign == null)
+            throw new NullPointerException("not available");
+        if(callSign.length()!=CALL_SIGN__DIGITS)
+            throw new IllegalArgumentException("Call Sign must have 5 alphanumerical ");
+        if(!CommonMethods.stringHaveAlphanumerical(callSign))
+            throw new IllegalArgumentException("Call Sign must have just alphanumerical");
         this.callSign = callSign;
     }
 
@@ -331,7 +346,7 @@ public class Ship implements Comparable<Ship> {
         if (vesselType > 0) {
             this.vesselType = vesselType;
         } else {
-            throw new NullPointerException("not available");
+            throw new IllegalArgumentException("not available");
         }
     }
 
@@ -345,7 +360,7 @@ public class Ship implements Comparable<Ship> {
         if (length > 0) {
             this.length = length;
         } else {
-            throw new NullPointerException("not available");
+            throw new IllegalArgumentException("not available");
         }
     }
 
@@ -358,7 +373,7 @@ public class Ship implements Comparable<Ship> {
         if (width > 0) {
             this.width = width;
         } else {
-            throw new NullPointerException("Must be bigger than 0");
+            throw new IllegalArgumentException("Must be bigger than 0");
         }
     }
 
@@ -377,11 +392,10 @@ public class Ship implements Comparable<Ship> {
      * @param cargo
      */
     public void setCargo(String cargo) {
-        if (cargo.length() == 2 && (CommonMethods.checkIfStringJustHaveLetters(cargo) || CommonMethods.checkIfStringJustHaveNumbers(cargo))) {
-            this.cargo = cargo;
-        } else {
+        if (cargo == null)
             throw new NullPointerException("not available");
-        }
+        if (cargo.length() == 2 && (CommonMethods.checkIfStringJustHaveLetters(cargo) || CommonMethods.checkIfStringJustHaveNumbers(cargo)))
+            this.cargo = cargo;
     }
 
     /**
@@ -390,15 +404,18 @@ public class Ship implements Comparable<Ship> {
      * @param transcieverClass
      */
     public void setTranscieverClass(String transcieverClass) {
-        if (transcieverClass.length() == 1 && CommonMethods.checkIfStringJustHaveLetters(transcieverClass)) {
-            this.transcieverClass = transcieverClass;
-        } else {
+        if (transcieverClass == null)
             throw new NullPointerException("not available");
-        }
+        //if (StringUtils.toUpperCase(transcieverClass).isEmpty())
+        //  throw new IllegalArgumentException("Cannot be blank");
+        if (transcieverClass.length() == 1 && CommonMethods.checkIfStringJustHaveLetters(transcieverClass))
+            this.transcieverClass = transcieverClass;
+
     }
 
     /**
      * Method that sets the power output
+     *
      * @param powerOutput
      */
     public void setPowerOutput(double powerOutput) {
@@ -407,6 +424,7 @@ public class Ship implements Comparable<Ship> {
 
     /**
      * Method that verify if IMO code respect the rules
+     *
      * @param imo
      * @return true or false
      */
@@ -416,6 +434,7 @@ public class Ship implements Comparable<Ship> {
 
     /**
      * Method that compares two Ships
+     *
      * @param o
      * @return 0 or 1
      */

@@ -1,0 +1,6 @@
+@startuml
+'https://plantuml.com/use-case-diagram
+
+:Traffic Manager: --> (UC107 - Return pair of ships with routes with close \ndeparture/arrival coordinates and different Travelled Distance.)
+
+@enduml
