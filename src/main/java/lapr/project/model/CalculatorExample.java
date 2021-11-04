@@ -16,4 +16,10 @@ public class CalculatorExample {
 	{
 		return firstOperand + secondOperand;
 	}
+
+	public int subtract(int firstOperand, int secondOperand){
+		return firstOperand-secondOperand;
+	}
+
+	
 }

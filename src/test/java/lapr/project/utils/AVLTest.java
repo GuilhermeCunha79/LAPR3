@@ -1,11 +1,13 @@
 package lapr.project.utils;
 
-import org.junit.Test;
+import lapr.project.utils.BST.AVL;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.Assert.*;
+
 
 public class AVLTest {
     public AVLTest() {
