@@ -1,5 +1,6 @@
 package lapr.project.utils;
 
+import lapr.project.utils.BST.Utils;
 import org.junit.Test;
 
 import java.util.Arrays;

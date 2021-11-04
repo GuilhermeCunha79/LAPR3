@@ -4,6 +4,8 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import lapr.project.utils.BST.BST;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import org.junit.Before;

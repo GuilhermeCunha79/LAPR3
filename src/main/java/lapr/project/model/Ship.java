@@ -54,6 +54,10 @@ public class Ship implements Comparable<Ship> {
         setPowerOutput(dto.getPowerOutput());
     }
 
+    public Ship() {
+    }
+
+
     /**
      * Method that returns the mmsi code
      *
@@ -424,5 +428,12 @@ public class Ship implements Comparable<Ship> {
         if (this.mmsi < o.getMmsi())
             return 0;
         return 1;
+    }
+    @Override
+    public boolean equals(Object o) {
+        if (o == null) return false;
+        if (this.getClass() != o.getClass()) return false;
+        Ship otherShip = (Ship) o;
+        return this.getMmsi() == (otherShip.getMmsi());
     }
 }
