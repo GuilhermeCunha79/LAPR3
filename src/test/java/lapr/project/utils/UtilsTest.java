@@ -1,12 +1,12 @@
 package lapr.project.utils;
 
 import lapr.project.utils.BST.Utils;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.Assert.*;
 
 public class UtilsTest {
     public UtilsTest() {
