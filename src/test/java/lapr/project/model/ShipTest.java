@@ -66,5 +66,14 @@ public class ShipTest {
         new Ship(dto);
     }
 
+    @Test (expected = IllegalArgumentException.class)
+    public void garanteeVesselTypeCannotBeNegative(){
+        ShipDTO dto = new ShipDTO(111111111,"31/12/2020 17:03",3,3,2,2,2,"VARAMO","IMO1234567","CDSF456",-80,123,32,23.5,"NA","B");
+        new Ship(dto);
+    }
+
+
+
+
 
 }

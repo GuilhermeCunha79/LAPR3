@@ -72,6 +72,6 @@ public class CommonMethods {
      * @return true/false
      */
     public static boolean isValidLongitude(double longitude) {
-        return longitude <= LAT_MAX && longitude >= LON_MIN;
+        return longitude <= LON_MAX && longitude >= LON_MIN;
     }
 }

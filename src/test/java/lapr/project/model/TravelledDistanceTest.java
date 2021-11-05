@@ -136,7 +136,5 @@ public class TravelledDistanceTest {
         assertEquals(0, distance);
     }
 
-
-
     //https://github.com/ice-lenor/ExampleUnitTests/blob/master/src/test/java/geometry/GeometryHelpersTest2.java
 }

@@ -12,7 +12,7 @@ company"1" -- "1"port : > has
 ship"1" -- "1..*" container:> transports
 ship"1" -- "1"location:> has a
 container"1" -- "1"dimension :> has a
-container"1" -- "1"coordinates:>has
+container"1" -- "1"coordinates:> has
 truck"1" -- "1"container:> transports
 warehouse"1" --"1"location :> has
 warehouse"1" --"1..*"cargoManifest :> receives
