@@ -1,6 +1,12 @@
 package lapr.project.utils;
 
 public class CommonMethods {
+
+    private static final double LAT_MAX = 90;
+    private static final double LAT_MIN = -90;
+    private static final double LON_MAX = 180;
+    private static final double LON_MIN = -180;
+
     /***
      *  Check if a string contains alphanumerical characters
      * @param name
@@ -51,11 +57,21 @@ public class CommonMethods {
         return counter == number.length();
     }
 
+    /**
+     * Method that checks if a given latitude is valid
+     * @param latitude
+     * @return true/false
+     */
     public static boolean isValidLatitude(double latitude) {
-        return latitude <= 90 && latitude >= -90;
+        return latitude <= LAT_MAX && latitude >= LAT_MIN;
     }
 
+    /**
+     * Method that checks if a given longitude is valid
+     * @param longitude
+     * @return true/false
+     */
     public static boolean isValidLongitude(double longitude) {
-        return longitude <= 180 && longitude >= -180;
+        return longitude <= LAT_MAX && longitude >= LON_MIN;
     }
 }

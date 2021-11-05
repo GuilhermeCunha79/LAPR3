@@ -7,6 +7,8 @@ public class TravelledDistance {
     public static double travelledDistance(double latitude1,double longitude1,double latitude2, double longitude2){
 
         double earthRadius=6371;
+        int meters=1000;
+        int division=2;
 
         if (!CommonMethods.isValidLatitude(latitude1) || !CommonMethods.isValidLatitude(latitude2) || !CommonMethods.isValidLongitude(longitude1) || !CommonMethods.isValidLongitude(longitude2))
             throw new IllegalArgumentException("Wrong latitude and/or longitude.");
@@ -18,11 +20,11 @@ public class TravelledDistance {
 
         double distanceLong = longitude2 - longitude1;
         double distanceLat = latitude2 - latitude1;
-        double count = Math.pow(Math.sin(distanceLat / 2), 2)+ Math.cos(latitude1) * Math.cos(latitude2)* Math.pow(Math.sin(distanceLong / 2),2);
+        double count = Math.pow(Math.sin(distanceLat / division), division)+ Math.cos(latitude1) * Math.cos(latitude2)* Math.pow(Math.sin(distanceLong / division),division);
 
-        double latLong = 2 * Math.atan2(Math.sqrt(count), Math.sqrt(1-count));
+        double latLong = division * Math.atan2(Math.sqrt(count), Math.sqrt(1-count));
 
-        return (latLong*earthRadius)*1000;//meters
+        return (latLong*earthRadius)*meters;//meters
     }
 
 

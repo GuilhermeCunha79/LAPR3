@@ -8,10 +8,6 @@ public class Ship implements Comparable<Ship> {
 
     private static final double POWER_OUTPUT = 20;
     private static final int CALL_SIGN__DIGITS = 5;
-    private static final double LAT_MAX = 90;
-    private static final double LAT_MIN = -90;
-    private static final double LON_MAX = 180;
-    private static final double LON_MIN = -180;
     private static final int MMSI_DIGITS = 9;
     private static final double COG_HEAD_MIN = 0;
     private static final double COG_HEAD_MAX = 359;
