@@ -5,6 +5,7 @@ import lapr.project.model.IMOTree;
 import lapr.project.model.Position;
 import lapr.project.model.Ship;
 import lapr.project.utils.BST.BST;
+import lapr.project.utils.BST.Utils;
 import lapr.project.utils.DTO.PositionDTO;
 import lapr.project.utils.DTO.ShipDTO;
 
@@ -12,12 +13,12 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class ImportShipsController {
+public class ImportShipsController extends BST{
 
     public static BST<Ship> importShips(String file,String type) throws FileNotFoundException {
         BST<Ship> bst = new BST<>();
         File ficheiro = new File(file);
-//        try {
+        try {
             Scanner scan = new Scanner(ficheiro);
             String line = scan.nextLine();
 
@@ -39,9 +40,9 @@ public class ImportShipsController {
                         break;
                 }
             }
-//        }catch (){
-//            throw new IllegalArgumentException("Call Sign must have just alphanumerical");
-//        }
+        }catch (Exception e){
+            throw new IllegalArgumentException("File not found");
+        }
         return bst;
     }
 
