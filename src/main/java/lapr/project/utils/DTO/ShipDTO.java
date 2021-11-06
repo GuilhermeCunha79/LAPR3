@@ -11,6 +11,7 @@ public class ShipDTO {
     private int length;
     private int width;
     private double draft;
+    private String cargo;
     private double powerOutput;
 
     /**
@@ -23,7 +24,7 @@ public class ShipDTO {
      * @param width
      * @param draft
      */
-    public ShipDTO(int mmsi, String vesselName, String imo, String callSign, int vesselType, int length, int width, double draft) {
+    public ShipDTO(int mmsi, String vesselName, String imo, String callSign, int vesselType, int length, int width, double draft,String cargo) {
         this.mmsi = mmsi;
         this.vesselName = vesselName;
         this.imo = imo;
@@ -32,6 +33,7 @@ public class ShipDTO {
         this.length = length;
         this.width = width;
         this.draft = draft;
+        this.cargo=cargo;
         this.powerOutput = POWER_OUTPUT;
     }
 
@@ -61,6 +63,15 @@ public class ShipDTO {
      */
     public String getImo() {
         return imo;
+    }
+
+    /**
+     * Method that returns the cargo
+     *
+     * @return cargo
+     */
+    public String getCargo() {
+        return cargo;
     }
 
     /**

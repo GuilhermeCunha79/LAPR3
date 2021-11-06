@@ -21,7 +21,7 @@ public class ImportShipsController {
 
         while(scan.hasNextLine()){
             String buff[] = scan.nextLine().trim().split(",");
-            ShipDTO shipDTO=new ShipDTO(Integer.parseInt(buff[0]),buff[7],buff[8],buff[9],Integer.parseInt(buff[10]),Integer.parseInt(buff[11]),Integer.parseInt(buff[12]),Double.parseDouble(buff[13]));
+            ShipDTO shipDTO=new ShipDTO(Integer.parseInt(buff[0]),buff[7],buff[8],buff[9],Integer.parseInt(buff[10]),Integer.parseInt(buff[11]),Integer.parseInt(buff[12]),Double.parseDouble(buff[13]),buff[14]);
             Ship ship = new Ship(shipDTO);
             bst.insert(ship);
         }

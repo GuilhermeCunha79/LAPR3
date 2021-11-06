@@ -15,6 +15,7 @@ public class Ship implements Comparable<Ship> {
     private int length;
     private int width;
     private double draft;
+    private String cargo;
     private double powerOutput;
 
 
@@ -27,6 +28,7 @@ public class Ship implements Comparable<Ship> {
         setWidth(dto.getWidth());
         setDraft(dto.getDraft());
         setCallSign(dto.getCallSign());
+        setCargo(dto.getCargo());
         setPowerOutput(dto.getPowerOutput());
     }
 
@@ -101,6 +103,15 @@ public class Ship implements Comparable<Ship> {
      */
     public double getDraft() {
         return draft;
+    }
+
+    /**
+     * Method that returns the cargo
+     *
+     * @return cargo
+     */
+    public String getCargo() {
+        return cargo;
     }
 
     /**
@@ -215,6 +226,21 @@ public class Ship implements Comparable<Ship> {
      */
     public void setDraft(double draft) {
         this.draft = draft;
+    }
+
+    /**
+     * Method that sets the Cargo
+     *
+     * @param cargo
+     */
+    public void setCargo(String cargo) {
+        if (cargo == null)
+            throw new NullPointerException(Constants.NOT_AVAILABLE);
+        if (cargo.length() == 2 && (CommonMethods.checkIfStringJustHaveLetters(cargo) || CommonMethods.checkIfStringJustHaveNumbers(cargo))) {
+            this.cargo = cargo;
+        }else {
+            throw new IllegalArgumentException("Cargo just have ONLY numbers or letters.");
+        }
     }
 
     /**

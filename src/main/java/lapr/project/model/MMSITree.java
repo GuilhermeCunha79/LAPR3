@@ -1,4 +1,4 @@
-package lapr.project.model;
+/*package lapr.project.model;
 
 import lapr.project.utils.DTO.ShipDTO;
 
@@ -14,7 +14,7 @@ public class MMSITree extends Ship{
         super();
         super.setMmsi(mmsi);
     }
-*/
+
     public MMSITree(ShipDTO dto) {
         super(dto);
     }
@@ -27,3 +27,4 @@ public class MMSITree extends Ship{
         return 1;
     }
 }
+*/
