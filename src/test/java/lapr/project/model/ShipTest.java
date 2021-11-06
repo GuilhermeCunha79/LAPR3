@@ -48,12 +48,6 @@ public class ShipTest {
     }
 
     @Test (expected = IllegalArgumentException.class)
-    public void garanteeCallSignJustHaveMoreThan5Alphanum(){
-        ShipDTO dto = new ShipDTO(111111111,"VARAMO","IMO1234567","CDSF456",70,1,1,9.5,"NA");
-        new Ship(dto);
-    }
-
-    @Test (expected = IllegalArgumentException.class)
     public void garanteeVesselTypeCannotBeNegative(){
         ShipDTO dto = new ShipDTO(111111111,"VARAMO","IMO1234567","CDS56",-70,1,1,9.5,"NA");
         new Ship(dto);
@@ -82,9 +76,4 @@ public class ShipTest {
         ShipDTO dto = new ShipDTO(111111111,"VARAMO","IMO1234567","CD456",70,4,6,0,null);
         new Ship(dto);
     }
-
-
-
-
-
 }

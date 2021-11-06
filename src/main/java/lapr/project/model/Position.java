@@ -166,7 +166,7 @@ public class Position implements Comparable<Position> {
         if (Constants.COG_HEAD_MIN <= cog && cog <= Constants.COG_HEAD_MAX) {
             this.cog = cog;
         } else {
-            throw new IllegalArgumentException("not available");// not available
+            this.cog=-1;// not available
         }
     }
 
@@ -189,7 +189,7 @@ public class Position implements Comparable<Position> {
         if (Constants.COG_HEAD_MIN <= heading && heading <= Constants.COG_HEAD_MAX) {
             this.heading = heading;
         } else {
-            throw new IllegalArgumentException("not available");
+            this.heading=-1;
         }
 
     }

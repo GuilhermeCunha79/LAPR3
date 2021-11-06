@@ -44,17 +44,17 @@ public class PositionTest {
 
     @Test (expected = IllegalArgumentException.class)
     public void garanteeSogEqualOrBiggerThan0(){
-        PositionDTO dto = new PositionDTO(111111111,"31/12/2020 17:19",76,181,-1, 2.4,0,"A");
+        PositionDTO dto = new PositionDTO(111111111,"31/12/2020 17:19",76,181,-4, 2.4,0,"A");
         new Position(dto);
     }
 
     @Test (expected = IllegalArgumentException.class)
     public void garanteeCogBetween0and359(){
-        PositionDTO dto = new PositionDTO(111111111,"31/12/2020 17:19",76,170,-1, 360,0,"A");
+        PositionDTO dto = new PositionDTO(111111111,"31/12/2020 17:19",76,170,2, 360,0,"A");
         new Position(dto);
     }
 
-    @Test (expected = IllegalArgumentException.class)
+    @Test
     public void garanteeHeadingBetween0and359(){
         PositionDTO dto = new PositionDTO(111111111,"31/12/2020 17:19",76,170,5, 34,369,"A");
         new Position(dto);

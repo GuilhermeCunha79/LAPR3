@@ -8,6 +8,10 @@ import java.util.List;
 public class CommonMethods {
 
 
+    private CommonMethods() {
+        throw new IllegalStateException("Utility class");
+    }
+
     /***
      *  Check if a string contains alphanumerical characters
      * @param name

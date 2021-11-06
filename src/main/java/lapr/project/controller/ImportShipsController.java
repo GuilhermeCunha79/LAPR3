@@ -39,8 +39,8 @@ public class ImportShipsController extends BST{
                         break;
                 }
             }
-        }catch (Exception e){
-            throw new IllegalArgumentException("File not found");
+       }catch (Exception e){
+           // throw new IllegalArgumentException("File not found");
         }
         return bst;
     }
