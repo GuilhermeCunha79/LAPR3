@@ -8,6 +8,7 @@ public class IMOTree extends Ship{
         super(dto);
     }
 
+
     @Override
     public int compareTo(Ship o) {
         return this.getImo().compareTo(o.getImo());
