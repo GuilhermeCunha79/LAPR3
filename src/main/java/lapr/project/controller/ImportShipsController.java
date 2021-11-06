@@ -5,7 +5,6 @@ import lapr.project.model.IMOTree;
 import lapr.project.model.Position;
 import lapr.project.model.Ship;
 import lapr.project.utils.BST.BST;
-import lapr.project.utils.BST.Utils;
 import lapr.project.utils.DTO.PositionDTO;
 import lapr.project.utils.DTO.ShipDTO;
 

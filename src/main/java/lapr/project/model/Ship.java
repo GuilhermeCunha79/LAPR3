@@ -269,9 +269,12 @@ public class Ship implements Comparable<Ship> {
      */
     @Override
     public int compareTo(Ship o) {
-        if (this.mmsi > o.getMmsi())
+        if(mmsi < o.getMmsi()) {
             return -1;
-        return 1;
+        } else if(mmsi > o.getMmsi()) {
+            return 1;
+        }
+        return 0;
     }
 
     @Override
