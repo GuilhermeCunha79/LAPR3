@@ -1,11 +1,12 @@
 package lapr.project.utils;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.util.List;
+
 public class CommonMethods {
 
-    private static final double LAT_MAX = 90;
-    private static final double LAT_MIN = -90;
-    private static final double LON_MAX = 180;
-    private static final double LON_MIN = -180;
 
     /***
      *  Check if a string contains alphanumerical characters
@@ -21,6 +22,14 @@ public class CommonMethods {
             return false;
         }
         return true;
+    }
+
+    public static void serializeStore(List<?> list, String path) {
+        try (FileOutputStream out = new FileOutputStream(path); ObjectOutputStream outputStream = new ObjectOutputStream(out)) {
+            outputStream.writeObject(list);
+        } catch (IOException e) {
+            e.getLocalizedMessage();
+        }
     }
 
     /**
@@ -63,7 +72,7 @@ public class CommonMethods {
      * @return true/false
      */
     public static boolean isValidLatitude(double latitude) {
-        return latitude <= LAT_MAX && latitude >= LAT_MIN;
+        return latitude <= Constants.LAT_MAX && latitude >= Constants.LAT_MIN;
     }
 
     /**
@@ -72,6 +81,6 @@ public class CommonMethods {
      * @return true/false
      */
     public static boolean isValidLongitude(double longitude) {
-        return longitude <= LON_MAX && longitude >= LON_MIN;
+        return longitude <= Constants.LON_MAX && longitude >= Constants.LON_MIN;
     }
 }

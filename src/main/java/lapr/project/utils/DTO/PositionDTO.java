@@ -2,15 +2,15 @@ package lapr.project.utils.DTO;
 
 public class PositionDTO {
 
-    private int mmsi;
-    private String dateTime;
-    private double latitude;
-    private double longitude;
-    private double sog;
-    private double cog;
-    private int heading;
+    private final int mmsi;
+    private final String dateTime;
+    private final double latitude;
+    private final double longitude;
+    private final double sog;
+    private final double cog;
+    private final int heading;
     private int position=0;
-    private String transcieverClass;
+    private final String transcieverClass;
 
     public PositionDTO(int mmsi,String dateTime, double latitude, double longitude, double sog, double cog, int heading, String transcieverClass){
         this.mmsi=mmsi;
@@ -30,7 +30,7 @@ public class PositionDTO {
      * @return mmsi
      */
     public int getMmsi() {
-        return mmsi;
+        return this.mmsi;
     }
 
     /**
@@ -39,7 +39,7 @@ public class PositionDTO {
      * @return dateTime
      */
     public String getDateTime() {
-        return dateTime;
+        return this.dateTime;
     }
 
     /**
@@ -48,7 +48,7 @@ public class PositionDTO {
      * @return latitude
      */
     public double getLatitude() {
-        return latitude;
+        return this.latitude;
     }
 
     /**
@@ -57,7 +57,7 @@ public class PositionDTO {
      * @return longitude
      */
     public double getLongitude() {
-        return longitude;
+        return this.longitude;
     }
 
     /**
@@ -66,7 +66,7 @@ public class PositionDTO {
      * @return sog
      */
     public double getSog() {
-        return sog;
+        return this.sog;
     }
 
     /**
@@ -75,7 +75,7 @@ public class PositionDTO {
      * @return cog
      */
     public double getCog() {
-        return cog;
+        return this.cog;
     }
 
     /**
@@ -84,7 +84,7 @@ public class PositionDTO {
      * @return heading
      */
     public int getHeading() {
-        return heading;
+        return this.heading;
     }
 
     /**
@@ -93,7 +93,7 @@ public class PositionDTO {
      * @return position
      */
     public int getPosition() {
-        return position;
+        return this.position;
     }
 
     /**
@@ -102,7 +102,7 @@ public class PositionDTO {
      * @return transcieverClass
      */
     public String getTranscieverClass() {
-        return transcieverClass;
+        return this.transcieverClass;
     }
 
 }

@@ -4,7 +4,9 @@ import lapr.project.utils.CommonMethods;
 import lapr.project.utils.Constants;
 import lapr.project.utils.DTO.ShipDTO;
 
-public class Ship implements Comparable<Ship> {
+
+
+public class Ship implements  Comparable<Ship> {
 
     private int mmsi;
     private String vesselName;
@@ -171,8 +173,8 @@ public class Ship implements Comparable<Ship> {
     public void setCallSign(String callSign) {
         if (callSign == null)
             throw new NullPointerException(Constants.NOT_AVAILABLE);
-//        if (callSign.length() != Constants.CALL_SIGN_DIGITS)
-//            throw new IllegalArgumentException("Call Sign must have 5 alphanumerical ");
+     //   if (callSign.length() != Constants.CALL_SIGN_DIGITS)
+        //    throw new IllegalArgumentException("Call Sign must have 5 alphanumerical ");
         if (!CommonMethods.stringHaveAlphanumerical(callSign))
             throw new IllegalArgumentException("Call Sign must have just alphanumerical");
         this.callSign = callSign;
@@ -224,6 +226,8 @@ public class Ship implements Comparable<Ship> {
      * @param draft
      */
     public void setDraft(double draft) {
+        if(draft==0)
+            throw new IllegalArgumentException("Cannot be 0");
         this.draft = draft;
     }
 

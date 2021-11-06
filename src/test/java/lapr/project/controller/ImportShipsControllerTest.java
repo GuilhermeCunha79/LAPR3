@@ -35,7 +35,7 @@ public class ImportShipsControllerTest {
         ShipDTO shipDTO7 = new ShipDTO(210950025, "CMA CGM ALMAVIVA", "IMO9450648", "FLSUE", 70, 334, 42, 15, "79");
         Ship ship7 = new Ship(shipDTO7);
         result.insert(ship7);
-        expResult = ImportShipsController.importShips("sshipsTest.txt", "MMSI");
+        expResult = ImportShipsController.importShips("sshipsTest.csv", "MMSI");
         assertEquals(result, expResult);
     }
 
