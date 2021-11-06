@@ -1,4 +1,4 @@
-package lapr.project.model;
+/*package lapr.project.model;
 
 import lapr.project.utils.DTO.ShipDTO;
 
@@ -17,4 +17,4 @@ public class IMOTree extends Ship{
         return this.getImo().compareTo(o.getImo());
     }
 
-}
+}*/

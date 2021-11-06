@@ -2,24 +2,12 @@ package lapr.project.model;
 
 
 import lapr.project.utils.CommonMethods;
+import lapr.project.utils.Constants;
 import lapr.project.utils.DTO.ShipDTO;
 
 public class Ship implements Comparable<Ship> {
 
-    private static final double POWER_OUTPUT = 20;
-    private static final int CALL_SIGN__DIGITS = 5;
-    private static final int MMSI_DIGITS = 9;
-    private static final double COG_HEAD_MIN = 0;
-    private static final double COG_HEAD_MAX = 359;
-    private static final String NOT_AVAILABLE = "not available";
-
     private int mmsi;
-    private String dateTime;
-    private double latitude;
-    private double longitude;
-    private float sog;
-    private float cog;
-    private int heading;
     private String vesselName;
     private String imo;
     private String callSign;
@@ -27,32 +15,19 @@ public class Ship implements Comparable<Ship> {
     private int length;
     private int width;
     private double draft;
-    private String cargo;
-    private String transcieverClass;
     private double powerOutput;
 
 
     public Ship(ShipDTO dto) {
         setMmsi(dto.getMmsi());
-        setDateTime(dto.getDateTime());
-        setLatitude(dto.getLatitude());
-        setLongitude(dto.getLongitude());
-        setSog(dto.getSog());
-        setCog(dto.getCog());
         setImo(dto.getImo());
-        setHeading(dto.getHeading());
         setVesselName(dto.getVesselName());
         setVesselType(dto.getVesselType());
         setLength(dto.getLength());
         setWidth(dto.getWidth());
         setDraft(dto.getDraft());
         setCallSign(dto.getCallSign());
-        setCargo(dto.getCargo());
-        setTranscieverClass(dto.getTranscieverClass());
         setPowerOutput(dto.getPowerOutput());
-    }
-
-    public Ship() {
     }
 
 
@@ -63,60 +38,6 @@ public class Ship implements Comparable<Ship> {
      */
     public int getMmsi() {
         return mmsi;
-    }
-
-    /**
-     * Method that returns the date
-     *
-     * @return dateTime
-     */
-    public String getDateTime() {
-        return dateTime;
-    }
-
-    /**
-     * Method that returns the latitude
-     *
-     * @return latitude
-     */
-    public double getLatitude() {
-        return latitude;
-    }
-
-    /**
-     * Method that returns the longitude
-     *
-     * @return longitude
-     */
-    public double getLongitude() {
-        return longitude;
-    }
-
-    /**
-     * Method that returns the SOG
-     *
-     * @return sog
-     */
-    public float getSog() {
-        return sog;
-    }
-
-    /**
-     * Method that returns the COG
-     *
-     * @return cog
-     */
-    public float getCog() {
-        return cog;
-    }
-
-    /**
-     * Method that returns the heading
-     *
-     * @return heading
-     */
-    public int getHeading() {
-        return heading;
     }
 
     /**
@@ -183,24 +104,6 @@ public class Ship implements Comparable<Ship> {
     }
 
     /**
-     * Method that return the Cargo
-     *
-     * @return cargo
-     */
-    public String getCargo() {
-        return cargo;
-    }
-
-    /**
-     * Method that returns the Transciever Class
-     *
-     * @return transcieverClass
-     */
-    public String getTranscieverClass() {
-        return transcieverClass;
-    }
-
-    /**
      * Method that returns the Power Output
      *
      * @return powerOutput
@@ -215,84 +118,12 @@ public class Ship implements Comparable<Ship> {
      * @param mmsi
      */
     public void setMmsi(int mmsi) {
-        if (String.valueOf(mmsi).length() == MMSI_DIGITS)
+        if (String.valueOf(mmsi).length() == Constants.MMSI_DIGITS)
             this.mmsi = mmsi;
-        if (String.valueOf(mmsi).length() != MMSI_DIGITS)
+        if (String.valueOf(mmsi).length() != Constants.MMSI_DIGITS)
             throw new IllegalArgumentException("The MMSI code must have 9 number digits");
     }
 
-    /**
-     * Method that sets the date time
-     *
-     * @param dateTime
-     */
-    public void setDateTime(String dateTime) {
-        if (dateTime == null)
-            throw new NullPointerException(NOT_AVAILABLE);
-        this.dateTime = dateTime;
-    }
-
-    /**
-     * Method that sets the latitude
-     *
-     * @param latitude
-     */
-    public void setLatitude(double latitude) {
-        if (CommonMethods.isValidLatitude(latitude)) {
-            this.latitude = latitude;
-        } else {
-            throw new IllegalArgumentException(NOT_AVAILABLE);
-        }
-    }
-
-    /**
-     * Methos that sets the longitude
-     *
-     * @param longitude
-     */
-    public void setLongitude(double longitude) {
-        if (CommonMethods.isValidLongitude(longitude)) {
-            this.longitude = longitude;
-        } else {
-            throw new IllegalArgumentException(NOT_AVAILABLE);
-        }
-    }
-
-    /**
-     * Method that sets the SOG
-     *
-     * @param sog
-     */
-    public void setSog(float sog) {
-        this.sog = sog;
-    }
-
-    /**
-     * Method that sets the COG
-     *
-     * @param cog
-     */
-    public void setCog(float cog) {
-        if (COG_HEAD_MIN <= heading && heading <= COG_HEAD_MAX) {
-            this.cog = cog;
-        } else {
-            this.cog = 0;// not available
-        }
-    }
-
-    /**
-     * Method that sets the heading
-     *
-     * @param heading
-     */
-    public void setHeading(int heading) {
-        if (COG_HEAD_MIN <= heading && heading <= COG_HEAD_MAX) {
-            this.heading = heading;
-        } else {
-            this.heading = 0; //not available
-        }
-
-    }
 
     /**
      * Method that sets the Vessel Name
@@ -301,7 +132,7 @@ public class Ship implements Comparable<Ship> {
      */
     public void setVesselName(String vesselName) {
         if (vesselName == null)
-            throw new NullPointerException(NOT_AVAILABLE);
+            throw new NullPointerException(Constants.NOT_AVAILABLE);
         this.vesselName = vesselName;
     }
 
@@ -312,7 +143,7 @@ public class Ship implements Comparable<Ship> {
      */
     public void setImo(String imo) {
         if (imo == null)
-            throw new NullPointerException(NOT_AVAILABLE);
+            throw new NullPointerException(Constants.NOT_AVAILABLE);
         if (imoVerification(imo)) {
             this.imo = imo;
         } else {
@@ -329,8 +160,8 @@ public class Ship implements Comparable<Ship> {
      */
     public void setCallSign(String callSign) {
         if (callSign == null)
-            throw new NullPointerException(NOT_AVAILABLE);
-        if (callSign.length() != CALL_SIGN__DIGITS)
+            throw new NullPointerException(Constants.NOT_AVAILABLE);
+        if (callSign.length() != Constants.CALL_SIGN__DIGITS)
             throw new IllegalArgumentException("Call Sign must have 5 alphanumerical ");
         if (!CommonMethods.stringHaveAlphanumerical(callSign))
             throw new IllegalArgumentException("Call Sign must have just alphanumerical");
@@ -346,7 +177,7 @@ public class Ship implements Comparable<Ship> {
         if (vesselType > 0) {
             this.vesselType = vesselType;
         } else {
-            throw new IllegalArgumentException(NOT_AVAILABLE);
+            throw new IllegalArgumentException(Constants.NOT_AVAILABLE);
         }
     }
 
@@ -360,7 +191,7 @@ public class Ship implements Comparable<Ship> {
         if (length > 0) {
             this.length = length;
         } else {
-            throw new IllegalArgumentException(NOT_AVAILABLE);
+            throw new IllegalArgumentException(Constants.NOT_AVAILABLE);
         }
     }
 
@@ -384,33 +215,6 @@ public class Ship implements Comparable<Ship> {
      */
     public void setDraft(double draft) {
         this.draft = draft;
-    }
-
-    /**
-     * Method that sets the Cargo
-     *
-     * @param cargo
-     */
-    public void setCargo(String cargo) {
-        if (cargo == null)
-            throw new NullPointerException(NOT_AVAILABLE);
-        if (cargo.length() == 2 && (CommonMethods.checkIfStringJustHaveLetters(cargo) || CommonMethods.checkIfStringJustHaveNumbers(cargo)))
-            this.cargo = cargo;
-    }
-
-    /**
-     * Method that sets the Transciever Class
-     *
-     * @param transcieverClass
-     */
-    public void setTranscieverClass(String transcieverClass) {
-        if (transcieverClass == null)
-            throw new NullPointerException(NOT_AVAILABLE);
-        //if (StringUtils.toUpperCase(transcieverClass).isEmpty())
-        //  throw new IllegalArgumentException("Cannot be blank");
-        if (transcieverClass.length() == 1 && CommonMethods.checkIfStringJustHaveLetters(transcieverClass))
-            this.transcieverClass = transcieverClass;
-
     }
 
     /**
@@ -444,6 +248,7 @@ public class Ship implements Comparable<Ship> {
             return 0;
         return 1;
     }
+
     @Override
     public boolean equals(Object o) {
         if (o == null) return false;

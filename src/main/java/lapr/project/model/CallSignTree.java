@@ -1,11 +1,11 @@
-package lapr.project.model;
+/*package lapr.project.model;
 
 import lapr.project.utils.DTO.ShipDTO;
 
 public class CallSignTree extends Ship{
 
     public CallSignTree(String callSign){
-        super();
+
         super.setCallSign(callSign);
     }
 
@@ -18,4 +18,4 @@ public class CallSignTree extends Ship{
         return this.getCallSign().compareTo(o.getCallSign());
     }
 
-}
+}*/
