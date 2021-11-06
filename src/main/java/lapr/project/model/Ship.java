@@ -1,6 +1,5 @@
 package lapr.project.model;
 
-
 import lapr.project.utils.CommonMethods;
 import lapr.project.utils.Constants;
 import lapr.project.utils.DTO.ShipDTO;
@@ -172,7 +171,7 @@ public class Ship implements Comparable<Ship> {
     public void setCallSign(String callSign) {
         if (callSign == null)
             throw new NullPointerException(Constants.NOT_AVAILABLE);
-        if (callSign.length() != Constants.CALL_SIGN__DIGITS)
+        if (callSign.length() != Constants.CALL_SIGN_DIGITS)
             throw new IllegalArgumentException("Call Sign must have 5 alphanumerical ");
         if (!CommonMethods.stringHaveAlphanumerical(callSign))
             throw new IllegalArgumentException("Call Sign must have just alphanumerical");

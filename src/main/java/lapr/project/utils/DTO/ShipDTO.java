@@ -3,16 +3,16 @@ package lapr.project.utils.DTO;
 public class ShipDTO {
 
     private static final double POWER_OUTPUT = 20;
-    private int mmsi;
-    private String vesselName;
-    private String imo;
-    private String callSign;
-    private int vesselType;
-    private int length;
-    private int width;
-    private double draft;
-    private String cargo;
-    private double powerOutput;
+    private final int mmsi;
+    private final String vesselName;
+    private final String imo;
+    private final String callSign;
+    private final int vesselType;
+    private final int length;
+    private final int width;
+    private final double draft;
+    private final String cargo;
+    private final double powerOutput;
 
     /**
      * @param mmsi
@@ -43,7 +43,7 @@ public class ShipDTO {
      * @return mmsi
      */
     public int getMmsi() {
-        return mmsi;
+        return this.mmsi;
     }
 
 
@@ -53,7 +53,7 @@ public class ShipDTO {
      * @return vesselName
      */
     public String getVesselName() {
-        return vesselName;
+        return this.vesselName;
     }
 
     /**
@@ -62,7 +62,7 @@ public class ShipDTO {
      * @return imo
      */
     public String getImo() {
-        return imo;
+        return this.imo;
     }
 
     /**
@@ -71,7 +71,7 @@ public class ShipDTO {
      * @return cargo
      */
     public String getCargo() {
-        return cargo;
+        return this.cargo;
     }
 
     /**
@@ -80,7 +80,7 @@ public class ShipDTO {
      * @return vesselType
      */
     public int getVesselType() {
-        return vesselType;
+        return this.vesselType;
     }
 
     /**
@@ -89,7 +89,7 @@ public class ShipDTO {
      * @return length
      */
     public int getLength() {
-        return length;
+        return this.length;
     }
 
     /**
@@ -98,7 +98,7 @@ public class ShipDTO {
      * @return width
      */
     public int getWidth() {
-        return width;
+        return this.width;
     }
 
     /**
@@ -107,7 +107,7 @@ public class ShipDTO {
      * @return callSign
      */
     public String getCallSign() {
-        return callSign;
+        return this.callSign;
     }
 
     /**
@@ -116,7 +116,7 @@ public class ShipDTO {
      * @return draft
      */
     public double getDraft() {
-        return draft;
+        return this.draft;
     }
 
     /**
