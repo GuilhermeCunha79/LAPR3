@@ -3,7 +3,6 @@ actor TrafficManager as admin
 
 participant ":ImportShipsUI" as UI
 participant ":ImportShips\nController" as CTRL
-participant ":FileReader" as FR
 
 activate admin
 admin -> UI: Starts importing ships from a text file
