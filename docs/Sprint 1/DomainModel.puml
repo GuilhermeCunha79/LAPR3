@@ -10,13 +10,11 @@ company"1" -- "1"warehouse : > has
 company"1" -- "1"client : > has
 company"1" -- "1"port : > has
 ship"1" -- "1..*" container:> transports
-ship"1" -- "1"location:> has a
+ship"1" -- "1"Position:> has a
 container"1" -- "1"dimension :> has a
 container"1" -- "1"coordinates:> has
 truck"1" -- "1"container:> transports
-warehouse"1" --"1"location :> has
 warehouse"1" --"1..*"cargoManifest :> receives
-port"1" --"1"location :> has
 port"1" -- "1..*"cargoManifest :> receives
 shipCrew"1" -- "1"ship :> works
 cargoManifest"1" -- "1"shipCrew :> delivered
@@ -49,7 +47,7 @@ class truck{
 class ship{
 -mmsi
 -name
--imoId
+-imo
 -nrGenerators
 -generatorPo
 -callSign
@@ -58,12 +56,6 @@ class ship{
 -width
 -capacity
 -draft
--baseDateTime
--sog
--cog
--heading
--position
--transceiverClass
 }
 
 class coordinates{
@@ -72,9 +64,15 @@ class coordinates{
 -zValue
 }
 
-class location{
+class Position{
+-baseDateTime
 -latitude
 -longitude
+-heading
+-sog
+-cog
+-cargo
+-transceiverClass
 }
 
 class port{
