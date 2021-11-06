@@ -194,7 +194,6 @@ public class Position implements Comparable<Position> {
 
     }
 
-
     /**
      * Method that sets the Transciever Class
      *
@@ -211,8 +210,16 @@ public class Position implements Comparable<Position> {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (o == null) return false;
+        if (this.getClass() != o.getClass()) return false;
+        Position otherPosition = (Position) o;
+        return this.getDateTime().equals(otherPosition.getDateTime());
+    }
+
+    @Override
     public int compareTo(Position o) {
-       return 0;
+        return 0;
     }
 }
 

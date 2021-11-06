@@ -5,6 +5,12 @@ import org.junit.Test;
 
 public class ShipTest {
 
+    @Test
+    public void creatCorrectShip(){
+        ShipDTO dto = new ShipDTO(111111111,"VARAMO","IMO3212345","C4SQ2",70,1,1,9.5,"NA");
+        new Ship(dto);
+    }
+
     @Test (expected = NullPointerException.class)
     public void garanteeNullShipIsntCreatedWithoutVesselName(){
         ShipDTO dto = new ShipDTO(111111111,null,"IMO3212345","C4SQ2",70,1,1,9.5,"NA");
@@ -70,6 +76,14 @@ public class ShipTest {
         ShipDTO dto = new ShipDTO(111111111,"VARAMO","IMO1234567","CD456",70,4,6,9.5,null);
         new Ship(dto);
     }
+
+    @Test (expected=IllegalArgumentException.class)
+    public void garanteDraftCannotBe0(){
+        ShipDTO dto = new ShipDTO(111111111,"VARAMO","IMO1234567","CD456",70,4,6,0,null);
+        new Ship(dto);
+    }
+
+
 
 
 
