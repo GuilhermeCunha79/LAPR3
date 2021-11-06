@@ -1,5 +1,7 @@
 package lapr.project.controller;
 
+import lapr.project.model.CallSignTree;
+import lapr.project.model.IMOTree;
 import lapr.project.model.Position;
 import lapr.project.model.Ship;
 import lapr.project.utils.BST.BST;
@@ -12,7 +14,7 @@ import java.util.Scanner;
 
 public class ImportShipsController {
 
-    public static BST<Ship> importShips(String file) throws FileNotFoundException {
+    public static BST<Ship> importShips(String file,String type) throws FileNotFoundException {
         BST<Ship> bst = new BST<>();
         File ficheiro = new File(file);
 
@@ -23,7 +25,20 @@ public class ImportShipsController {
             String buff[] = scan.nextLine().trim().split(",");
             ShipDTO shipDTO=new ShipDTO(Integer.parseInt(buff[0]),buff[7],buff[8],buff[9],Integer.parseInt(buff[10]),Integer.parseInt(buff[11]),Integer.parseInt(buff[12]),Double.parseDouble(buff[13]),buff[14]);
             Ship ship = new Ship(shipDTO);
-            bst.insert(ship);
+            switch (type){
+                case("MMSI"):
+                    bst.insert(ship);
+                    break;
+                case("CallSign"):
+                    CallSignTree callSignTree = new CallSignTree(shipDTO);
+                    bst.insert(callSignTree);
+                    break;
+                case("IMO"):
+                    IMOTree imoTree = new IMOTree(shipDTO);
+                    bst.insert(imoTree);
+                    break;
+            }
+
         }
         return bst;
     }

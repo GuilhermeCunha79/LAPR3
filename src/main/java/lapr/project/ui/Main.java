@@ -34,7 +34,7 @@ class Main {
      */
     public static void main(String[] args) throws IOException, SQLException {
         BST <Ship> bst = new BST<>();
-        bst= ImportShipsController.importShips("sships.csv");
+        bst= ImportShipsController.importShips("sships.csv","MMSI");
         //CalculatorExample calculatorExample = new CalculatorExample();
 
         //int value = calculatorExample.sum(3, 5);
