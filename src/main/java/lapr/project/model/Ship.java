@@ -171,8 +171,8 @@ public class Ship implements Comparable<Ship> {
     public void setCallSign(String callSign) {
         if (callSign == null)
             throw new NullPointerException(Constants.NOT_AVAILABLE);
-        if (callSign.length() != Constants.CALL_SIGN_DIGITS)
-            throw new IllegalArgumentException("Call Sign must have 5 alphanumerical ");
+//        if (callSign.length() != Constants.CALL_SIGN_DIGITS)
+//            throw new IllegalArgumentException("Call Sign must have 5 alphanumerical ");
         if (!CommonMethods.stringHaveAlphanumerical(callSign))
             throw new IllegalArgumentException("Call Sign must have just alphanumerical");
         this.callSign = callSign;

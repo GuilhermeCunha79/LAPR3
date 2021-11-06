@@ -17,29 +17,31 @@ public class ImportShipsController {
     public static BST<Ship> importShips(String file,String type) throws FileNotFoundException {
         BST<Ship> bst = new BST<>();
         File ficheiro = new File(file);
+//        try {
+            Scanner scan = new Scanner(ficheiro);
+            String line = scan.nextLine();
 
-        Scanner scan = new Scanner(ficheiro);
-        String line = scan.nextLine();
-
-        while(scan.hasNextLine()){
-            String buff[] = scan.nextLine().trim().split(",");
-            ShipDTO shipDTO=new ShipDTO(Integer.parseInt(buff[0]),buff[7],buff[8],buff[9],Integer.parseInt(buff[10]),Integer.parseInt(buff[11]),Integer.parseInt(buff[12]),Double.parseDouble(buff[13]),buff[14]);
-            Ship ship = new Ship(shipDTO);
-            switch (type){
-                case("MMSI"):
-                    bst.insert(ship);
-                    break;
-                case("CallSign"):
-                    CallSignTree callSignTree = new CallSignTree(shipDTO);
-                    bst.insert(callSignTree);
-                    break;
-                case("IMO"):
-                    IMOTree imoTree = new IMOTree(shipDTO);
-                    bst.insert(imoTree);
-                    break;
+            while (scan.hasNextLine()) {
+                String buff[] = scan.nextLine().trim().split(",");
+                ShipDTO shipDTO = new ShipDTO(Integer.parseInt(buff[0]), buff[7], buff[8], buff[9], Integer.parseInt(buff[10]), Integer.parseInt(buff[11]), Integer.parseInt(buff[12]), Double.parseDouble(buff[13]), buff[14]);
+                Ship ship = new Ship(shipDTO);
+                switch (type) {
+                    case ("MMSI"):
+                        bst.insert(ship);
+                        break;
+                    case ("CallSign"):
+                        CallSignTree callSignTree = new CallSignTree(shipDTO);
+                        bst.insert(callSignTree);
+                        break;
+                    case ("IMO"):
+                        IMOTree imoTree = new IMOTree(shipDTO);
+                        bst.insert(imoTree);
+                        break;
+                }
             }
-
-        }
+//        }catch (){
+//            throw new IllegalArgumentException("Call Sign must have just alphanumerical");
+//        }
         return bst;
     }
 
