@@ -17,7 +17,7 @@ public class ImportShipsController extends BST{
     public static BST<Ship> importShips(String file,String type) throws FileNotFoundException {
         BST<Ship> bst = new BST<>();
         File ficheiro = new File(file);
-        try {
+       // try {
             Scanner scan = new Scanner(ficheiro);
             String line = scan.nextLine();
 
@@ -39,9 +39,9 @@ public class ImportShipsController extends BST{
                         break;
                 }
             }
-       }catch (Exception e){
+     //  }catch (Exception e){
            // throw new IllegalArgumentException("File not found");
-        }
+        //}
         return bst;
     }
 
