@@ -1,0 +1,36 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+company"1" --- "1..*"ship : > owns
+ship"1" -- "1"Position:> has a
+
+class company{
+}
+
+class ship{
+-mmsi
+-name
+-imo
+-nrGenerators
+-generatorPo
+-callSign
+-vesselType
+-length
+-width
+-capacity
+-draft
+}
+
+class Position{
+-mmsi
+-baseDateTime
+-latitude
+-longitude
+-heading
+-sog
+-cog
+-cargo
+-transceiverClass
+}
+
+@enduml

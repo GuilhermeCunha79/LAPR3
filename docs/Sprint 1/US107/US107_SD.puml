@@ -5,11 +5,11 @@ autonumber
 
 actor "Traffic Manager" as TF
 participant ":UI" as UI
-participant ":Controller" as CTR
+participant ":shipPairController" as CTR
 participant ":Company" as COMP
 participant ":Ship" as SP
 participant ":Store" as STR
-participant ":Mapper" as MPR
+participant ":BST" as BST
 
 TF->UI : Request ships with close/departure coordinates \nand different Travelled Distance
 activate UI
@@ -21,12 +21,12 @@ deactivate COMP
 CTR->STR : shipsClose=getShipsClose()
 activate STR
 deactivate STR
-CTR->MPR : shipsCloseDto= toDto(shipsClose)
-activate MPR
-deactivate MPR
-CTR->UI
+CTR->BST : shipsCloseDto= find(shipsClose)
+activate BST
+deactivate BST
+CTR->UI : ok
 deactivate CTR
-UI->TF :
+UI->TF : ok
 deactivate UI
 
 

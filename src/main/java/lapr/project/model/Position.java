@@ -16,7 +16,25 @@ public class Position implements Comparable<Position> {
     private int position=0;
     private String transcieverClass;
 
+    /**
+     * Constructor with 0 parameters
+     */
+    public Position(){
+        mmsi=0;
+        dateTime="none";
+        latitude=0;
+        longitude=0;
+        sog=0;
+        cog=0;
+        heading=0;
+        position=0;
+        transcieverClass="none";
+    }
 
+    /**
+     * Constructor with all parameters
+     * @param dto
+     */
     public Position(PositionDTO dto) {
         setMmsi(dto.getMmsi());
         setDateTime(dto.getDateTime());
@@ -209,6 +227,11 @@ public class Position implements Comparable<Position> {
         }
     }
 
+    /**
+     * Check if two Position object are the same
+     * @param o
+     * @return
+     */
     @Override
     public boolean equals(Object o) {
         if (o == null) return false;
@@ -217,8 +240,18 @@ public class Position implements Comparable<Position> {
         return this.getDateTime().equals(otherPosition.getDateTime());
     }
 
+    /**
+     * Compare two positions
+     * @param o
+     * @return
+     */
     @Override
     public int compareTo(Position o) {
+        if(mmsi < o.getMmsi()) {
+            return 1;
+        } else if(mmsi > o.getMmsi()) {
+            return -1;
+        }
         return 0;
     }
 }

@@ -38,7 +38,7 @@ public class ShipDTO {
     }
 
     /**
-     * Method that returns the mmsi code
+     * Method that returns the MMSI code
      *
      * @return mmsi
      */
