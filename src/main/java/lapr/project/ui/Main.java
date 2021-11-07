@@ -34,13 +34,18 @@ class Main {
      */
     public static void main(String[] args) throws IOException, SQLException {
         BST <Ship> bst = new BST<>();
-        bst= ImportShipsController.importShips("sships.csv","MMSI");
+        BST <Ship> bst1 = new BST<>();
+        BST <Ship> bst2 = new BST<>();
+        bst= ImportShipsController.importShips("sships.csv","IMO");
+        bst1= ImportShipsController.importShips("sships.csv","MMSI");
+        bst2= ImportShipsController.importShips("sships.csv","CallSign");
         //CalculatorExample calculatorExample = new CalculatorExample();
-
+        FindShipUI ui=new FindShipUI();
+         ui.findShipUI(bst,bst1,bst2);
         //int value = calculatorExample.sum(3, 5);
 
         if (LOGGER.isLoggable(Level.INFO)) {
-            LOGGER.log(Level.INFO, bst.toString());
+            //LOGGER.log(Level.INFO, bst.toString());
         }
     }
 }
