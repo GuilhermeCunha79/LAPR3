@@ -9,7 +9,7 @@ public class PositionDTO {
     private final double sog;
     private final double cog;
     private final int heading;
-    private int position=0;
+    private int position1 =0;
     private final String transcieverClass;
 
     public PositionDTO(int mmsi,String dateTime, double latitude, double longitude, double sog, double cog, int heading, String transcieverClass){
@@ -20,8 +20,20 @@ public class PositionDTO {
         this.sog=sog;
         this.cog=cog;
         this.heading=heading;
-        this.position=0;
+        this.position1 =0;
         this.transcieverClass=transcieverClass;
+    }
+
+    public PositionDTO(){
+        mmsi=0;
+        dateTime="none";
+        latitude=0;
+        longitude=0;
+        sog=0;
+        cog=0;
+        heading=0;
+        position1 =0;
+        transcieverClass="none";
     }
 
     /**
@@ -92,8 +104,8 @@ public class PositionDTO {
      *
      * @return position
      */
-    public int getPosition() {
-        return this.position;
+    public int getPosition1() {
+        return this.position1;
     }
 
     /**

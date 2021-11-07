@@ -326,13 +326,13 @@ public class BST<E extends Comparable<E>> implements BSTInterface<E> {
     private void toStringRec(Node<E> root, int level, StringBuilder sb) {
         if (root == null)
             return;
-        toStringRec(root.getLeft(), level + 1, sb);
+        toStringRec(root.getRight(), level + 1, sb);
         if (level != 0) {
             for (int i = 0; i < level - 1; i++)
                 sb.append("|\t");
             sb.append("|-------" + root.getElement() + "\n");
         } else
             sb.append(root.getElement() + "\n");
-        toStringRec(root.getRight(), level + 1, sb);
+        toStringRec(root.getLeft(), level + 1, sb);
     }
 }

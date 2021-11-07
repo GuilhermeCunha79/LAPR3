@@ -6,7 +6,6 @@ import static org.junit.Assert.*;
 
 public class PositionTest {
 
-
     @Test
     public void checkPosition(){
         PositionDTO dto = new PositionDTO(111111111,"31/12/2020 17:19",1,1,2.4f, 2.4f,0,"A");
@@ -131,7 +130,7 @@ public class PositionTest {
         PositionDTO dto = new PositionDTO(111111111,"31/12/2020 17:19",76,170,5, 34,300,"A");
         new Position(dto);
         int expected=0;
-        assertEquals(dto.getPosition(),expected);
+        assertEquals(dto.getPosition1(),expected);
     }
 
     @Test

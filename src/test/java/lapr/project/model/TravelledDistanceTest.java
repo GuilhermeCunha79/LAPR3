@@ -1,7 +1,6 @@
 package lapr.project.model;
 
-import org.junit.jupiter.api.Test;
-
+import org.junit.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TravelledDistanceTest {
@@ -134,6 +133,26 @@ public class TravelledDistanceTest {
     public void distanceBetweenTheSamePoints0() {
         double distance = TravelledDistance.travelledDistance(0, 0, 0, 0);
         assertEquals(0, distance);
+    }
+
+    @Test (expected = IllegalArgumentException.class)
+    public void wrongLatitude1(){
+        TravelledDistance.travelledDistance(123, 0, 0, 0);
+    }
+
+    @Test (expected = IllegalArgumentException.class)
+    public void wrongLongitude1(){
+        TravelledDistance.travelledDistance(0, 300, 0, 0);
+    }
+
+    @Test (expected = IllegalArgumentException.class)
+    public void wrongLatitude2(){
+        TravelledDistance.travelledDistance(0, 0, 300, 0);
+    }
+
+    @Test (expected = IllegalArgumentException.class)
+    public void wrongLongitude2(){
+        TravelledDistance.travelledDistance(0, 0, 0, 300);
     }
 
     //https://github.com/ice-lenor/ExampleUnitTests/blob/master/src/test/java/geometry/GeometryHelpersTest2.java
