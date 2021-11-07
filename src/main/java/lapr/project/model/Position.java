@@ -16,6 +16,20 @@ public class Position implements Comparable<Position> {
     private int position1 =0;
     private String transcieverClass;
 
+    /**
+     * Constructor with 0 parameters
+     */
+    public Position(){
+        mmsi=0;
+        dateTime="none";
+        latitude=0;
+        longitude=0;
+        sog=0;
+        cog=0;
+        heading=0;
+        position1 =0;
+        transcieverClass="none";
+    }
 
     /**
      * Constructor with all parameters
@@ -232,12 +246,12 @@ public class Position implements Comparable<Position> {
      */
     @Override
     public int compareTo(Position o) {
-        if (mmsi < o.getMmsi()) {
-            return 0;
-        } else if (mmsi > o.getMmsi()) {
+        if(mmsi < o.getMmsi()) {
             return 1;
+        } else if(mmsi > o.getMmsi()) {
+            return -1;
         }
-        return -1;
+        return 0;
     }
 }
 
