@@ -157,7 +157,7 @@ public class Ship implements Comparable<Ship> {
     public void setImo(String imo) {
         if (imo == null)
             throw new NullPointerException(Constants.NOT_AVAILABLE);
-        if (imoVerification(imo)) {
+        if (CommonMethods.imoVerification(imo)) {
             this.imo = imo;
         } else {
             throw new IllegalArgumentException("The format must be IMOXXXXXXX.");
@@ -255,16 +255,6 @@ public class Ship implements Comparable<Ship> {
     }
 
     /**
-     * Method that verify if IMO code respect the rules
-     *
-     * @param imo
-     * @return true or false
-     */
-    public boolean imoVerification(String imo) {
-        return imo.charAt(0) == 'I' && imo.charAt(1) == 'M' && imo.charAt(2) == 'O' && imo.length() == 10;
-    }
-
-    /**
      * Method that compares two Ships
      *
      * @param o
@@ -294,5 +284,20 @@ public class Ship implements Comparable<Ship> {
         if (this.getClass() != o.getClass()) return false;
         Ship otherShip = (Ship) o;
         return this.getMmsi() == (otherShip.getMmsi());
+    }
+
+    @Override
+    public String toString() {
+        return
+                "MMSI=" + mmsi +
+                "\nVessel Name='" + vesselName + '\'' +
+                "\nIMO='" + imo + '\'' +
+                "\nCall Sign='" + callSign + '\'' +
+                "\nVessel Type=" + vesselType +
+                "\nLength=" + length +
+                "\nWidth=" + width +
+                "\nDraft=" + draft +
+                "\nCargo='" + cargo + '\'' +
+                "\nPower Output=" + powerOutput;
     }
 }

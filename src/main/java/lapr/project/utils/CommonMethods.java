@@ -87,4 +87,14 @@ public class CommonMethods {
     public static boolean isValidLongitude(double longitude) {
         return longitude <= Constants.LON_MAX && longitude >= Constants.LON_MIN;
     }
+
+    /**
+     * Method that verify if IMO code respect the rules
+     *
+     * @param imo
+     * @return true or false
+     */
+    public static boolean imoVerification(String imo) {
+        return imo.charAt(0) == 'I' && imo.charAt(1) == 'M' && imo.charAt(2) == 'O' && imo.length() == 10;
+    }
 }
