@@ -216,4 +216,103 @@ public class ShipTest {
         ship.setCargo("NB");
         assertEquals(ship.getCargo(),expected);
     }
+
+    @Test (expected=IllegalArgumentException.class)
+    public void setMmsiMoreThan9Digits(){
+        ShipDTO dto = new ShipDTO(1111111111,"VARAMO","IMO1234567","CD456",70,4,6,2,"NA");
+        Ship ship=new Ship(dto);
+        ship.setMmsi(111111111);
+    }
+
+    @Test (expected=NullPointerException.class)
+    public void setVesselNameNull(){
+        ShipDTO dto = new ShipDTO(111111111,null,"IMO1234567","CD456",70,4,6,2,"NA");
+        Ship ship=new Ship(dto);
+        ship.setVesselName(null);
+    }
+
+    @Test (expected=NullPointerException.class)
+    public void setImoNull(){
+        ShipDTO dto = new ShipDTO(111111111,"VARAMO",null,"CD456",70,4,6,2,"NA");
+        Ship ship=new Ship(dto);
+        ship.setImo(null);
+    }
+
+    @Test (expected=IllegalArgumentException.class)
+    public void setImoDifferentFormat(){
+        ShipDTO dto = new ShipDTO(111111111,"VARAMO","IMO12345678","CD456",70,4,6,2,"NA");
+        Ship ship=new Ship(dto);
+        ship.setImo("IMO12345678");
+    }
+
+    @Test (expected=NullPointerException.class)
+    public void setCallSignNull(){
+        ShipDTO dto = new ShipDTO(111111111,"VARAMO","IMO1234567",null,70,4,6,2,"NA");
+        Ship ship=new Ship(dto);
+        ship.setCallSign(null);
+    }
+
+    @Test (expected=IllegalArgumentException.class)
+    public void setCallSignDifferentFormat(){
+        ShipDTO dto = new ShipDTO(111111111,"VARAMO","IMO1234567","CD456_*",70,4,6,2,"NA");
+        Ship ship=new Ship(dto);
+        ship.setCallSign("CD456_*");
+    }
+    @Test (expected=IllegalArgumentException.class)
+    public void setVesselTypeDifferentFormat(){
+        ShipDTO dto = new ShipDTO(111111111,"VARAMO","IMO1234567","CD456",-1,4,6,2,"NA");
+        Ship ship=new Ship(dto);
+        ship.setVesselType(-1);
+    }
+
+    @Test (expected=IllegalArgumentException.class)
+    public void setLengthDifferentFormat(){
+        ShipDTO dto = new ShipDTO(111111111,"VARAMO","IMO1234567","CD456",70,-1,6,2,"NA");
+        Ship ship=new Ship(dto);
+        ship.setLength(-1);
+    }
+
+    @Test (expected=IllegalArgumentException.class)
+    public void setWidthDifferentFormat(){
+        ShipDTO dto = new ShipDTO(111111111,"VARAMO","IMO1234567","CD456",70,4,-1,2,"NA");
+        Ship ship=new Ship(dto);
+        ship.setWidth(-1);
+    }
+
+    @Test (expected=IllegalArgumentException.class)
+    public void setDraftDifferentFormat(){
+        ShipDTO dto = new ShipDTO(111111111,"VARAMO","IMO1234567","CD456",70,4,6,0,"NA");
+        Ship ship=new Ship(dto);
+        ship.setDraft(0);
+    }
+
+    @Test (expected=NullPointerException.class)
+    public void setCargoNull(){
+        ShipDTO dto = new ShipDTO(111111111,"VARAMO","IMO1234567","CD456",70,4,6,2,null);
+        Ship ship=new Ship(dto);
+        ship.setCargo(null);
+    }
+
+    @Test (expected=IllegalArgumentException.class)
+    public void setCargoDifferentFormat(){
+        ShipDTO dto = new ShipDTO(111111111,"VARAMO","IMO1234567","CD456",70,4,6,2,"2_n1");
+        Ship ship=new Ship(dto);
+        ship.setCargo("2_n1");
+    }
+    @Test
+    public void compareTo() {
+        ShipDTO dto = new ShipDTO(111111111, "VARAMO", "IMO3212345", "C4SQ2", 70, 1, 1, 9.5, "NA");
+        Ship ship = new Ship(dto);
+        ShipDTO dto1 = new ShipDTO(111111112, "VARAMA", "IMO3412345", "C5SQ2", 71, 2, 3, 9.4, "BA");
+        Ship ship1 = new Ship(dto1);
+        org.junit.Assert.assertNotNull(ship1.compareTo(ship));
+    }
+    @Test
+    public void equals() {
+        ShipDTO dto = new ShipDTO(111111111, "VARAMO", "IMO3212345", "C4SQ2", 70, 1, 1, 9.5, "NA");
+        Ship ship = new Ship(dto);
+        ShipDTO dto1 = new ShipDTO(111111111, "VARAMO", "IMO3212345", "C4SQ2", 70, 1, 1, 9.5, "NA");
+        Ship ship1 = new Ship(dto1);
+        org.junit.Assert.assertNotNull(ship1.equals(ship));
+    }
 }

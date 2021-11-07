@@ -10,7 +10,9 @@ import lapr.project.utils.DTO.PositionDTO;
 import lapr.project.utils.DTO.ShipDTO;
 import org.junit.Test;
 
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Scanner;
 
 import static lapr.project.controller.ImportShipsController.importShipsPosition;
 import static org.junit.Assert.*;
