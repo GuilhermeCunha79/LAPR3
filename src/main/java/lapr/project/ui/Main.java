@@ -40,7 +40,7 @@ class Main {
         //int value = calculatorExample.sum(3, 5);
 
         if (LOGGER.isLoggable(Level.INFO)) {
-            LOGGER.log(Level.INFO, bst.toString());
+            //LOGGER.log(Level.INFO, bst.toString());
         }
     }
 }
