@@ -4,7 +4,6 @@ import lapr.project.utils.CommonMethods;
 import lapr.project.utils.Constants;
 import lapr.project.utils.DTO.ShipDTO;
 
-
 public class Ship implements Comparable<Ship> {
 
     private int mmsi;
@@ -18,6 +17,7 @@ public class Ship implements Comparable<Ship> {
     private String cargo;
     private double powerOutput;
 
+
     public Ship(ShipDTO dto) {
         setMmsi(dto.getMmsi());
         setImo(dto.getImo());
@@ -29,6 +29,10 @@ public class Ship implements Comparable<Ship> {
         setCallSign(dto.getCallSign());
         setCargo(dto.getCargo());
         setPowerOutput(dto.getPowerOutput());
+    }
+
+    public Ship(int mmsi, String vesselName, String imo, String callSign, int vesselType, int length, int width, int draft,String cargo){
+        ShipDTO sh = new ShipDTO(mmsi, vesselName, imo, callSign, vesselType, length, width, draft,cargo);
     }
 
     /**
@@ -268,12 +272,20 @@ public class Ship implements Comparable<Ship> {
      */
     @Override
     public int compareTo(Ship o) {
+       /* if (this.mmsi < o.getMmsi())
+            return 0;
+        return 1;
+
+        */
+
         if(mmsi < o.getMmsi()) {
-            return 1;
+            return 0;
         } else if(mmsi > o.getMmsi()) {
-            return -1;
+            return 1;
         }
-        return 0;
+        return -1;
+
+
     }
 
     @Override

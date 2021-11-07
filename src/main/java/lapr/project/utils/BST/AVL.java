@@ -11,6 +11,7 @@ public class AVL<E extends Comparable<E>> extends BST<E> {
         return height(node.getLeft()) - height(node.getRight());
     }
 
+
     private Node<E> rightRotation(Node<E> node) {
         Node<E> leftson = node.getLeft();
         node.setLeft(leftson.getRight());

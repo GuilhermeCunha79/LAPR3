@@ -37,6 +37,7 @@ public class ShipDTO {
         this.powerOutput = POWER_OUTPUT;
     }
 
+
     /**
      * Method that returns the MMSI code
      *

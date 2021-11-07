@@ -2,12 +2,12 @@ package lapr.project.model;
 
 import lapr.project.utils.DTO.ShipDTO;
 
-public class CallSignTree extends Ship{
+public class CallSignTree extends Ship {
 
-//    public CallSignTree(String callSign){
-//
-//        super.setCallSign(callSign);
-//    }
+    public CallSignTree(String callSign){
+
+        super(0, null, null, callSign, 0, 0, 0, 0, null);
+    }
 
     public CallSignTree(ShipDTO dto) {
         super(dto);
