@@ -49,7 +49,7 @@ public class PositionTest {
         new Position(dto);
     }
 
-    @Test (expected = IllegalArgumentException.class)
+    @Test
     public void garanteeCogBetween0and359(){
         PositionDTO dto = new PositionDTO(111111111,"31/12/2020 17:19",76,170,2, 360,0,"A");
         new Position(dto);
