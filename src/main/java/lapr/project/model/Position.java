@@ -13,7 +13,7 @@ public class Position implements Comparable<Position> {
     private double sog;
     private double cog;
     private int heading;
-    private int position=0;
+    private int position1 =0;
     private String transcieverClass;
 
     /**
@@ -27,7 +27,7 @@ public class Position implements Comparable<Position> {
         sog=0;
         cog=0;
         heading=0;
-        position=0;
+        position1 =0;
         transcieverClass="none";
     }
 
@@ -43,7 +43,7 @@ public class Position implements Comparable<Position> {
         setSog(dto.getSog());
         setCog(dto.getCog());
         setHeading(dto.getHeading());
-        setPosition(dto.getPosition());
+        setPosition1(dto.getPosition());
         setTranscieverClass(dto.getTranscieverClass());
     }
 
@@ -119,12 +119,12 @@ public class Position implements Comparable<Position> {
         return transcieverClass;
     }
 
-    public int getPosition(){
-        return position;
+    public int getPosition1(){
+        return position1;
     }
 
-    public void setPosition(int position){
-        this.position=position;
+    public void setPosition1(int position1){
+        this.position1 = position1;
     }
     /**
      * Method that sets the date time
@@ -156,10 +156,9 @@ public class Position implements Comparable<Position> {
      * @param mmsi
      */
     public void setMmsi(int mmsi) {
-        if (String.valueOf(mmsi).length() == Constants.MMSI_DIGITS)
-            this.mmsi = mmsi;
-        if (String.valueOf(mmsi).length() != Constants.MMSI_DIGITS)
+        if (!(String.valueOf(mmsi).length() == Constants.MMSI_DIGITS))
             throw new IllegalArgumentException("The MMSI code must have 9 number digits");
+        this.mmsi = mmsi;
     }
 
     /**
