@@ -6,9 +6,9 @@ top to bottom direction
 company"1" --- "1..*"truck : > owns
 company"1" --- "1..*"ship : > owns
 company"1" --- "1..*"shipCrew : > owns
-company"1" -- "1"warehouse : > has
-company"1" -- "1"client : > has
-company"1" -- "1"port : > has
+company"1" -- "1..*"warehouse : > has
+company"1" -- "1..*"client : > has
+company"1" -- "1..*"port : > has
 ship"1" -- "1..*" container:> transports
 ship"1" -- "1"Position:> has a
 container"1" -- "1"dimension :> has a
