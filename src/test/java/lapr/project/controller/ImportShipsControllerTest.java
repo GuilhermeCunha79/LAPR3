@@ -46,7 +46,7 @@ class ImportShipsControllerTest {
 
     @Test
     public void importPositionsTest2() throws FileNotFoundException {
-        int result = 22;
+        int result = 181;
         BST<Position> expResult = new BST<>();
         expResult = importShipsPosition("sships.csv");
         assertEquals(result, expResult.size());
