@@ -5,17 +5,56 @@ import lapr.project.utils.BST.BST;
 import lapr.project.utils.DTO.PositionDTO;
 import lapr.project.utils.DTO.ShipDTO;
 import org.junit.Assert;
-import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import java.io.FileNotFoundException;
 import java.time.LocalDateTime;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
+import static org.junit.jupiter.api.Assertions.*;
 
-public class PositionalMessagesTest {
+class PositionalMessagesTest {
 
-   /* @Test
+    @Test
+    void getPositionalMessages() throws FileNotFoundException {
+        List<Position> list = new ArrayList<>();
+        BST<Ship> bst1= ImportShipsController.importShips("sships.csv","MMSI");
+        BST<Position> bst2 = ImportShipsController.importShipsPosition("sships.csv");
+
+        LocalDateTime date1 = LocalDateTime.of(2020,12,31,0,0);
+        LocalDateTime date2 = LocalDateTime.of(2020,12,31,0,20);
+
+        ShipDTO shipDTO1=new ShipDTO(228339600,"CMA CGM ALMAVIVA","IMO9450648","FLSU",70,334,42,15,"79");
+        Ship ship1 = new Ship(shipDTO1);
+
+        Map<Ship, Set<Position>> map = PositionalMessages.associatePositions(bst2, bst1);
+        List<Position> positions = PositionalMessages.getPositionalMessages(ship1, map, date1, date2);
+
+        PositionDTO dto1 = new PositionDTO(228339600, "31/12/2020 00:16", 28.34134, -88.83706, 11.899999618530273, 126.9000015258789, 129, "B");
+        Position p1 = new Position(dto1);
+        PositionDTO dto2 = new PositionDTO(228339600, "31/12/2020 00:11", 28.35085, -88.85024, 12.0, 127.30000305175781, 130, "B");
+        Position p2 = new Position(dto2);
+        PositionDTO dto3 = new PositionDTO(228339600, "31/12/2020 00:13", 28.3484, -88.84688, 12.0, 129.0, 130, "B");
+        Position p3 = new Position(dto3);
+        PositionDTO dto4 = new PositionDTO(228339600, "31/12/2020 00:18", 28.33618, -88.82967, 11.899999618530273, 127.80000305175781, 131, "B");
+        Position p4 = new Position(dto4);
+        PositionDTO dto5 = new PositionDTO(228339600, "31/12/2020 00:15", 28.34412, -88.84108, 12.0, 128.3000030517578, 129, "B");
+        Position p5 = new Position(dto5);
+
+        list.add(p2);
+        list.add(p1);
+        list.add(p3);
+        list.add(p4);
+        list.add(p5);
+
+        Assert.assertEquals(list,positions);
+    }
+
+    /* @Test
     public void associatePositions() throws FileNotFoundException {
 
         BST<Ship> bst1= ImportShipsController.importShips("sshipsTest2.csv","MMSI");
@@ -51,42 +90,6 @@ public class PositionalMessagesTest {
 
         Assert.assertEquals(map2, map);
     }*/
-
-    @Test
-    public void getPositionalMessages() throws FileNotFoundException {
-
-        List<Position> list = new ArrayList<>();
-        BST<Ship> bst1= ImportShipsController.importShips("sships.csv","MMSI");
-        BST<Position> bst2 = ImportShipsController.importShipsPosition("sships.csv");
-
-        LocalDateTime date1 = LocalDateTime.of(2020,12,31,0,0);
-        LocalDateTime date2 = LocalDateTime.of(2020,12,31,0,20);
-
-        ShipDTO shipDTO1=new ShipDTO(228339600,"CMA CGM ALMAVIVA","IMO9450648","FLSU",70,334,42,15,"79");
-        Ship ship1 = new Ship(shipDTO1);
-
-        Map<Ship, Set<Position>> map = PositionalMessages.associatePositions(bst2, bst1);
-        List<Position> positions = PositionalMessages.getPositionalMessages(ship1, map, date1, date2);
-
-        PositionDTO dto1 = new PositionDTO(228339600, "31/12/2020 00:16", 28.34134, -88.83706, 11.899999618530273, 126.9000015258789, 129, "B");
-        Position p1 = new Position(dto1);
-        PositionDTO dto2 = new PositionDTO(228339600, "31/12/2020 00:11", 28.35085, -88.85024, 12.0, 127.30000305175781, 130, "B");
-        Position p2 = new Position(dto2);
-        PositionDTO dto3 = new PositionDTO(228339600, "31/12/2020 00:13", 28.3484, -88.84688, 12.0, 129.0, 130, "B");
-        Position p3 = new Position(dto3);
-        PositionDTO dto4 = new PositionDTO(228339600, "31/12/2020 00:18", 28.33618, -88.82967, 11.899999618530273, 127.80000305175781, 131, "B");
-        Position p4 = new Position(dto4);
-        PositionDTO dto5 = new PositionDTO(228339600, "31/12/2020 00:15", 28.34412, -88.84108, 12.0, 128.3000030517578, 129, "B");
-        Position p5 = new Position(dto5);
-
-        list.add(p1);
-        list.add(p2);
-        list.add(p3);
-        list.add(p4);
-        list.add(p5);
-
-        Assert.assertEquals(list,positions);
-    }
 
     @Test
     public void getPositionalMessagesShipNotFound(){

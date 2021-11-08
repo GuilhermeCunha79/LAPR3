@@ -274,7 +274,7 @@ public class Position implements Comparable<Position> {
                 "\nSOG: " + sog +
                 "\nCOG: " + cog +
                 "\nHeading: " + heading +
-                "\nTransciever Class:" + transcieverClass + '\'';
+                "\nTransciever Class:" + transcieverClass;
     }
 }
 
