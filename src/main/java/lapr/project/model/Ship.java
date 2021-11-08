@@ -8,7 +8,7 @@ public class Ship implements Comparable<Ship> {
 
     private int mmsi;
     private String vesselName;
-    private String imo;
+    public String imo;
     private String callSign;
     private int vesselType;
     private int length;
@@ -31,7 +31,7 @@ public class Ship implements Comparable<Ship> {
         setPowerOutput(dto.getPowerOutput());
     }
 
-    public Ship(int mmsi, String vesselName, String imo, String callSign, int vesselType, int length, int width, int draft,String cargo){
+    public Ship(int mmsi, String vesselName, String imo, String callSign, int vesselType, int length, int width, double draft,String cargo){
         ShipDTO sh = new ShipDTO(mmsi, vesselName, imo, callSign, vesselType, length, width, draft,cargo);
     }
 
@@ -268,13 +268,13 @@ public class Ship implements Comparable<Ship> {
 
         */
 
-        if(mmsi < o.getMmsi()) {
-            return 0;
-        } else if(mmsi > o.getMmsi()) {
+        if(this.mmsi < o.getMmsi()) {
+            return -1;
+        } else if(this.mmsi > o.getMmsi()) {
             return 1;
+        }else {
+            return 0;
         }
-        return -1;
-
 
     }
 

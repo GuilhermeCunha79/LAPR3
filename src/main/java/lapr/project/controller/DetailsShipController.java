@@ -1,6 +1,7 @@
 package lapr.project.controller;
 
 import lapr.project.model.Ship;
+import lapr.project.utils.BST.BST;
 import lapr.project.utils.BST.CodeSearch;
 
 import java.io.FileNotFoundException;
@@ -15,16 +16,18 @@ public class DetailsShipController {
 
     }
 
-    public Ship searchByMMSI (int mmsi) throws IOException {
-        return codeSearch.searchByMMSI(mmsi);
+    public Ship searchByMMSI (BST bst,int mmsi) throws IOException {
+        return codeSearch.findShipMmsi(bst,mmsi);
     }
 
-    public Ship searchByIMO (String imo) throws IOException{
-        return codeSearch.searchByIMO(imo);
+    public Ship searchByIMO(BST bst,String imo) throws IOException{
+        return codeSearch.findShipImo(bst,imo);
     }
 
-    public Ship searchByCallSign(String callSign) throws IOException{
-        return codeSearch.searchCallSign(callSign);
+    public Ship searchByCallSign(BST bst, String callSign) throws IOException{
+        return codeSearch.findShipCallSign(bst,callSign);
     }
+
+
 }
 

@@ -49,7 +49,8 @@ public class ImportShipsControllerTest {
         result.insert(ship7);
         expResult = importShips("sshipsTest.txt", "MMSI");
         assertEquals(result.size(), expResult.size());
-    }
+    }/*
+
     @Test
     public void importShipsTest1() throws FileNotFoundException {
         BST<Ship> result = new BST<>();
@@ -137,6 +138,7 @@ public class ImportShipsControllerTest {
         expResult = importShipsPosition("sshipsTest.txt");
         assertEquals(result.size(), expResult.size());
     }
+    */
 //    @Test
 //    public void importPositionsTest1() throws FileNotFoundException {
 //        BST<Position> result = new BST<>();
