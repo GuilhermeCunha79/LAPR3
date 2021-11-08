@@ -2,11 +2,12 @@
 
 
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.maven.surefire.util.internal.StringUtils;
+
 
 import java.io.Serializable;
 import java.util.*;
-
+import java.util.Objects;
 /**
  *
  * @author Paulo Maio <pam@isep.ipp.pt>
@@ -22,13 +23,14 @@ public class User implements Serializable {
     public User(Email id, Password pwd, String name)
     {
         //(!ObjectUtils.allNotNull(id, pwd))
-        if (StringUtils.isEmpty(name))
+        if (StringUtils.isBlank(name))
             throw new IllegalArgumentException("User cannot have an id, password or name as null/blank.");
 
         this.id = id;
         this.password = pwd;
         this.name = name.trim();
     }
+
 
     public Email getId() {
         return id;

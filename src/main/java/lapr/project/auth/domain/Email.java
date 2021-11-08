@@ -2,7 +2,7 @@
 
 
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.maven.surefire.shade.org.apache.commons.lang3.StringUtils;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -22,7 +22,7 @@ public class Email implements Serializable {
     }
 
     private boolean validate(String email) {
-        if (StringUtils.isEmpty(email))
+        if (StringUtils.isBlank(email))
             return false;
         // Check for other invalid criteria here
 

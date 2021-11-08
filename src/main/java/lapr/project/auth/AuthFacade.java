@@ -2,15 +2,16 @@
 
 import lapr.project.auth.domain.User;
 import lapr.project.auth.domain.UserRole;
-import lapr.project.auth.store.UserRoleStore;
+
+import lapr.project.store.UserRoleStore;
 
 import java.util.Optional;
 
 /**
  *
  * @author Paulo Maio <pam@isep.ipp.pt>
- */
-/*
+ *//*
+
 public class AuthFacade {
     private UserSession userSession;
 
@@ -96,4 +97,5 @@ public class AuthFacade {
         return this.userSession;
     }
 
-}*/
+}
+*/
