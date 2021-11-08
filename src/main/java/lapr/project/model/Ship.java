@@ -4,6 +4,8 @@ import lapr.project.utils.CommonMethods;
 import lapr.project.utils.Constants;
 import lapr.project.utils.DTO.ShipDTO;
 
+import java.util.Objects;
+
 public class Ship implements Comparable<Ship> {
 
     private int mmsi;
@@ -300,4 +302,10 @@ public class Ship implements Comparable<Ship> {
                 "\nCargo='" + cargo + '\'' +
                 "\nPower Output=" + powerOutput;
     }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(mmsi, vesselName, imo, callSign, vesselType, length, width, draft, cargo, powerOutput);
+    }
+
 }

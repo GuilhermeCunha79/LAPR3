@@ -4,6 +4,11 @@ import lapr.project.utils.CommonMethods;
 import lapr.project.utils.Constants;
 import lapr.project.utils.DTO.PositionDTO;
 
+
+import java.time.*;
+import java.time.format.DateTimeFormatter;
+
+
 public class Position implements Comparable<Position> {
 
     private int mmsi;
@@ -252,6 +257,12 @@ public class Position implements Comparable<Position> {
             return -1;
         }
         return 0;
+    }
+
+    public LocalDateTime convertStringToDate (){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+        LocalDateTime newDate = LocalDateTime.parse(this.dateTime, formatter);
+        return newDate;
     }
 }
 

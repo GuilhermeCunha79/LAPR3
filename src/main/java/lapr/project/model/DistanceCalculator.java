@@ -3,13 +3,13 @@ package lapr.project.model;
 import lapr.project.utils.CommonMethods;
 import lapr.project.utils.Constants;
 
-public class TravelledDistance {
+public class DistanceCalculator {
 
-    private TravelledDistance() {
-        throw new IllegalStateException("Utility class");
-    }
+//    private TravelledDistance() {
+//        throw new IllegalStateException("Utility class");
+//    }
 
-    public static double travelledDistance(double latitude1,double longitude1,double latitude2, double longitude2){
+    public static double distance(double latitude1,double longitude1,double latitude2, double longitude2){
 
         if (!CommonMethods.isValidLatitude(latitude1) || !CommonMethods.isValidLatitude(latitude2) || !CommonMethods.isValidLongitude(longitude1) || !CommonMethods.isValidLongitude(longitude2))
             throw new IllegalArgumentException("Wrong latitude and/or longitude.");
