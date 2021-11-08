@@ -13,6 +13,11 @@ public class PositionTest {
         new Position(dto);
     }
 
+    @Test
+    public void PositionEmpty(){
+        Position position=new Position();
+    }
+
     @Test (expected = IllegalArgumentException.class)
     public void garanteeMmsi9Chars(){
         PositionDTO dto = new PositionDTO(1111111181,"VARAMO",2,2,70,1,1,"A");

@@ -12,6 +12,11 @@ public class ShipTest {
         new Ship(dto);
     }
 
+    @Test
+    public void creatCorrectShipDTO(){
+        Ship dto = new Ship(111111111,"VARAMO","IMO3212345","C4SQ2",70,1,1,9.5,"NA");
+    }
+
     @Test (expected = NullPointerException.class)
     public void garanteeNullShipIsntCreatedWithoutVesselName(){
         ShipDTO dto = new ShipDTO(111111111,null,"IMO3212345","C4SQ2",70,1,1,9.5,"NA");
@@ -299,6 +304,7 @@ public class ShipTest {
         Ship ship=new Ship(dto);
         ship.setCargo("2_n1");
     }
+
     @Test
     public void compareTo() {
         ShipDTO dto = new ShipDTO(111111111, "VARAMO", "IMO3212345", "C4SQ2", 70, 1, 1, 9.5, "NA");
@@ -307,6 +313,16 @@ public class ShipTest {
         Ship ship1 = new Ship(dto1);
         org.junit.Assert.assertNotNull(ship1.compareTo(ship));
     }
+
+    @Test
+    public void compareTo1() {
+        ShipDTO dto = new ShipDTO(111111111, "VARAMO", "IMO3212345", "C4SQ2", 70, 1, 1, 9.5, "NA");
+        Ship ship = new Ship(dto);
+        ShipDTO dto1 = new ShipDTO(111111111, "VARAMA", "IMO3412345", "C4SQ2", 70, 1, 1, 9.5, "NA");
+        Ship ship1 = new Ship(dto1);
+        org.junit.Assert.assertNotNull(ship1.compareTo(ship));
+    }
+
     @Test
     public void equals() {
         ShipDTO dto = new ShipDTO(111111111, "VARAMO", "IMO3212345", "C4SQ2", 70, 1, 1, 9.5, "NA");

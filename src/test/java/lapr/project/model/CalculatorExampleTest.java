@@ -23,4 +23,22 @@ public class CalculatorExampleTest {
         assertEquals(expected, result);
     }
 
+    @Test
+    public void ensureSecondNegativeOperandWorks1() {
+        int expected = 15;
+        int firstOperand = 10;
+        int secondOperand = -5;
+        CalculatorExample calculator = new CalculatorExample();
+        int result = calculator.subtract(firstOperand, secondOperand);
+        assertEquals(expected, result);
+    }
+    @Test
+    public void ensureSecondNegativeOperandWorks2() {
+        int expected = -15;
+        int firstOperand = -5;
+        int secondOperand = 10;
+        CalculatorExample calculator = new CalculatorExample();
+        int result = calculator.subtract(firstOperand, secondOperand);
+        assertEquals(expected, result);
+    }
 }
