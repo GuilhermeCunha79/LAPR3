@@ -16,13 +16,11 @@ import java.io.IOException;
 
 public class CodeSearch {
     private ShipStore shipStore;
-    private String fileName;
-    private BST<Ship> mmsiTree;
-    private BST<Ship> callSignTree;
-    private BST<Ship> imoTree;
+    private final BST<Ship> mmsiTree;
+    private final BST<Ship> callSignTree;
+    private final BST<Ship> imoTree;
 
-    public CodeSearch(String fileName) throws FileNotFoundException {
-        this.fileName = fileName;
+    public CodeSearch(String fileName) throws IOException {
         //this.imoTree = new BST<>();
         //this.callSignTree = new BST<>();
         //this.mmsiTree = new BST<>();

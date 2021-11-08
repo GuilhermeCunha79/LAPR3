@@ -10,11 +10,13 @@ import lapr.project.utils.DTO.ShipDTO;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.util.Scanner;
 
 public class ImportShipsController extends BST {
 
-    public static BST<Ship> importShips(String file, String type) throws FileNotFoundException {
+    public static BST<Ship> importShips(String file, String type) throws IOException {
         BST<Ship> bst = new BST<>();
         File ficheiro = new File(file);
         try {
@@ -45,7 +47,7 @@ public class ImportShipsController extends BST {
         return bst;
     }
 
-    public static BST<Position> importShipsPosition(String file) throws FileNotFoundException {
+    public static BST<Position> importShipsPosition(String file) {
         BST<Position> bst1 = new BST<>();
         File ficheiro = new File(file);
         try {

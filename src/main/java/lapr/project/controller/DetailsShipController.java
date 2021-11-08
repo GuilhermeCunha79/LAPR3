@@ -11,7 +11,7 @@ public class DetailsShipController {
     CodeSearch codeSearch;
 
 
-    public DetailsShipController(String fileName) throws FileNotFoundException {
+    public DetailsShipController(String fileName) throws IOException {
         codeSearch = new CodeSearch(fileName);
 
     }

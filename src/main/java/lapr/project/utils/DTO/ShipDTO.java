@@ -125,7 +125,7 @@ public class ShipDTO {
      * @return powerOutput
      */
     public double getPowerOutput() {
-        return POWER_OUTPUT;
+        return this.powerOutput;
     }
 
 }

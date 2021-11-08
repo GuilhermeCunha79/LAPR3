@@ -1,10 +1,9 @@
-package lapr.project.utils;
+/*package lapr.project.utils;
 
 import lapr.project.model.Ship;
 import lapr.project.utils.BST.BST;
 import lapr.project.utils.BST.CodeSearch;
-
-import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class CodeSearchTest {
     CodeSearch cs;
@@ -14,7 +13,7 @@ public class CodeSearchTest {
     private BST<Ship> imo;
 
 
-    public CodeSearchTest() throws FileNotFoundException {
+    public CodeSearchTest() throws IOException {
         this.cs = new CodeSearch(fileName);
         this.imo = cs.getImoTree();
         this.callSign = cs.getCallSignTree();
@@ -31,6 +30,3 @@ public class CodeSearchTest {
         assertEquals(expResult, result);
     }
 */
-
-
-}

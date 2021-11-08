@@ -29,14 +29,14 @@ public class CommonMethods {
         }
         return true;
     }
-
+/*
     public static void serializeStore(List<?> list, String path) {
         try (FileOutputStream out = new FileOutputStream(path); ObjectOutputStream outputStream = new ObjectOutputStream(out)) {
             outputStream.writeObject(list);
         } catch (IOException e) {
             e.getLocalizedMessage();
         }
-    }
+    }*/
 
     /**
      * Method that checks is a string just have letters

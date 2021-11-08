@@ -5,7 +5,6 @@ import lapr.project.model.Ship;
 import lapr.project.utils.BST.BST;
 import lapr.project.utils.CommonMethods;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -13,7 +12,7 @@ public class FindShipUI {
 
     DetailsShipController ctrl = new DetailsShipController("sships.csv");
 
-    public FindShipUI() throws FileNotFoundException {
+    public FindShipUI() throws IOException {
     }
 
     public void findShipUI(BST bstIMO, BST bstMMSI, BST bstCallSign) throws IOException {

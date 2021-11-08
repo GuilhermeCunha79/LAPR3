@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +21,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class PositionalMessagesTest {
 
     @Test
-    void getPositionalMessages() throws FileNotFoundException {
+    void getPositionalMessages() throws IOException {
         List<Position> list = new ArrayList<>();
         BST<Ship> bst1= ImportShipsController.importShips("sships.csv","MMSI");
         BST<Position> bst2 = ImportShipsController.importShipsPosition("sships.csv");
