@@ -1,5 +1,6 @@
 package lapr.project.model;
 
+import lapr.project.utils.CommonMethods;
 import lapr.project.utils.DTO.PositionDTO;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -351,7 +352,7 @@ class PositionTest {
     public void convertStringToDate() {
         PositionDTO dto = new PositionDTO(111111111, "31/12/2010 17:19", 76, 170, 5, 34, 300, "A");
         Position posi = new Position(dto);
-        LocalDateTime date = posi.convertStringToDate();
+        LocalDateTime date = CommonMethods.convertStringToDate(posi.getDateTime());
         LocalDateTime newDate = LocalDateTime.of(2010, 12, 31, 17, 19);
         assertEquals(newDate, date);
     }

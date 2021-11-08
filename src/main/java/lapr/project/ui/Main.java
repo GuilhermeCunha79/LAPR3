@@ -2,6 +2,7 @@ package lapr.project.ui;
 
 import lapr.project.controller.ImportShipsController;
 import lapr.project.model.CalculatorExample;
+import lapr.project.model.Position;
 import lapr.project.model.Ship;
 import lapr.project.utils.BST.BST;
 
@@ -36,16 +37,18 @@ class Main {
         BST <Ship> bst = new BST<>();
         BST <Ship> bst1 = new BST<>();
         BST <Ship> bst2 = new BST<>();
+        BST <Position> bst3 = new BST<>();
         bst= ImportShipsController.importShips("sships.csv","IMO");
         bst1= ImportShipsController.importShips("sships.csv","MMSI");
         bst2= ImportShipsController.importShips("sships.csv","CallSign");
+        bst3=ImportShipsController.importShipsPosition("sships.csv");
         //CalculatorExample calculatorExample = new CalculatorExample();
-        FindShipUI ui=new FindShipUI();
-         ui.findShipUI(bst,bst1,bst2);
+        //FindShipUI ui=new FindShipUI();
+         //ui.findShipUI(bst,bst1,bst2);
         //int value = calculatorExample.sum(3, 5);
 
         if (LOGGER.isLoggable(Level.INFO)) {
-            //LOGGER.log(Level.INFO, bst.toString());
+            LOGGER.log(Level.INFO, bst3.toString());
         }
     }
 }

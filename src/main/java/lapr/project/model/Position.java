@@ -18,26 +18,27 @@ public class Position implements Comparable<Position> {
     private double sog;
     private double cog;
     private int heading;
-    private int position1 =0;
+    private int position1 = 0;
     private String transcieverClass;
 
     /**
      * Constructor with 0 parameters
      */
-    public Position(){
-        mmsi=0;
-        dateTime="none";
-        latitude=0;
-        longitude=0;
-        sog=0;
-        cog=0;
-        heading=0;
-        position1 =0;
-        transcieverClass="none";
+    public Position() {
+        mmsi = 0;
+        dateTime = "none";
+        latitude = 0;
+        longitude = 0;
+        sog = 0;
+        cog = 0;
+        heading = 0;
+        position1 = 0;
+        transcieverClass = "none";
     }
 
     /**
      * Constructor with all parameters
+     *
      * @param dto
      */
     public Position(PositionDTO dto) {
@@ -124,13 +125,14 @@ public class Position implements Comparable<Position> {
         return transcieverClass;
     }
 
-    public int getPosition1(){
+    public int getPosition1() {
         return position1;
     }
 
-    public void setPosition1(int position1){
+    public void setPosition1(int position1) {
         this.position1 = position1;
     }
+
     /**
      * Method that sets the date time
      *
@@ -188,7 +190,7 @@ public class Position implements Comparable<Position> {
         if (Constants.COG_HEAD_MIN <= cog && cog <= Constants.COG_HEAD_MAX) {
             this.cog = cog;
         } else {
-            this.cog=-1;// not available
+            this.cog = -1;// not available
         }
     }
 
@@ -211,7 +213,7 @@ public class Position implements Comparable<Position> {
         if (Constants.COG_HEAD_MIN <= heading && heading <= Constants.COG_HEAD_MAX) {
             this.heading = heading;
         } else {
-            this.heading=-1;
+            this.heading = -1;
         }
 
     }
@@ -226,13 +228,14 @@ public class Position implements Comparable<Position> {
             throw new NullPointerException(Constants.NOT_AVAILABLE);
         if (transcieverClass.length() == 1 && CommonMethods.checkIfStringJustHaveLetters(transcieverClass)) {
             this.transcieverClass = transcieverClass;
-        }else{
+        } else {
             throw new IllegalArgumentException("not available");
         }
     }
 
     /**
      * Check if two Position object are the same
+     *
      * @param o
      * @return
      */
@@ -246,24 +249,21 @@ public class Position implements Comparable<Position> {
 
     /**
      * Compare two positions
+     *
      * @param o
      * @return
      */
     @Override
     public int compareTo(Position o) {
-        if(mmsi < o.getMmsi()) {
-            return 1;
-        } else if(mmsi > o.getMmsi()) {
-            return -1;
+        if (mmsi == o.getMmsi()) {
+            if (CommonMethods.convertStringToDate(dateTime).compareTo(CommonMethods.convertStringToDate(o.getDateTime())) > 0)
+                return -1;
+            else if (CommonMethods.convertStringToDate(o.getDateTime()).compareTo(CommonMethods.convertStringToDate(dateTime)) < 0)
+                return 0;
         }
-        return 0;
+        return 1;
     }
 
-    public LocalDateTime convertStringToDate (){
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
-        LocalDateTime newDate = LocalDateTime.parse(this.dateTime, formatter);
-        return newDate;
-    }
 }
 
 

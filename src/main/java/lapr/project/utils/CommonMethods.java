@@ -3,6 +3,8 @@ package lapr.project.utils;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public class CommonMethods {
@@ -96,5 +98,10 @@ public class CommonMethods {
      */
     public static boolean imoVerification(String imo) {
         return imo.charAt(0) == 'I' && imo.charAt(1) == 'M' && imo.charAt(2) == 'O' && imo.length() == 10;
+    }
+
+    public static LocalDateTime convertStringToDate (String dateTime){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+        return LocalDateTime.parse(dateTime, formatter);
     }
 }

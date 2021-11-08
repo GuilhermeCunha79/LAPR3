@@ -9,7 +9,6 @@ import lapr.project.utils.DTO.ShipDTO;
 import org.junit.jupiter.api.Test;
 
 import java.io.FileNotFoundException;
-import static lapr.project.controller.ImportShipsController.importShips;
 import static lapr.project.controller.ImportShipsController.importShipsPosition;
 import static org.junit.Assert.assertEquals;
 

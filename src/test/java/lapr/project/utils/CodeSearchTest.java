@@ -3,13 +3,8 @@ package lapr.project.utils;
 import lapr.project.model.Ship;
 import lapr.project.utils.BST.BST;
 import lapr.project.utils.BST.CodeSearch;
-import lapr.project.utils.DTO.ShipDTO;
-import org.junit.Test;
 
 import java.io.FileNotFoundException;
-import java.io.IOException;
-
-import static org.junit.Assert.assertEquals;
 
 public class CodeSearchTest {
     CodeSearch cs;
@@ -17,6 +12,7 @@ public class CodeSearchTest {
     private BST<Ship> mmsi;
     private BST<Ship> callSign;
     private BST<Ship> imo;
+
 
     public CodeSearchTest() throws FileNotFoundException {
         this.cs = new CodeSearch(fileName);

@@ -2,6 +2,7 @@ package lapr.project.model;
 
 
 import lapr.project.utils.BST.BST;
+import lapr.project.utils.CommonMethods;
 
 import java.time.LocalDateTime;
 import java.util.*;
@@ -37,7 +38,7 @@ public class PositionalMessages {
             Set<Position> set = map.get(ship);
 
             for (Position p : set) {
-                LocalDateTime date = p.convertStringToDate();
+                LocalDateTime date = CommonMethods.convertStringToDate(p.getDateTime());
                 if (date.isAfter(date1) && date.isBefore(date2)) {
                     positions.add(p);
                 }
