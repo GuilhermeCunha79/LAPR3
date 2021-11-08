@@ -6,6 +6,7 @@ import lapr.project.model.CallSignTree;
 import lapr.project.model.IMOTree;
 import lapr.project.model.MMSITree;
 import lapr.project.model.Ship;
+import lapr.project.store.ShipStore;
 import lapr.project.utils.BST.BST;
 
 
@@ -14,7 +15,7 @@ import java.io.IOException;
 
 
 public class CodeSearch {
-
+    private ShipStore shipStore;
     private String fileName;
     private BST<Ship> mmsiTree;
     private BST<Ship> callSignTree;
@@ -50,57 +51,89 @@ public class CodeSearch {
      * @return ship
      * @throws IOException
      */
-    public Ship searchByMMSI(int mmsi) throws IOException {
-        Ship sh = new MMSITree(mmsi);
-        BST.Node<Ship> node = this.mmsiTree.find(this.mmsiTree.root(),sh);
+   /* public Ship searchByMMSI(BST bstMMSI,int mmsi) throws IOException {
+        Ship ship=new MMSITree(mmsi);
+        BST.Node<Ship> node = bstMMSI.find(this.mmsiTree.root(),ship);
         return node.getElement();
-    }
+    }*/
 
+    public Ship findShipMmsi(BST bst, int mmsi){
+        Iterable<Ship> arvore= bst.preOrder();
+        for(Ship ship : arvore){
+            if(mmsi==ship.getMmsi()){
+                return ship;
+            }
+        }
+        return null;
+    }
     /**
      * Search a ship by his imo code
      * @param imo ship code
      * @return
      * @throws IOException
      */
-    public Ship searchByIMO(String imo) throws IOException{
+
+    /*public Ship searchByIMO(BST bst,String imo) throws IOException{
         Ship sh = new IMOTree(imo);
         BST.Node<Ship> node =this.imoTree.find(this.imoTree.root(),sh);
         return node.getElement();
     }
-
+*/
+    public Ship findShipImo(BST bst, String imo){
+        Iterable<Ship> arvore= bst.preOrder();
+        for(Ship ship : arvore){
+            if(imo.compareTo(ship.getImo())==0){
+                return ship;
+            }
+        }
+        return null;
+    }
     /**
      * Search a ship by his call sign code
-     * @param callSign ship code
+    // * @param callSign ship code
      * @return
      * @throws IOException
-     */
+     *//*
     public Ship searchCallSign (String callSign) throws IOException{
         Ship sh = new CallSignTree(callSign);
         BST.Node<Ship> node  = this.callSignTree.find(this.callSignTree.root(), sh);
         return node.getElement();
+    }*/
+
+    public Ship findShipCallSign(BST bst, String imo){
+        Iterable<Ship> arvore= bst.preOrder();
+        for(Ship ship : arvore){
+            if(imo.compareTo(ship.getCallSign())==0){
+                return ship;
+            }
+        }
+        return null;
     }
 
 
-
 /*
-    public BST.Node searchByMMSI(int mmsiNumber, BST.Node<Ship> root){
-        root = this.mmsi.root;
+    public Ship searchByMMSI(int mmsiNumber, BST.Node<Ship> root){
+        root = this.mmsiTree.root;
+        Ship ship;
 
         // Base Cases: root is null or key is present at root
         if (root==null) {
             System.out.println("Key not found");
-            return root;
+            return root.getElement();
         }
 
         // Key is greater than root's key
         if(root.getElement().getMmsi() < mmsiNumber){
-            return searchByMMSI(mmsiNumber, root.getLeft());
+            ship= searchByMMSI(mmsiNumber, root.getLeft());
+            return ship;
         }
 
         // Key is smaller than root's key
-        return searchByMMSI(mmsiNumber, root.getRight());
+        ship=searchByMMSI(mmsiNumber, root.getRight());
+        return ship;
 
     }
+    /*
 
     public BST.Node searchByIMO(String imoString, BST.Node<Ship> root){
             root = this.imo.root;

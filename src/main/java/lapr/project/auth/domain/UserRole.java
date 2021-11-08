@@ -1,6 +1,8 @@
 /*package lapr.project.auth.domain;
 
-import org.apache.commons.lang.StringUtils;
+
+
+import org.apache.maven.surefire.shade.org.apache.commons.lang3.StringUtils;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -16,7 +18,7 @@ public class UserRole implements Serializable {
 
     public UserRole(String id, String description)
     {
-        if (StringUtils.isEmpty(id) || StringUtils.isEmpty(description))
+        if (StringUtils.isBlank(id) || StringUtils.isBlank(description))
             throw new IllegalArgumentException("UserRole id and/or description cannot be blank.");
 
         this.id = extractId(id);
@@ -38,7 +40,7 @@ public class UserRole implements Serializable {
 
     public boolean hasId(String id)
     {
-        if (StringUtils.isEmpty(id))
+        if (StringUtils.isBlank(id))
             return false;
         return this.id.equals(extractId(id));
     }

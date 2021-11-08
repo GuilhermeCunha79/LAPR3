@@ -13,8 +13,8 @@ import java.util.Properties;
 /**
  *
  * @author Paulo Maio <pam@isep.ipp.pt>
- */
-/*
+ *//*
+
 public class App {
 
     private Company company;
@@ -101,4 +101,5 @@ public class App {
         }
         return singleton;
     }
-}*/
+}
+*/

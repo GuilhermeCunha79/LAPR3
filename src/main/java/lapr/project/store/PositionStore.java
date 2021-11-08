@@ -1,4 +1,4 @@
-/*package lapr.project.store;
+package lapr.project.store;
 
 import lapr.project.model.Position;
 import lapr.project.utils.DTO.PositionDTO;
@@ -12,9 +12,8 @@ public class PositionStore {
      * @param dto
      * @return Position
      */
-/*
+
     public Position newShip(PositionDTO dto) {
         return new Position(dto);
     }
 }
-*/

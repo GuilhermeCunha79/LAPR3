@@ -2,6 +2,8 @@ package lapr.project.utils;
 
 public class Constants {
 
+
+
     public Constants(){
         throw new IllegalStateException("Utility class");
     }
@@ -33,7 +35,12 @@ public class Constants {
     public static final String ROLE_SHIP_CAPTAIN ="SHIP CAPTAIN";
     public static final String ROLE_SHIP_CHIEF_ELETRICAL_ENGINEER ="SHIP CHIEF ELETRICAL ENGINEER";
     public static final String ROLE_TRUCK_DRIVER ="TRUCK DRIVER";
-
+    //COMMON ERRORS
+    public static final String STRING_BLANK_EXEPT = " cannot be empty.";
+    public static final String STRING_NULL_EXEPT = " cannot be null.";
+    public static final String NON_ALPHANUM_EXEPT = " has non alphanumeric chars.";
+    public static final String PARAMS_FILENAME = "config.properties";
+    public static final String PARAMS_COMPANY_DESIGNATION = "Company.Designation";
 
 
 }

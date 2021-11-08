@@ -1,8 +1,10 @@
 /*package lapr.project.auth.domain;
 
 
+
 import at.favre.lib.crypto.bcrypt.BCrypt;
-import org.apache.commons.lang.StringUtils;
+import org.apache.maven.surefire.shade.org.apache.commons.lang3.StringUtils;
+
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -10,7 +12,7 @@ import java.util.Objects;
 /**
  *
  * @author Paulo Maio <pam@isep.ipp.pt>
- *//*
+ *//*/*
 public class Password implements Serializable {
 
     private String password;
@@ -23,7 +25,7 @@ public class Password implements Serializable {
     }
 
     private boolean validate(String password) {
-        if (StringUtils.isEmpty(password))
+        if (StringUtils.isBlank(password))
             return false;
         return true;
     }
@@ -35,7 +37,7 @@ public class Password implements Serializable {
 
     public boolean checkPassword(String pwd)
     {
-        if (StringUtils.isEmpty(pwd))
+        if (StringUtils.isBlank(pwd))
             return false;
         BCrypt.Result result = BCrypt.verifyer().verify(pwd.toCharArray(),this.password.toCharArray());
         return result.verified;
@@ -67,4 +69,5 @@ public class Password implements Serializable {
         return Objects.equals(this.password, obj.password);
     }
 
-}*/
+}
+*/

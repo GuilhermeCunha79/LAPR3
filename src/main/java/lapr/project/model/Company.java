@@ -6,7 +6,7 @@ import lapr.project.auth.AuthFacade;
 import lapr.project.auth.domain.User;
 import lapr.project.store.PositionStore;
 import lapr.project.store.ShipStore;
-import org.apache.commons.lang.StringUtils;
+import org.apache.maven.surefire.shade.org.apache.commons.lang3.StringUtils;
 
 
 import java.io.FileInputStream;
@@ -39,14 +39,14 @@ public class Company {
 /*
     public Company(String designation)
     {
-        if (StringUtils.isEmpty(designation))
+        if (StringUtils.isBlank(designation))
             throw new IllegalArgumentException("Designation cannot be blank.");
 
         this.designation = designation;
         this.authFacade = new AuthFacade();
 
-        setPositionStore();
-        setShipStore();
+        //setPositionStore();
+        //setShipStore();
         setUserStore();
 
     }
@@ -59,9 +59,9 @@ public class Company {
             e.getLocalizedMessage();
         }
     }
-
+/*
     private void setShipStore() {
-        try (FileInputStream input = new FileInputStream("data\\clients.dat"); ObjectInputStream in = new ObjectInputStream(input)) {
+        try (FileInputStream input = new FileInputStream("data\\ship.dat"); ObjectInputStream in = new ObjectInputStream(input)) {
             List<Ship> lClient = (List<Ship>) in.readObject();
             this.shipStore.setClientList(lClient);
         } catch (IOException | ClassNotFoundException e) {
@@ -70,14 +70,15 @@ public class Company {
     }
 
     private void setPositionStore() {
-        try (FileInputStream input = new FileInputStream("data\\calab.dat"); ObjectInputStream in = new ObjectInputStream(input)){
+        try (FileInputStream input = new FileInputStream("data\\position.dat"); ObjectInputStream in = new ObjectInputStream(input)){
             List<PositionStore> lCALab = (List<PositionStore>) in.readObject();
             this.positionStore.setCALabList(lCALab);
         }catch (IOException | ClassNotFoundException e){
             e.getLocalizedMessage();
         }
     }
-
+*/
+/*
     /**
      * Method that returns the designation of the company
      * @return the designation of the company
@@ -90,8 +91,8 @@ public class Company {
     /**
      * This method returns the authentication facade of the company
      * @return the authentication facade
-     */
-/*
+     *//*
+
     public AuthFacade getAuthFacade() {
         return authFacade;
     }
@@ -99,8 +100,8 @@ public class Company {
     /**
      * This method returns the parameter category store used by the company
      * @return the parameter category store
-     */
-/*
+     *//*
+
     public ShipStore getShipStore(){
         return this.shipStore;
     }
@@ -108,11 +109,10 @@ public class Company {
     /**
      * This method returns the parameter store used by the company
      * @return the parameter store
-     */
-/*
+     *//*
+
     public PositionStore getPositionStore(){
         return this.positionStore;
     }
 
-}
-*/
+}*/

@@ -13,13 +13,13 @@ import java.util.Set;
 
 /**
  * @author Paulo Maio <pam@isep.ipp.pt>
- */
-/*
+ *//*
+
 public class UserStore {
     private Set<User> store = new HashSet<User>();
 
 
-    public User create(String name, String email, String password) {
+    public User create(String email, String password,String name) {
         return new User(new Email(email), new Password(password), name);
     }
 
@@ -83,4 +83,5 @@ public class UserStore {
             e.printStackTrace();
         }
     }
-}*/
+}
+*/
