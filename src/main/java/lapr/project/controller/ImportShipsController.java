@@ -12,12 +12,12 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class ImportShipsController extends BST{
+public class ImportShipsController extends BST {
 
-    public static BST<Ship> importShips(String file,String type) throws FileNotFoundException {
+    public static BST<Ship> importShips(String file, String type) throws FileNotFoundException {
         BST<Ship> bst = new BST<>();
         File ficheiro = new File(file);
-       // try {
+        try {
             Scanner scan = new Scanner(ficheiro);
             String line = scan.nextLine();
 
@@ -39,24 +39,27 @@ public class ImportShipsController extends BST{
                         break;
                 }
             }
-     //  }catch (Exception e){
-           // throw new IllegalArgumentException("File not found");
-        //}
+        } catch (Exception e) {
+            throw new IllegalArgumentException("File not found");
+        }
         return bst;
     }
 
     public static BST<Position> importShipsPosition(String file) throws FileNotFoundException {
         BST<Position> bst1 = new BST<>();
         File ficheiro = new File(file);
+        try {
+            Scanner scan = new Scanner(ficheiro);
+            String line = scan.nextLine();
 
-        Scanner scan = new Scanner(ficheiro);
-        String line = scan.nextLine();
-
-        while(scan.hasNextLine()){
-            String buff[] = scan.nextLine().trim().split(",");
-            PositionDTO positionDTO=new PositionDTO(Integer.parseInt(buff[0]),buff[1],Double.parseDouble(buff[2]),Double.parseDouble(buff[3]),Float.parseFloat(buff[4]),Float.parseFloat(buff[5]),Integer.parseInt(buff[6]),buff[15]);
-            Position position = new Position(positionDTO);
-            bst1.insert(position);
+            while (scan.hasNextLine()) {
+                String buff[] = scan.nextLine().trim().split(",");
+                PositionDTO positionDTO = new PositionDTO(Integer.parseInt(buff[0]), buff[1], Double.parseDouble(buff[2]), Double.parseDouble(buff[3]), Float.parseFloat(buff[4]), Float.parseFloat(buff[5]), Integer.parseInt(buff[6]), buff[15]);
+                Position position = new Position(positionDTO);
+                bst1.insert(position);
+            }
+        } catch (Exception e) {
+            throw new IllegalArgumentException("File not found");
         }
         return bst1;
     }

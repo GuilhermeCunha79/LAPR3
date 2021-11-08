@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeParseException;
 
 import static org.junit.Assert.assertEquals;
 
@@ -263,9 +264,9 @@ class PositionTest {
     @Test
     public void setLatitudeDifferentFormat() throws IllegalArgumentException {
         IllegalArgumentException thrown = Assertions.assertThrows(IllegalArgumentException.class, () -> {
-        PositionDTO dto = new PositionDTO(111111111, "31/12/2020 17:19", 76000, 170, 5, 34, 300, "A");
-        Position posi = new Position(dto);
-        posi.setLatitude(76000);
+            PositionDTO dto = new PositionDTO(111111111, "31/12/2020 17:19", 76000, 170, 5, 34, 300, "A");
+            Position posi = new Position(dto);
+            posi.setLatitude(76000);
         });
         Assertions.assertEquals("not available", thrown.getMessage());
     }
@@ -332,11 +333,32 @@ class PositionTest {
 
     @Test
     public void compareTo() {
-        PositionDTO dto = new PositionDTO(111111111, "31/12/2010 17:19", 76, 170, 5, 34, 300, "B");
+        PositionDTO dto = new PositionDTO(111111111, "23/12/2010 16:19", 76, 170, 5, 34, 300, "B");
         Position posi = new Position(dto);
-        PositionDTO dto1 = new PositionDTO(111111112, "31/12/2010 17:19", 72, 170, 5, 34, 300, "B");
+        PositionDTO dto1 = new PositionDTO(111111111, "31/12/2010 17:19", 72, 170, 5, 34, 300, "B");
         Position posi1 = new Position(dto1);
-        org.junit.Assert.assertNotNull(posi1.compareTo(posi));
+        int expected = -1;
+        Assertions.assertEquals(expected, posi.compareTo(posi1));
+    }
+
+    @Test
+    public void compareTo1() {
+        PositionDTO dto = new PositionDTO(111111111, "31/12/2009 17:19", 76, 170, 5, 34, 300, "B");
+        Position posi = new Position(dto);
+        PositionDTO dto1 = new PositionDTO(111111111, "23/12/2010 17:19", 72, 170, 5, 34, 300, "B");
+        Position posi1 = new Position(dto1);
+        int expected = 1;
+        Assertions.assertEquals(expected, posi1.compareTo(posi));
+    }
+
+    @Test
+    public void compareTo2() {
+        PositionDTO dto = new PositionDTO(666666666, "31/12/2009 17:19", 76, 170, 5, 34, 300, "B");
+        Position posi = new Position(dto);
+        PositionDTO dto1 = new PositionDTO(111111111, "23/12/2010 17:19", 72, 170, 5, 34, 300, "B");
+        Position posi1 = new Position(dto1);
+        int expected = 0;
+        Assertions.assertEquals(expected, posi.compareTo(posi1));
     }
 
     @Test
@@ -345,7 +367,16 @@ class PositionTest {
         Position posi = new Position(dto);
         PositionDTO dto1 = new PositionDTO(111111112, "31/12/2010 17:19", 72, 170, 5, 34, 300, "B");
         Position posi1 = new Position(dto1);
-        org.junit.Assert.assertNotNull(posi1.equals(posi));
+        Assertions.assertEquals(posi, posi1);
+    }
+
+    @Test
+    public void equalsDifferent() {
+        PositionDTO dto = new PositionDTO(111111111, "31/12/2010 17:19", 76, 170, 5, 34, 300, "B");
+        Position posi = new Position(dto);
+        PositionDTO dto1 = new PositionDTO(111111112, "23/11/2111 19:19", 72, 170, 5, 34, 300, "B");
+        Position posi1 = new Position(dto1);
+        Assertions.assertFalse(posi.equals(posi1));
     }
 
     @Test
@@ -354,7 +385,19 @@ class PositionTest {
         Position posi = new Position(dto);
         LocalDateTime date = CommonMethods.convertStringToDate(posi.getDateTime());
         LocalDateTime newDate = LocalDateTime.of(2010, 12, 31, 17, 19);
-        assertEquals(newDate, date);
+        Assertions.assertEquals(newDate, date);
+    }
+
+    @Test
+    public void convertStringToDateWrong() throws DateTimeParseException {
+        DateTimeParseException thrown = Assertions.assertThrows(DateTimeParseException.class, () -> {
+            PositionDTO dto = new PositionDTO(111111111, "31/12/201 17:19", 76, 170, 5, 34, 300, "A");
+            Position posi = new Position(dto);
+            LocalDateTime date = CommonMethods.convertStringToDate(posi.getDateTime());
+            LocalDateTime newDate = LocalDateTime.of(2010, 12, 31, 17, 19);
+            Assertions.assertEquals(newDate, date);
+        });
+        Assertions.assertEquals("Text '31/12/201 17:19' could not be parsed at index 6", thrown.getMessage());
     }
 }
 
