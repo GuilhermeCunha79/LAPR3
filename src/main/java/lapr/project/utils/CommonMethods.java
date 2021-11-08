@@ -104,4 +104,6 @@ public class CommonMethods {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
         return LocalDateTime.parse(dateTime, formatter);
     }
+
+
 }

@@ -264,6 +264,18 @@ public class Position implements Comparable<Position> {
         return 1;
     }
 
+    @Override
+    public String toString() {
+        return "\nPOSITION:" +
+                "\nShip MMSI: " + mmsi +
+                "\nBase Date Time: " + dateTime + '\'' +
+                "\nLatitude: " + latitude +
+                "\nLongitude: " + longitude +
+                "\nSOG: " + sog +
+                "\nCOG: " + cog +
+                "\nHeading: " + heading +
+                "\nTransciever Class:" + transcieverClass + '\'';
+    }
 }
 
 

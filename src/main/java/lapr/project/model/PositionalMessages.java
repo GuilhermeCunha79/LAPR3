@@ -27,12 +27,12 @@ public class PositionalMessages {
 
     }
 
-    public static String getPositionalMessages(Ship ship, Map<Ship, Set<Position>> map, LocalDateTime date1, LocalDateTime date2) {
+    public static List<Position> getPositionalMessages(Ship ship, Map<Ship, Set<Position>> map, LocalDateTime date1, LocalDateTime date2) {
         List<Position> positions = new ArrayList<>();
 
-        System.out.println(ship.toString());
+        /*System.out.println(ship.toString());
         System.out.println(map.containsKey(ship));
-        System.out.println(map.get(ship));
+        System.out.println(map.get(ship));*/
 
         if (map.containsKey(ship)) {
             Set<Position> set = map.get(ship);
@@ -45,10 +45,10 @@ public class PositionalMessages {
             }
 
         } else {
-            return positions.toString();
+            throw new IllegalArgumentException("This Ship does not exist.");
         }
 
-        return positions.toString();
+        return positions;
     }
 }
 
