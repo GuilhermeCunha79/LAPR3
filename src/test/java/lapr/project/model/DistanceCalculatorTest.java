@@ -1,22 +1,25 @@
 package lapr.project.model;
 
-import org.junit.Test;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
-public class DistanceCalculatorTest {
+import static org.junit.jupiter.api.Assertions.*;
+
+class DistanceCalculatorTest {
 
     private final double Precision = 0.001;
 
     /**
-    * Test with different directions values
-    */
+     * Test with different directions values
+     */
     @Test
-    public void distanceDifferentDirections() {
+    void distanceDifferentDirections() {
         double distanceDirection1 = DistanceCalculator.distance(-33.926510, 18.364603, -26.208450, 28.040572);
         double distanceDirection2 = DistanceCalculator.distance(-26.208450, 28.040572, -33.926510, 18.364603);
         assertEquals(1265065.6094, distanceDirection1, Precision);
         assertEquals(1265065.6094, distanceDirection2, Precision);
     }
+
 
     /**
      * Test with values of Merithian
@@ -135,24 +138,36 @@ public class DistanceCalculatorTest {
         assertEquals(0, distance);
     }
 
-    @Test (expected = IllegalArgumentException.class)
-    public void wrongLatitude1(){
-        DistanceCalculator.distance(123, 0, 0, 0);
+    @Test
+    public void wrongLatitude1() throws  IllegalArgumentException{
+        IllegalArgumentException thrown = Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            DistanceCalculator.distance(123, 0, 0, 0);
+        });
+        Assertions.assertEquals("Wrong latitude and/or longitude.", thrown.getMessage());
     }
 
-    @Test (expected = IllegalArgumentException.class)
-    public void wrongLongitude1(){
-        DistanceCalculator.distance(0, 300, 0, 0);
+    @Test
+    public void wrongLongitude1() throws  IllegalArgumentException{
+        IllegalArgumentException thrown = Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            DistanceCalculator.distance(0, 300, 0, 0);
+        });
+        Assertions.assertEquals("Wrong latitude and/or longitude.", thrown.getMessage());
     }
 
-    @Test (expected = IllegalArgumentException.class)
-    public void wrongLatitude2(){
-        DistanceCalculator.distance(0, 0, 300, 0);
+    @Test
+    public void wrongLatitude2()throws  IllegalArgumentException{
+        IllegalArgumentException thrown = Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            DistanceCalculator.distance(0, 0, 300, 0);
+        });
+        Assertions.assertEquals("Wrong latitude and/or longitude.", thrown.getMessage());
     }
 
-    @Test (expected = IllegalArgumentException.class)
-    public void wrongLongitude2(){
-        DistanceCalculator.distance(0, 0, 0, 300);
+    @Test
+    public void wrongLongitude2()throws  IllegalArgumentException{
+        IllegalArgumentException thrown = Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            DistanceCalculator.distance(0, 0, 0, 300);
+        });
+        Assertions.assertEquals("Wrong latitude and/or longitude.", thrown.getMessage());
     }
 
     //https://github.com/ice-lenor/ExampleUnitTests/blob/master/src/test/java/geometry/GeometryHelpersTest2.java
