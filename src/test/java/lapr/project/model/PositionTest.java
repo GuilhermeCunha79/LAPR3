@@ -1,6 +1,7 @@
 package lapr.project.model;
 
 import lapr.project.utils.DTO.PositionDTO;
+import lapr.project.utils.DTO.ShipDTO;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -215,5 +216,86 @@ public class PositionTest {
         posi.setTranscieverClass("B");
         String expected="B";
         assertEquals(expected,posi.getTranscieverClass());
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void setDateTimeNull(){
+        PositionDTO dto = new PositionDTO(111111111,null,76,170,5, 34,300,"A");
+        Position posi=new Position(dto);
+        posi.setDateTime(null);
+    }
+
+    @Test (expected = IllegalArgumentException.class)
+    public void setLatitudeDifferentFormat(){
+        PositionDTO dto = new PositionDTO(111111111,"31/12/2020 17:19",76000,170,5, 34,300,"A");
+        Position posi=new Position(dto);
+        posi.setLatitude(76000);
+    }
+
+    @Test (expected = IllegalArgumentException.class)
+    public void setLongitudeDifferentFormat(){
+        PositionDTO dto = new PositionDTO(111111111,"31/12/2020 17:19",76,17000,5, 34,300,"A");
+        Position posi=new Position(dto);
+        posi.setLongitude(17000);
+    }
+
+    @Test
+    public void setCogDifferentFormat(){
+        PositionDTO dto = new PositionDTO(111111111,"31/12/2020 17:19",76,170,5, -26,300,"A");
+        Position posi=new Position(dto);
+        posi.setCog(-26);
+        double expected=-1;
+        double delta=0.01;
+        assertEquals(expected,posi.getCog(),delta);
+    }
+
+    @Test
+    public void setHeading(){
+        PositionDTO dto = new PositionDTO(111111111,"31/12/2020 17:19",76,170,5, -26,300,"A");
+        Position posi=new Position(dto);
+        posi.setHeading(300);
+        double expected=300;
+        double delta=0.01;
+        assertEquals(expected,posi.getHeading(),delta);
+    }
+
+    @Test
+    public void setHeadingDiff(){
+        PositionDTO dto = new PositionDTO(111111111,"31/12/2020 17:19",76,170,5, -26,-21,"A");
+        Position posi=new Position(dto);
+        posi.setHeading(-21);
+        double expected=-1;
+        double delta=0.01;
+        assertEquals(expected,posi.getHeading(),delta);
+    }
+
+    @Test (expected = NullPointerException.class)
+    public void setTranscieverClassNull(){
+        PositionDTO dto = new PositionDTO(111111111,"31/12/2010 17:19",76,170,5, 34,300,null);
+        Position posi=new Position(dto);
+        posi.setTranscieverClass(null);
+    }
+
+    @Test (expected = IllegalArgumentException.class)
+    public void setTranscieverClassDiff(){
+        PositionDTO dto = new PositionDTO(111111111,"31/12/2010 17:19",76,170,5, 34,300,"BB");
+        Position posi=new Position(dto);
+        posi.setTranscieverClass("BB");
+    }
+    @Test
+    public void compareTo() {
+        PositionDTO dto = new PositionDTO(111111111,"31/12/2010 17:19",76,170,5, 34,300,"B");
+        Position posi=new Position(dto);
+        PositionDTO dto1 = new PositionDTO(111111112,"31/12/2010 17:19",72,170,5, 34,300,"B");
+        Position posi1=new Position(dto1);
+        org.junit.Assert.assertNotNull(posi1.compareTo(posi));
+    }
+    @Test
+    public void equals() {
+        PositionDTO dto = new PositionDTO(111111111,"31/12/2010 17:19",76,170,5, 34,300,"B");
+        Position posi=new Position(dto);
+        PositionDTO dto1 = new PositionDTO(111111112,"31/12/2010 17:19",72,170,5, 34,300,"B");
+        Position posi1=new Position(dto1);
+        org.junit.Assert.assertNotNull(posi1.equals(posi));
     }
 }
