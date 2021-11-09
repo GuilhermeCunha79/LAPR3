@@ -1,20 +1,20 @@
-package lapr.project.utils;
+package lapr.project.utils.BST;
+
+import org.junit.Before;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import lapr.project.utils.BST.BST;
-import org.junit.Test;
-import static org.junit.Assert.*;
-import org.junit.Before;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
-/**
- *
- * @author DEI-ESINF
- */
-public class BSTTest {
+class BSTTest {
+
     Integer[] arr = {20,15,10,13,8,17,40,50,30,7};
     int[] height={0,1,2,3,3,3,3,3,3,4};
     Integer[] inorderT= {7,8,10,13,15,17,20,30,40,50};
@@ -22,9 +22,6 @@ public class BSTTest {
     Integer[] posorderT = {7, 8, 13, 10, 17, 15, 30, 50, 40, 20};
 
     BST<Integer> instance;
-
-    public BSTTest() {
-    }
 
     @Before
     public void setUp(){
@@ -37,6 +34,11 @@ public class BSTTest {
      */
     @Test
     public void testSize() {
+        Integer[] arr = {20, 15, 10, 13, 8, 17, 40, 50, 30, 7};
+        BST<Integer> instance;
+        instance = new BST();
+        for (int i : arr)
+            instance.insert(i);
         System.out.println("size");
         assertEquals("size should be = 10",instance.size(), arr.length);
 
@@ -72,8 +74,12 @@ public class BSTTest {
      */
     @Test
     public void testRemove() {
+        Integer[] arr = {20,15,10,13,8,17,40,50,30,7};
+        BST<Integer> instance ;
+        instance = new BST();
+        for (int i : arr)
+            instance.insert(i);
         System.out.println("remove");
-
         int qtd=arr.length;
         instance.remove(999);
 
@@ -92,6 +98,11 @@ public class BSTTest {
      */
     @Test
     public void testIsEmpty() {
+        Integer[] arr = {20,15,10,13,8,17,40,50,30,7};
+        BST<Integer> instance ;
+        instance = new BST();
+        for (int i : arr)
+            instance.insert(i);
         System.out.println("isempty");
 
         assertFalse("the BST should be NOT empty", instance.isEmpty());
@@ -125,6 +136,11 @@ public class BSTTest {
      */
     @Test
     public void testSmallestElement() {
+        Integer[] arr = {20,15,10,13,8,17,40,50,30,7};
+        BST<Integer> instance ;
+        instance = new BST();
+        for (int i : arr)
+            instance.insert(i);
         System.out.println("smallestElement");
         assertEquals(new Integer(7), instance.smallestElement());
         instance.remove(7);
@@ -137,8 +153,13 @@ public class BSTTest {
      */
     @Test
     public void testProcessBstByLevel() {
+        Integer[] arr = {20,15,10,13,8,17,40,50,30,7};
+        BST<Integer> instance ;
+        instance = new BST();
+        for (int i : arr)
+            instance.insert(i);
         System.out.println("processbstbylevel");
-        Map<Integer,List<Integer>> expResult = new HashMap();
+        Map<Integer, List<Integer>> expResult = new HashMap();
         expResult.put(0, Arrays.asList(new Integer[]{20}));
         expResult.put(1, Arrays.asList(new Integer[]{15,40}));
         expResult.put(2, Arrays.asList(new Integer[]{10,17,30,50}));
@@ -157,6 +178,11 @@ public class BSTTest {
      */
     @Test
     public void testInOrder() {
+        Integer[] arr = {20,15,10,13,8,17,40,50,30,7};
+        BST<Integer> instance ;
+        instance = new BST();
+        for (int i : arr)
+            instance.insert(i);
         System.out.println("inOrder");
         List<Integer> lExpected = Arrays.asList(inorderT);
         assertEquals("inOrder should be "+lExpected.toString(), lExpected, instance.inOrder());
@@ -166,6 +192,11 @@ public class BSTTest {
      */
     @Test
     public void testpreOrder() {
+        Integer[] arr = {20,15,10,13,8,17,40,50,30,7};
+        BST<Integer> instance ;
+        instance = new BST();
+        for (int i : arr)
+            instance.insert(i);
         System.out.println("preOrder");
         List<Integer> lExpected = Arrays.asList(preorderT);
         assertEquals("preOrder should be "+lExpected.toString(), lExpected, instance.preOrder());
@@ -175,6 +206,11 @@ public class BSTTest {
      */
     @Test
     public void testposOrder() {
+        Integer[] arr = {20,15,10,13,8,17,40,50,30,7};
+        BST<Integer> instance ;
+        instance = new BST();
+        for (int i : arr)
+            instance.insert(i);
         System.out.println("posOrder");
         List<Integer> lExpected = Arrays.asList(posorderT);
         assertEquals("posOrder should be "+lExpected.toString(), lExpected, instance.posOrder());
