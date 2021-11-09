@@ -4,11 +4,13 @@ import lapr.project.model.Ship;
 import lapr.project.utils.BST.BST;
 import lapr.project.utils.BST.CodeSearch;
 
-import java.io.FileNotFoundException;
+
 import java.io.IOException;
 
 public class DetailsShipController {
     CodeSearch codeSearch;
+    private BST<Ship> mmsiTree;
+
 
 
     public DetailsShipController(String fileName) throws IOException {
@@ -27,6 +29,11 @@ public class DetailsShipController {
     public Ship searchByCallSign(BST bst, String callSign) throws IOException{
         return codeSearch.findShipCallSign(bst,callSign);
     }
+
+
+
+
+
 
 
 }

@@ -6,7 +6,7 @@ import lapr.project.utils.DTO.ShipDTO;
 
 import java.util.Objects;
 
-public class Ship implements Comparable<Ship> {
+public class Ship implements Comparable<Ship>{
 
     private int mmsi;
     private String vesselName;
@@ -256,6 +256,7 @@ public class Ship implements Comparable<Ship> {
         this.powerOutput = powerOutput;
     }
 
+
     /**
      * Method that compares two Ships
      *
@@ -267,7 +268,6 @@ public class Ship implements Comparable<Ship> {
        /* if (this.mmsi < o.getMmsi())
             return 0;
         return 1;
-
         */
 
         if(this.mmsi < o.getMmsi()) {

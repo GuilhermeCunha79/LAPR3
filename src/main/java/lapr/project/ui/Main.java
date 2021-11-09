@@ -36,12 +36,13 @@ class Main {
     public static void main(String[] args) throws IOException, SQLException {
         BST <Ship> bst = new BST<>();
         BST <Position> bst1 = new BST<>();
+        BST <Ship> bst2=new BST<>();
         bst=ImportShipsUI.importShipsUI("sships.csv");
         bst1=ImportShipsController.importShipsPosition("sships.csv");
         //CalculatorExample calculatorExample = new CalculatorExample();
         FindShipUI ui=new FindShipUI();
         ImportShipsUI.importShipsUI("sships.csv");
-         //ui.findShipUI(bst,bst1,bst2);
+         ui.findShipUI(bst,bst1,bst2);
         //int value = calculatorExample.sum(3, 5);
 
         if (LOGGER.isLoggable(Level.INFO)) {
