@@ -7,11 +7,8 @@ import lapr.project.model.Ship;
 import lapr.project.utils.BST.BST;
 import lapr.project.utils.DTO.PositionDTO;
 import lapr.project.utils.DTO.ShipDTO;
-
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.OutputStream;
 import java.util.Scanner;
 
 public class ImportShipsController extends BST {

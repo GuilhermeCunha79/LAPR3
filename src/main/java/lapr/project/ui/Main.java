@@ -35,20 +35,17 @@ class Main {
      */
     public static void main(String[] args) throws IOException, SQLException {
         BST <Ship> bst = new BST<>();
-        BST <Ship> bst1 = new BST<>();
-        BST <Ship> bst2 = new BST<>();
-        BST <Position> bst3 = new BST<>();
-        bst= ImportShipsController.importShips("sships.csv","IMO");
-        bst1= ImportShipsController.importShips("sships.csv","MMSI");
-        bst2= ImportShipsController.importShips("sships.csv","CallSign");
-        bst3=ImportShipsController.importShipsPosition("sships.csv");
+        BST <Position> bst1 = new BST<>();
+        bst=ImportShipsUI.importShipsUI("sships.csv");
+        bst1=ImportShipsController.importShipsPosition("sships.csv");
         //CalculatorExample calculatorExample = new CalculatorExample();
-        //FindShipUI ui=new FindShipUI();
+        FindShipUI ui=new FindShipUI();
+        ImportShipsUI.importShipsUI("sships.csv");
          //ui.findShipUI(bst,bst1,bst2);
         //int value = calculatorExample.sum(3, 5);
 
         if (LOGGER.isLoggable(Level.INFO)) {
-            LOGGER.log(Level.INFO, bst3.toString());
+            LOGGER.log(Level.INFO, bst1.toString());
         }
     }
 }
