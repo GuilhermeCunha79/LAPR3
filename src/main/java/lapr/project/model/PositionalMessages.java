@@ -48,6 +48,8 @@ public class PositionalMessages {
             throw new IllegalArgumentException("This Ship does not exist.");
         }
 
+        positions.sort(Comparator.comparing(Position::getDateTime));
+
         return positions;
     }
 }
