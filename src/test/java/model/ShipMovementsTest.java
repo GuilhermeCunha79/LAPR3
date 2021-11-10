@@ -1,6 +1,5 @@
 package lapr.project.model;
 
-import lapr.project.utils.DTO.ShipDTO;
 import lapr.project.utils.DTO.ShipMovementsDTO;
 import org.junit.Assert;
 import org.junit.jupiter.api.Assertions;
@@ -203,7 +202,7 @@ class ShipMovementsTest {
     void setStartBaseDateTimeNull() throws NullPointerException {
         NullPointerException thrown = Assertions.assertThrows(NullPointerException.class, () -> {
             String date  = null;
-            ShipMovementsDTO dto = new ShipMovementsDTO(123456789, "IMO1234567", "C4SQ2", null, "31/12/2020 00:00", "31/12/2020 17:03",
+            ShipMovementsDTO dto = new ShipMovementsDTO(123456789, "IMO1234567", "C4SQ2", "SHIP", null, "31/12/2020 17:03",
                     15, 10, 12.5, 12.5, 2.4, 2.4, 42.92236, -66.97243,
                     43.22513, -66.96725, 150, 12);
             ShipMovements shipMovements = new ShipMovements(dto);
@@ -226,7 +225,7 @@ class ShipMovementsTest {
     void setEndBaseDateTimeNull() {
         NullPointerException thrown = Assertions.assertThrows(NullPointerException.class, () -> {
             String date  = null;
-            ShipMovementsDTO dto = new ShipMovementsDTO(123456789, "IMO1234567", "C4SQ2", null, "31/12/2020 00:00", "31/12/2020 17:03",
+            ShipMovementsDTO dto = new ShipMovementsDTO(123456789, "IMO1234567", "C4SQ2", "SHIP", "31/12/2020 00:00", null,
                     15, 10, 12.5, 12.5, 2.4, 2.4, 42.92236, -66.97243,
                     43.22513, -66.96725, 150, 12);
             ShipMovements shipMovements = new ShipMovements(dto);
@@ -363,6 +362,17 @@ class ShipMovementsTest {
                 43.22513, -66.96725, 150, 12);
         ShipMovements shipMovements = new ShipMovements(dto);
     }
+    @Test
+    void setMeanSOGNegative() {
+        IllegalArgumentException thrown = Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            double expected = -1;
+        ShipMovementsDTO dto = new ShipMovementsDTO(123456789, "IMO1234567", "C4SQ2", "SHIP", "31/12/2020 00:00", "31/12/2020 17:03",
+                15, 10, 12.5, -1, 2.4, 2.4, 42.92236, -66.97243,
+                43.22513, -66.96725, 150, 12);
+        ShipMovements shipMovements = new ShipMovements(dto);
+        });
+        Assertions.assertEquals("SOG cannot be a negative number.", thrown.getMessage());
+    }
 
     @Test
     void getMaxCOG() {
@@ -429,6 +439,18 @@ class ShipMovementsTest {
 
     }
 
+    @Test
+    void setMeanCOGBigger() {
+        IllegalArgumentException thrown = Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            double expected = 1000;
+            ShipMovementsDTO dto = new ShipMovementsDTO(123456789, "IMO1234567", "C4SQ2", "SHIP", "31/12/2020 00:00", "31/12/2020 17:03",
+                    15, 10, 12.5, 12.5, 2.4, 1000, 42.92236, -66.97243,
+                    43.22513, -66.96725, 150, 12);
+            ShipMovements shipMovements = new ShipMovements(dto);
+        });
+        Assertions.assertEquals("COG cannot be a negative number.", thrown.getMessage());
+
+    }
     @Test
     void getDepartureLatitude() {
         double expected = 42.92236;
