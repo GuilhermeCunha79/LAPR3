@@ -1,6 +1,7 @@
 package model;
 
 import lapr.project.model.IMOTree;
+import lapr.project.model.MMSITree;
 import lapr.project.model.Ship;
 import lapr.project.utils.DTO.ShipDTO;
 import org.junit.jupiter.api.Assertions;
@@ -8,6 +9,12 @@ import org.junit.jupiter.api.Test;
 
 
 class IMOTreeTest {
+
+    @Test
+    public void creatCorrectShip(){
+        String imo="IMO3212345";
+        IMOTree mmsiTree=new IMOTree(imo);
+    }
 
     @Test
     void compareTo() {
