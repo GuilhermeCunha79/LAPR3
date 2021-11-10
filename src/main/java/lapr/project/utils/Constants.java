@@ -41,6 +41,8 @@ public class Constants {
     public static final String NON_ALPHANUM_EXEPT = " has non alphanumeric chars.";
     public static final String PARAMS_FILENAME = "config.properties";
     public static final String PARAMS_COMPANY_DESIGNATION = "Company.Designation";
+    //FILE
+    public static final String FILE_NAME = "sships.csv";
 
 
 }
