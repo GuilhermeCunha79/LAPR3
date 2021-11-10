@@ -4,7 +4,6 @@ package lapr.project.model;
 
 //import lapr.project.auth.AuthFacade;
 //import lapr.project.auth.domain.User;
-import lapr.project.store.PositionStore;
 import lapr.project.store.ShipStore;
 import lapr.project.utils.BST.BST;
 import org.apache.maven.surefire.shade.org.apache.commons.lang3.StringUtils;
@@ -27,7 +26,7 @@ public class Company {
    // private AuthFacade authFacade;
 
     private ShipStore shipStore = new ShipStore();
-    private PositionStore positionStore = new PositionStore();
+    //private PositionStore positionStore = new PositionStore();
 
 
     /**
@@ -109,7 +108,7 @@ public class Company {
      * @return the parameter category store
      */
 
-    public PositionStore getPositionStore(){
-        return this.positionStore;
-    }
+    //public PositionStore getPositionStore(){
+     //   return this.positionStore;
+   // }
 }

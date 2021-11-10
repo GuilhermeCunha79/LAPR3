@@ -1,33 +1,29 @@
 package lapr.project.controller;
 
 
-import lapr.project.controller.App;
 import lapr.project.model.Company;
 import lapr.project.model.Position;
 import lapr.project.model.Ship;
-import lapr.project.store.PositionStore;
-import lapr.project.store.ShipStore;
 import lapr.project.utils.BST.BST;
 import lapr.project.utils.BST.CodeSearch;
 import lapr.project.utils.CommonMethods;
 import lapr.project.utils.DTO.PositionDTO;
-import lapr.project.utils.DTO.ShipDTO;
 
 import java.time.LocalDateTime;
 import java.util.*;
 
 public class PositionalMessagesController {
 
-    private PositionStore positionStore;
+    //private PositionStore positionStore;
     private Position position;
     CodeSearch codeSearch;
 
 
-    public PositionalMessagesController() {
-        this(App.getInstance().getCompany());
-    }
+    //public PositionalMessagesController() {
+        //this(App.getInstance().getCompany());
+  //  }
 
-    public boolean newPosition(PositionDTO dto) {
+   /* public boolean newPosition(PositionDTO dto) {
         this.position = this.positionStore.newPosition(dto);
         return this.positionStore.validatePosition(position);
     }
@@ -35,7 +31,7 @@ public class PositionalMessagesController {
     public PositionalMessagesController(Company company) {
         this.positionStore = company.getPositionStore();
         this.position = null;
-    }
+    }*/
 
     public static Map<Ship, Set<Position>> associatePositions(BST<Position> bst1, BST<Ship> bst2) {
         Map<Ship, Set<Position>> map = new HashMap<>();
