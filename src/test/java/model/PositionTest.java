@@ -332,33 +332,34 @@ class PositionTest {
         assertEquals("not available", thrown.getMessage());
     }
 
-    /*@Test
-    public void compareTo() {
-        PositionDTO dto = new PositionDTO(111111111, "23/12/2010 16:19", 76, 170, 5, 34, 300, "B");
-        Position posi = new Position(dto);
-        PositionDTO dto1 = new PositionDTO(111111111, "31/12/2010 17:19", 72, 170, 5, 34, 300, "B");
-        Position posi1 = new Position(dto1);
-        int expected = -1;
-        Assertions.assertEquals(expected, posi.compareTo(posi1));
-    }*/
 
     @Test
     public void compareTo1() {
-        PositionDTO dto = new PositionDTO(111111111, "31/12/2009 17:19", 76, 170, 5, 34, 300, "B");
-        Position posi = new Position(dto);
-        PositionDTO dto1 = new PositionDTO(111111111, "23/12/2010 17:19", 72, 170, 5, 34, 300, "B");
-        Position posi1 = new Position(dto1);
-        int expected = -1;
-        assertEquals(expected, posi1.compareTo(posi));
-    }
-
-    @Test
-    public void compareTo2() {
-        PositionDTO dto = new PositionDTO(666666666, "31/12/2009 17:19", 76, 170, 5, 34, 300, "B");
+        PositionDTO dto = new PositionDTO(111111111, "31/12/2000 17:19", 76, 170, 5, 34, 300, "B");
         Position posi = new Position(dto);
         PositionDTO dto1 = new PositionDTO(111111111, "23/12/2010 17:19", 72, 170, 5, 34, 300, "B");
         Position posi1 = new Position(dto1);
         int expected = 1;
+        assertEquals(expected, posi.compareTo(posi1));
+    }
+
+    @Test
+    public void compareTo2() {
+        PositionDTO dto = new PositionDTO(666666666, "27/12/2025 17:20", 76, 170, 5, 34, 300, "B");
+        Position posi = new Position(dto);
+        PositionDTO dto1 = new PositionDTO(111111111, "23/12/2022 17:19", 72, 170, 5, 34, 300, "B");
+        Position posi1 = new Position(dto1);
+        int expected = -1;
+        assertEquals(expected, posi.compareTo(posi1));
+    }
+
+    @Test
+    public void compareTo3() {
+        PositionDTO dto = new PositionDTO(666666666, "23/12/2007 17:19", 76, 170, 5, 34, 300, "B");
+        Position posi = new Position(dto);
+        PositionDTO dto1 = new PositionDTO(111111111, "23/12/2007 17:19", 72, 170, 5, 34, 300, "B");
+        Position posi1 = new Position(dto1);
+        int expected = 0;
         assertEquals(expected, posi.compareTo(posi1));
     }
 

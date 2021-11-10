@@ -17,7 +17,7 @@ class ShipMovementsTest {
                 15, 10, 12.5, 12.5, 2.4, 2.4, 42.92236, -66.97243,
                 43.22513, -66.96725, 150, 12);
         ShipMovements shipMovements = new ShipMovements(dto);
-        Assert.assertEquals(mmsi, shipMovements.getMmsi());
+        Assertions.assertEquals(mmsi, shipMovements.getMmsi());
     }
 
     @Test
@@ -29,7 +29,7 @@ class ShipMovementsTest {
         ShipMovements shipMovements = new ShipMovements(dto);
         shipMovements.setMmsi(mmsi);
 
-        Assert.assertEquals(mmsi, shipMovements.getMmsi());
+        Assertions.assertEquals(mmsi, shipMovements.getMmsi());
     }
 
     @Test
@@ -53,7 +53,7 @@ class ShipMovementsTest {
                 43.22513, -66.96725, 150, 12);
         ShipMovements shipMovements = new ShipMovements(dto);
 
-        Assert.assertEquals(imo, shipMovements.getImo());
+        Assertions.assertEquals(imo, shipMovements.getImo());
     }
 
     @Test
@@ -65,18 +65,17 @@ class ShipMovementsTest {
         ShipMovements shipMovements = new ShipMovements(dto);
         shipMovements.setImo(imo);
 
-        Assert.assertEquals(imo, shipMovements.getImo());
+        Assertions.assertEquals(imo, shipMovements.getImo());
     }
 
     @Test
     void setImoNull() throws NullPointerException {
         NullPointerException thrown = Assertions.assertThrows(NullPointerException.class, () -> {
-            String imo = null;
             ShipMovementsDTO dto = new ShipMovementsDTO(123456789, "IMO1234567", "C4SQ2", "SHIP", "31/12/2020 00:00", "31/12/2020 17:03",
                     15, 10, 12.5, 12.5, 2.4, 2.4, 42.92236, -66.97243,
                     43.22513, -66.96725, 150, 12);
             ShipMovements shipMovements = new ShipMovements(dto);
-            shipMovements.setImo(imo);
+            shipMovements.setImo(null);
         });
         Assertions.assertEquals("not available", thrown.getMessage());
     }
@@ -102,7 +101,7 @@ class ShipMovementsTest {
                 43.22513, -66.96725, 150, 12);
         ShipMovements shipMovements = new ShipMovements(dto);
 
-        Assert.assertEquals(callSign, shipMovements.getCallSign());
+        Assertions.assertEquals(callSign, shipMovements.getCallSign());
     }
 
     @Test
@@ -113,19 +112,17 @@ class ShipMovementsTest {
                 43.22513, -66.96725, 150, 12);
         ShipMovements shipMovements = new ShipMovements(dto);
         shipMovements.setCallSign(callSign);
-        Assert.assertEquals(callSign, shipMovements.getCallSign());
-
+        Assertions.assertEquals(callSign, shipMovements.getCallSign());
     }
 
     @Test
     void SetCallSignNull() throws NullPointerException{
         NullPointerException thrown = Assertions.assertThrows(NullPointerException.class, () -> {
-            String callSign = null;
             ShipMovementsDTO dto = new ShipMovementsDTO(123456789, "IMO1234567", "C4SQ2", "SHIP", "31/12/2020 00:00", "31/12/2020 17:03",
                     15, 10, 12.5, 12.5, 2.4, 2.4, 42.92236, -66.97243,
                     43.22513, -66.96725, 150, 12);
             ShipMovements shipMovements = new ShipMovements(dto);
-            shipMovements.setCallSign(callSign);
+            shipMovements.setCallSign(null);
         });
         Assertions.assertEquals("not available", thrown.getMessage());
     }
@@ -151,7 +148,7 @@ class ShipMovementsTest {
                 43.22513, -66.96725, 150, 12);
         ShipMovements shipMovements = new ShipMovements(dto);
 
-        Assert.assertEquals(vesselName, shipMovements.getVesselName());
+        Assertions.assertEquals(vesselName, shipMovements.getVesselName());
     }
 
     @Test
@@ -162,17 +159,16 @@ class ShipMovementsTest {
                 43.22513, -66.96725, 150, 12);
         ShipMovements shipMovements = new ShipMovements(dto);
         shipMovements.setVesselName(vesselName);
-        Assert.assertEquals(vesselName, shipMovements.getVesselName());
+        Assertions.assertEquals(vesselName, shipMovements.getVesselName());
     }
     @Test
     void setVesselNameNull() throws NullPointerException{
             NullPointerException thrown = Assertions.assertThrows(NullPointerException.class, () -> {
-                String vesselName = null;
                 ShipMovementsDTO dto = new ShipMovementsDTO(123456789, "IMO1234567", "C4SQ2", null, "31/12/2020 00:00", "31/12/2020 17:03",
                         15, 10, 12.5, 12.5, 2.4, 2.4, 42.92236, -66.97243,
                         43.22513, -66.96725, 150, 12);
                 ShipMovements shipMovements = new ShipMovements(dto);
-                shipMovements.setVesselName(vesselName);
+                shipMovements.setVesselName(null);
             });
             Assertions.assertEquals("not available", thrown.getMessage());
     }
@@ -185,7 +181,7 @@ class ShipMovementsTest {
                 43.22513, -66.96725, 150, 12);
         ShipMovements shipMovements = new ShipMovements(dto);
 
-        Assert.assertEquals(date, shipMovements.getStartBaseDateTime());
+        Assertions.assertEquals(date, shipMovements.getStartBaseDateTime());
     }
 
     @Test
@@ -196,18 +192,17 @@ class ShipMovementsTest {
                 43.22513, -66.96725, 150, 12);
         ShipMovements shipMovements = new ShipMovements(dto);
         shipMovements.setStartBaseDateTime(date);
-        Assert.assertEquals(date, shipMovements.getStartBaseDateTime());
+        Assertions.assertEquals(date, shipMovements.getStartBaseDateTime());
     }
 
     @Test
     void setStartBaseDateTimeNull() throws NullPointerException {
         NullPointerException thrown = Assertions.assertThrows(NullPointerException.class, () -> {
-            String date  = null;
             ShipMovementsDTO dto = new ShipMovementsDTO(123456789, "IMO1234567", "C4SQ2", "SHIP", null, "31/12/2020 17:03",
                     15, 10, 12.5, 12.5, 2.4, 2.4, 42.92236, -66.97243,
                     43.22513, -66.96725, 150, 12);
             ShipMovements shipMovements = new ShipMovements(dto);
-            shipMovements.setStartBaseDateTime(date);
+            shipMovements.setStartBaseDateTime(null);
         });
         Assertions.assertEquals("not available", thrown.getMessage());
     }
@@ -220,17 +215,16 @@ class ShipMovementsTest {
                 43.22513, -66.96725, 150, 12);
         ShipMovements shipMovements = new ShipMovements(dto);
         shipMovements.setEndBaseDateTime(date);
-        Assert.assertEquals(date, shipMovements.getEndBaseDateTime());
+        Assertions.assertEquals(date, shipMovements.getEndBaseDateTime());
     }
     @Test
     void setEndBaseDateTimeNull() {
         NullPointerException thrown = Assertions.assertThrows(NullPointerException.class, () -> {
-            String date  = null;
             ShipMovementsDTO dto = new ShipMovementsDTO(123456789, "IMO1234567", "C4SQ2", "SHIP", "31/12/2020 00:00", null,
                     15, 10, 12.5, 12.5, 2.4, 2.4, 42.92236, -66.97243,
                     43.22513, -66.96725, 150, 12);
             ShipMovements shipMovements = new ShipMovements(dto);
-            shipMovements.setEndBaseDateTime(date);
+            shipMovements.setEndBaseDateTime(null);
         });
         Assertions.assertEquals("not available", thrown.getMessage());
     }
@@ -243,7 +237,7 @@ class ShipMovementsTest {
                 43.22513, -66.96725, 150, 12);
         ShipMovements shipMovements = new ShipMovements(dto);
         shipMovements.setEndBaseDateTime(date);
-        Assert.assertEquals(date, shipMovements.getEndBaseDateTime());
+        Assertions.assertEquals(date, shipMovements.getEndBaseDateTime());
     }
 
     @Test
@@ -254,7 +248,7 @@ class ShipMovementsTest {
                 43.22513, -66.96725, 150, 12);
         ShipMovements shipMovements = new ShipMovements(dto);
 
-        assertEquals(expected, shipMovements.getTotalMovementTime());
+        Assertions.assertEquals(expected, shipMovements.getTotalMovementTime());
     }
 
     @Test
@@ -265,6 +259,7 @@ class ShipMovementsTest {
                 15, 10, 12.5, 12.5, 2.4, 2.4, 42.92236, -66.97243,
                 43.22513, -66.96725, 150, 12);
         ShipMovements shipMovements = new ShipMovements(dto);
+        Assertions.assertEquals(expected,shipMovements.getTotalMovementTime());
     }
 
     @Test
@@ -275,6 +270,7 @@ class ShipMovementsTest {
                     -1, 10, 12.5, 12.5, 2.4, 2.4, 42.92236, -66.97243,
                     43.22513, -66.96725, 150, 12);
             ShipMovements shipMovements = new ShipMovements(dto);
+            Assertions.assertEquals(expected,shipMovements.getTotalMovementTime());
         });
         Assertions.assertEquals("Total movement time cannot be a negative number.", thrown.getMessage());
     }
@@ -287,7 +283,7 @@ class ShipMovementsTest {
                 43.22513, -66.96725, 150, 12);
         ShipMovements shipMovements = new ShipMovements(dto);
 
-        assertEquals(expected, shipMovements.getTotalNumberOfMovements());
+        Assertions.assertEquals(expected, shipMovements.getTotalNumberOfMovements());
     }
 
     @Test
@@ -297,6 +293,7 @@ class ShipMovementsTest {
                 15, 10, 12.5, 12.5, 2.4, 2.4, 42.92236, -66.97243,
                 43.22513, -66.96725, 150, 12);
         ShipMovements shipMovements = new ShipMovements(dto);
+        Assertions.assertEquals(expected,shipMovements.getTotalNumberOfMovements());
     }
 
     @Test
@@ -307,6 +304,7 @@ class ShipMovementsTest {
                     15, -1, 12.5, 12.5, 2.4, 2.4, 42.92236, -66.97243,
                     43.22513, -66.96725, 150, 12);
             ShipMovements shipMovements = new ShipMovements(dto);
+            Assertions.assertEquals(expected,shipMovements.getTotalNumberOfMovements());
         });
         Assertions.assertEquals("Total number of movements cannot be a negative number.", thrown.getMessage());
     }
@@ -319,7 +317,7 @@ class ShipMovementsTest {
                 43.22513, -66.96725, 150, 12);
         ShipMovements shipMovements = new ShipMovements(dto);
 
-        assertEquals(expected, shipMovements.getMaxSOG());
+        Assertions.assertEquals(expected, shipMovements.getMaxSOG());
     }
 
     @Test
@@ -329,6 +327,7 @@ class ShipMovementsTest {
                 15, 10, 12.5, 12.5, 2.4, 2.4, 42.92236, -66.97243,
                 43.22513, -66.96725, 150, 12);
         ShipMovements shipMovements = new ShipMovements(dto);
+        Assertions.assertEquals(expected,shipMovements.getMaxSOG());
 
     }
     @Test
@@ -339,6 +338,7 @@ class ShipMovementsTest {
                     15, 10, -1, 12.5, 2.4, 2.4, 42.92236, -66.97243,
                     43.22513, -66.96725, 150, 12);
             ShipMovements shipMovements = new ShipMovements(dto);
+            Assertions.assertEquals(expected,shipMovements.getMaxSOG());
         });
         Assertions.assertEquals("SOG cannot be a negative number.", thrown.getMessage());
 
@@ -352,7 +352,7 @@ class ShipMovementsTest {
                 43.22513, -66.96725, 150, 12);
         ShipMovements shipMovements = new ShipMovements(dto);
 
-        assertEquals(expected, shipMovements.getMeanSOG());
+        Assertions.assertEquals(expected, shipMovements.getMeanSOG());
     }
 
     @Test
@@ -362,6 +362,7 @@ class ShipMovementsTest {
                 15, 10, 12.5, 12.5, 2.4, 2.4, 42.92236, -66.97243,
                 43.22513, -66.96725, 150, 12);
         ShipMovements shipMovements = new ShipMovements(dto);
+        Assertions.assertEquals(expected,shipMovements.getMeanSOG());
     }
     @Test
     void setMeanSOGNegative() {
@@ -371,6 +372,7 @@ class ShipMovementsTest {
                 15, 10, 12.5, -1, 2.4, 2.4, 42.92236, -66.97243,
                 43.22513, -66.96725, 150, 12);
         ShipMovements shipMovements = new ShipMovements(dto);
+        shipMovements.setMeanSOG(expected);
         });
         Assertions.assertEquals("SOG cannot be a negative number.", thrown.getMessage());
     }
@@ -383,7 +385,7 @@ class ShipMovementsTest {
                 43.22513, -66.96725, 150, 12);
         ShipMovements shipMovements = new ShipMovements(dto);
 
-        assertEquals(expected, shipMovements.getMaxCOG());
+        Assertions.assertEquals(expected, shipMovements.getMaxCOG());
     }
 
     @Test
@@ -393,6 +395,7 @@ class ShipMovementsTest {
                 15, 10, 12.5, 12.5, 2.4, 2.4, 42.92236, -66.97243,
                 43.22513, -66.96725, 150, 12);
         ShipMovements shipMovements = new ShipMovements(dto);
+        Assertions.assertEquals(expected,shipMovements.getMeanCOG());
     }
 
     @Test
@@ -403,6 +406,7 @@ class ShipMovementsTest {
                     15, 10, 12.5, 12.5, -1, 2.4, 42.92236, -66.97243,
                     43.22513, -66.96725, 150, 12);
             ShipMovements shipMovements = new ShipMovements(dto);
+            shipMovements.setMaxSOG(expected);
         });
         Assertions.assertEquals("COG cannot be a negative number.", thrown.getMessage());
 
@@ -416,7 +420,7 @@ class ShipMovementsTest {
                 43.22513, -66.96725, 150, 12);
         ShipMovements shipMovements = new ShipMovements(dto);
 
-        assertEquals(expected, shipMovements.getMeanCOG());
+        Assertions.assertEquals(expected, shipMovements.getMeanCOG());
     }
 
     @Test
@@ -426,6 +430,7 @@ class ShipMovementsTest {
                 15, 10, 12.5, 12.5, 2.4, 2.4, 42.92236, -66.97243,
                 43.22513, -66.96725, 150, 12);
         ShipMovements shipMovements = new ShipMovements(dto);
+        Assertions.assertEquals(expected,shipMovements.getMeanCOG());
     }
     @Test
     void setMeanCOGNegative() {
@@ -435,6 +440,7 @@ class ShipMovementsTest {
                     15, 10, 12.5, 12.5, 2.4, -1, 42.92236, -66.97243,
                     43.22513, -66.96725, 150, 12);
             ShipMovements shipMovements = new ShipMovements(dto);
+            shipMovements.setMeanCOG(expected);
         });
         Assertions.assertEquals("COG cannot be a negative number.", thrown.getMessage());
 
@@ -448,6 +454,7 @@ class ShipMovementsTest {
                     15, 10, 12.5, 12.5, 2.4, 1000, 42.92236, -66.97243,
                     43.22513, -66.96725, 150, 12);
             ShipMovements shipMovements = new ShipMovements(dto);
+            shipMovements.setMeanCOG(expected);
         });
         Assertions.assertEquals("COG cannot be a negative number.", thrown.getMessage());
 
@@ -460,7 +467,7 @@ class ShipMovementsTest {
                 43.22513, -66.96725, 150, 12);
         ShipMovements shipMovements = new ShipMovements(dto);
 
-        assertEquals(expected, shipMovements.getDepartureLatitude());
+        Assertions.assertEquals(expected, shipMovements.getDepartureLatitude());
     }
 
     @Test
@@ -470,6 +477,7 @@ class ShipMovementsTest {
                 15, 10, 12.5, 12.5, 2.4, 2.4, 42.92236, -66.97243,
                 43.22513, -66.96725, 150, 12);
         ShipMovements shipMovements = new ShipMovements(dto);
+        Assertions.assertEquals(shipMovements.getDepartureLatitude(),expected);
     }
 
     @Test
@@ -480,6 +488,7 @@ class ShipMovementsTest {
                     15, 10, 12.5, 12.5, 2.4, 2.4, 488, -66.97243,
                     43.22513, -66.96725, 150, 12);
             ShipMovements shipMovements = new ShipMovements(dto);
+            shipMovements.setDepartureLatitude(expected);
         });
         Assertions.assertEquals("not available", thrown.getMessage());
     }
@@ -492,15 +501,18 @@ class ShipMovementsTest {
                 43.22513, -66.96725, 150, 12);
         ShipMovements shipMovements = new ShipMovements(dto);
 
-        assertEquals(expected, shipMovements.getDepartureLongitude());
+        Assertions.assertEquals(expected, shipMovements.getDepartureLongitude());
     }
 
     @Test
     void setDepartureLongitude() {
+        double expected=111;
         ShipMovementsDTO dto = new ShipMovementsDTO(123456789, "IMO1234567", "C4SQ2", "SHIP", "31/12/2020 00:00", "31/12/2020 17:03",
                 15, 10, 12.5, 12.5, 2.4, 2.4, 42.92236, -66.97243,
                 43.22513, -66.96725, 150, 12);
         ShipMovements shipMovements = new ShipMovements(dto);
+        shipMovements.setDepartureLongitude(111);
+        Assertions.assertEquals(expected,shipMovements.getDepartureLongitude());
     }
 
     @Test
@@ -511,6 +523,7 @@ class ShipMovementsTest {
                     15, 10, 12.5, 12.5, 2.4, 2.4, 42.92236, 599,
                     43.22513, -66.96725, 150, 12);
             ShipMovements shipMovements = new ShipMovements(dto);
+            shipMovements.setDepartureLongitude(expected);
         });
         Assertions.assertEquals("not available", thrown.getMessage());
     }
@@ -523,23 +536,28 @@ class ShipMovementsTest {
                 43.22513, -66.96725, 150, 12);
         ShipMovements shipMovements = new ShipMovements(dto);
 
-        assertEquals(expected, shipMovements.getArrivalLongitude());
+        Assertions.assertEquals(expected, shipMovements.getArrivalLongitude());
     }
 
     @Test
     void setArrivalLongitude() {
+        double expected=12;
         ShipMovementsDTO dto = new ShipMovementsDTO(123456789, "IMO1234567", "C4SQ2", "SHIP", "31/12/2020 00:00", "31/12/2020 17:03",
                 15, 10, 12.5, 12.5, 2.4, 2.4, 42.92236, -66.97243,
                 43.22513, -66.96725, 150, 12);
         ShipMovements shipMovements = new ShipMovements(dto);
+        shipMovements.setArrivalLongitude(expected);
+        Assertions.assertEquals(expected,shipMovements.getArrivalLongitude());
     }
     @Test
     void setArrivalLongitudeWrong() {
+        double expected=123312;
         IllegalArgumentException thrown = Assertions.assertThrows(IllegalArgumentException.class, () -> {
             ShipMovementsDTO dto = new ShipMovementsDTO(123456789, "IMO1234567", "C4SQ2", "SHIP", "31/12/2020 00:00", "31/12/2020 17:03",
                     15, 10, 12.5, 12.5, 2.4, 2.4, 42.92236, -66.97243,
                     344, -66.96725, 150, 12);
             ShipMovements shipMovements = new ShipMovements(dto);
+            shipMovements.setArrivalLongitude(expected);
         });
         Assertions.assertEquals("not available", thrown.getMessage());
     }
@@ -552,23 +570,28 @@ class ShipMovementsTest {
                 43.22513, -66.96725, 150, 12);
         ShipMovements shipMovements = new ShipMovements(dto);
 
-        assertEquals(expected, shipMovements.getArrivalLatitude());
+        Assertions.assertEquals(expected, shipMovements.getArrivalLatitude());
     }
 
     @Test
     void setArrivalLatitude() {
+        double expected=50;
         ShipMovementsDTO dto = new ShipMovementsDTO(123456789, "IMO1234567", "C4SQ2", "SHIP", "31/12/2020 00:00", "31/12/2020 17:03",
                 15, 10, 12.5, 12.5, 2.4, 2.4, 42.92236, -66.97243,
                 43.22513, -66.96725, 150, 12);
         ShipMovements shipMovements = new ShipMovements(dto);
+        shipMovements.setArrivalLatitude(expected);
+        Assertions.assertEquals(expected,shipMovements.getArrivalLatitude());
     }
     @Test
-    void setArrivalatitudeWrong() {
+    void setArrivaLatitudeWrong() {
+        double expected=123456;
         IllegalArgumentException thrown = Assertions.assertThrows(IllegalArgumentException.class, () -> {
             ShipMovementsDTO dto = new ShipMovementsDTO(123456789, "IMO1234567", "C4SQ2", "SHIP", "31/12/2020 00:00", "31/12/2020 17:03",
                     15, 10, 12.5, 12.5, 2.4, 2.4, 42.92236, -66.97243,
                     43.22513, 433, 150, 12);
             ShipMovements shipMovements = new ShipMovements(dto);
+            shipMovements.setArrivalLatitude(expected);
         });
         Assertions.assertEquals("not available", thrown.getMessage());
     }
@@ -581,24 +604,29 @@ class ShipMovementsTest {
                 43.22513, -66.96725, 150, 12);
         ShipMovements shipMovements = new ShipMovements(dto);
 
-        assertEquals(expected, shipMovements.getTravelledDistance());
+        Assertions.assertEquals(expected, shipMovements.getTravelledDistance());
     }
 
     @Test
     void setTravelledDistance() {
+        double expected=1231313133;
         ShipMovementsDTO dto = new ShipMovementsDTO(123456789, "IMO1234567", "C4SQ2", "SHIP", "31/12/2020 00:00", "31/12/2020 17:03",
                 15, 10, 12.5, 12.5, 2.4, 2.4, 42.92236, -66.97243,
                 43.22513, -66.96725, 150, 12);
         ShipMovements shipMovements = new ShipMovements(dto);
+        shipMovements.setTravelledDistance(expected);
+        Assertions.assertEquals(expected,shipMovements.getTravelledDistance());
     }
 
     @Test
     void setTravelledDistanceWrong() {
+        double expected=1213134123;
         IllegalArgumentException thrown = Assertions.assertThrows(IllegalArgumentException.class, () -> {
             ShipMovementsDTO dto = new ShipMovementsDTO(123456789, "IMO1234567", "C4SQ2", "SHIP", "31/12/2020 00:00", "31/12/2020 17:03",
                     15, 10, 12.5, 12.5, 2.4, 2.4, 42.92236, -66.97243,
                     43.22513, -66.96725, -1, 12);
             ShipMovements shipMovements = new ShipMovements(dto);
+            shipMovements.setTravelledDistance(expected);
         });
         Assertions.assertEquals("Travelled Distance cannot be a negative number.", thrown.getMessage());
     }
@@ -612,23 +640,29 @@ class ShipMovementsTest {
                 43.22513, -66.96725, 150, 12);
         ShipMovements shipMovements = new ShipMovements(dto);
 
-        assertEquals(expected, shipMovements.getDeltaDistance());
+        Assertions.assertEquals(expected, shipMovements.getDeltaDistance());
     }
 
     @Test
     void setDeltaDistance() {
+        double expected=12344422;
         ShipMovementsDTO dto = new ShipMovementsDTO(123456789, "IMO1234567", "C4SQ2", "SHIP", "31/12/2020 00:00", "31/12/2020 17:03",
                 15, 10, 12.5, 12.5, 2.4, 2.4, 42.92236, -66.97243,
                 43.22513, -66.96725, 150, 12);
         ShipMovements shipMovements = new ShipMovements(dto);
+        shipMovements.setDeltaDistance(expected);
+        Assertions.assertEquals(expected,shipMovements.getDeltaDistance());
+
     }
     @Test
     void setDeltaDistanceWrong() {
+        double expected=1231341313;
         IllegalArgumentException thrown = Assertions.assertThrows(IllegalArgumentException.class, () -> {
             ShipMovementsDTO dto = new ShipMovementsDTO(123456789, "IMO1234567", "C4SQ2", "SHIP", "31/12/2020 00:00", "31/12/2020 17:03",
                     15, 10, 12.5, 12.5, 2.4, 2.4, 42.92236, -66.97243,
                     43.22513, -66.96725, 150, -1);
             ShipMovements shipMovements = new ShipMovements(dto);
+            shipMovements.setDeltaDistance(expected);
         });
         Assertions.assertEquals("Delta Distance cannot be a negative number.", thrown.getMessage());
     }
@@ -643,7 +677,7 @@ class ShipMovementsTest {
                 15, 11, 12.5, 12.5, 2.4, 2.4, 42.92236, -66.97243,
                 43.22513, -66.96725, 150, 12);
         ShipMovements shipMovements1 = new ShipMovements(dto1);
-        org.junit.Assert.assertNotNull(shipMovements1.compareTo(shipMovements));
+
     }
 
     @Test
@@ -656,6 +690,6 @@ class ShipMovementsTest {
                 15, 10, 12.5, 12.5, 2.4, 2.4, 42.92236, -66.97243,
                 43.22513, -66.96725, 150, 12);
         ShipMovements shipMovements1 = new ShipMovements(dto1);
-        org.junit.Assert.assertNotNull(shipMovements1.equals(shipMovements));
+        Assertions.assertTrue(shipMovements1.equals(shipMovements));
     }
 }

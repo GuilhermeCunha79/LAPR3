@@ -255,11 +255,12 @@ public class Position implements Comparable<Position> {
      */
     @Override
     public int compareTo(Position o) {
-        if (mmsi == o.getMmsi()) {
-            if (CommonMethods.convertStringToDate(dateTime).compareTo(CommonMethods.convertStringToDate(o.getDateTime())) > 0)
-                return -1;
-            else if (CommonMethods.convertStringToDate(o.getDateTime()).compareTo(CommonMethods.convertStringToDate(dateTime)) < 0)
+        if (CommonMethods.convertStringToDate(dateTime).compareTo(CommonMethods.convertStringToDate(o.getDateTime())) == 0) {
+            if (mmsi >= o.getMmsi()) {
                 return 0;
+            }
+        } else if (CommonMethods.convertStringToDate(dateTime).compareTo(CommonMethods.convertStringToDate(o.getDateTime())) > 0) {
+            return -1;
         }
         return 1;
     }

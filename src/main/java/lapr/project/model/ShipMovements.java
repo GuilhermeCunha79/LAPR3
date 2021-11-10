@@ -299,12 +299,12 @@ public class ShipMovements implements Comparable<ShipMovements> {
                 "\nMean SOG:" + meanSOG +
                 "\nMaximum COG:" + maxCOG +
                 "\nMean COG:" + meanCOG +
-                "\nDeparture Latitude:" + departureLatitude +
-                "\nDeparture Longitude:" + departureLongitude +
-                "\nArrival Latitude:" + arrivalLatitude +
-                "\nArrival Longitude:" + arrivalLongitude +
-                "\nTravelled Distance:" + travelledDistance +
-                "\nDelta Distance:" + deltaDistance + "\n";
+                "\nDeparture Latitude:" + departureLatitude +"°"+
+                "\nDeparture Longitude:" + departureLongitude +"°"+
+                "\nArrival Latitude:" + arrivalLatitude +"°"+
+                "\nArrival Longitude:" + arrivalLongitude +"°"+
+                "\nTravelled Distance:" + travelledDistance +"m"+
+                "\nDelta Distance:" + deltaDistance + "m"+"\n";
     }
 
     @Override

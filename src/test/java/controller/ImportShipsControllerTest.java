@@ -46,13 +46,13 @@ class ImportShipsControllerTest {
         Assertions.assertEquals(expResult.size(), result.size());
     }
 
-//    @Test
-//    public void importPositionsTest2() {
-//        int result = 7;
-//        BST<Position> expResult;
-//        expResult = ImportShipsController.importShipsPosition("sshipsTest.txt");
-//        Assertions.assertEquals(result, expResult.size());
-//    }
+    @Test
+    public void importPositionsTest2() {
+        int result = 181;
+        BST<Position> expResult;
+        expResult = ImportShipsController.importShipsPosition("sships.csv");
+        Assertions.assertEquals(result, expResult.size());
+    }
 
     @Test
     public void importShipTest2() throws IOException {
@@ -121,7 +121,7 @@ class ImportShipsControllerTest {
         Assertions.assertEquals(result.toString(), expResult.toString());
     }
 
-   @Test
+    @Test
     public void importShipsTest6() throws IOException {
         BST<Ship> result = new BST<>();
         BST<Ship> expResult = new BST<>();
@@ -244,10 +244,10 @@ class ImportShipsControllerTest {
     @Test
     public void importPositionsTest3() {
         Exception thrown = Assertions.assertThrows(Exception.class, () -> {
-        int result = 181;
-        BST<Position> expResult = new BST<>();
-        expResult = ImportShipsController.importShipsPosition("ssqhips.csv");
-        Assertions.assertEquals(result, expResult.size());
+            int result = 181;
+            BST<Position> expResult = new BST<>();
+            expResult = ImportShipsController.importShipsPosition("ssqhips.csv");
+            Assertions.assertEquals(result, expResult.size());
         });
         Assertions.assertEquals("File not found", thrown.getMessage());
     }
