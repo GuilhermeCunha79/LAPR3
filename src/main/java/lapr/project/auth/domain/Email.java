@@ -1,4 +1,4 @@
-/*package lapr.project.auth.domain;
+package lapr.project.auth.domain;
 
 
 
@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
 
 /**
  * @author Paulo Maio <pam@isep.ipp.pt>
- *//*
+ */
 public class Email implements Serializable {
 
     private String email;
@@ -75,4 +75,3 @@ public class Email implements Serializable {
         return String.format("%s", this.email);
     }
 }
-*/

@@ -1,7 +1,7 @@
 package lapr.project.auth;
-/*
-//import lapr.project.auth.domain.Email;
-//import lapr.project.auth.domain.User;
+
+import lapr.project.auth.domain.Email;
+import lapr.project.auth.domain.User;
 import lapr.project.utils.DTO.UserRoleDTO;
 import lapr.project.utils.mappers.UserRoleMapper;
 
@@ -11,7 +11,7 @@ import java.util.List;
 /**
  *
  * @author Paulo Maio <pam@isep.ipp.pt>
- *//*
+ */
 
 public class UserSession {
 
@@ -71,4 +71,3 @@ public class UserSession {
         return Collections.EMPTY_LIST;
     }
 }
-*/

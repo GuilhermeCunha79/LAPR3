@@ -1,5 +1,6 @@
-package lapr.project.model;
+package model;
 
+import lapr.project.model.ShipMovements;
 import lapr.project.utils.DTO.ShipMovementsDTO;
 import org.junit.Assert;
 import org.junit.jupiter.api.Assertions;
