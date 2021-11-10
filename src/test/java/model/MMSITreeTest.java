@@ -6,6 +6,8 @@ import lapr.project.utils.DTO.ShipDTO;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 class MMSITreeTest {
 
@@ -14,8 +16,10 @@ class MMSITreeTest {
         ShipDTO dto = new ShipDTO(111111111, "VARAMO", "IMO3212345", "C4SQ2", 70, 1, 1, 9.5, "NA");
         MMSITree mmsiTree = new MMSITree(dto);
         Ship ship = new Ship(dto);
-        Assertions.assertNotNull(mmsiTree.compareTo(ship));
+        int expected = -1;
+        assertEquals(expected,mmsiTree.compareTo(ship));
     }
+
 
     @Test
     public void creatCorrectShip(){

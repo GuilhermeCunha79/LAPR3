@@ -2,6 +2,7 @@ package controller;
 
 import lapr.project.controller.DetailsShipController;
 import lapr.project.model.Ship;
+import lapr.project.store.ShipStore;
 import lapr.project.utils.BST.BST;
 import lapr.project.utils.DTO.ShipDTO;
 import org.junit.jupiter.api.Assertions;
@@ -11,15 +12,18 @@ import java.io.IOException;
 
 public class DetailsShipControllerTest {
     DetailsShipController ctrl=new DetailsShipController();
+    private ShipStore shipStore;
 
     public DetailsShipControllerTest() throws IOException {
     }
 
-    /*@Test
+   /* @Test
     public void checksearchByMMSI() throws IOException {
         BST<Ship> result = new BST<>();
         ShipDTO shipDTO1 = new ShipDTO(210950015, "VARAMO", "IMO9395044", "C4SQ2", 70, 166, 25, 9.5, "NA");
         Ship ship1 = new Ship(shipDTO1);
+        this.shipStore.saveShipMmsi(this.shipStore.newShip(shipDTO1),"MMSI");
+        this.shipStore.addShipMmsi(ship1);
         result.insert(ship1);
         ShipDTO shipDTO2 = new ShipDTO(210950010, "VARAMO", "IMO9395044", "C4SQ2", 70, 166, 25, 9.5, "NA");
         Ship ship2 = new Ship(shipDTO2);
@@ -97,8 +101,8 @@ public class DetailsShipControllerTest {
         result.insert(ship7);
         Assertions.assertEquals(ship6,ctrl.searchByIMO("IMO9450668"));
 
-    }
-*/
+    }*/
+
     @Test
     public void checksearchByImoWrong() throws IOException {
         BST<Ship> result = new BST<>();
@@ -126,8 +130,8 @@ public class DetailsShipControllerTest {
         Assertions.assertNotEquals(ship1,ctrl.searchByIMO("IMO9450668"));
 
     }
-/*
-    @Test
+
+   /* @Test
     public void checkSearchByCallSign() throws IOException {
         BST<Ship> result = new BST<>();
         ShipDTO shipDTO1 = new ShipDTO(210950015, "VARAMO", "IMO9395044", "C4SQ2", 70, 166, 25, 9.5, "NA");
@@ -153,8 +157,8 @@ public class DetailsShipControllerTest {
         result.insert(ship7);
         Assertions.assertEquals(ship7,ctrl.searchByCallSign("FLSUUE"));
 
-    }*/
-
+    }
+*/
     @Test
     public void checksearchByCallSignWrong() throws IOException {
         BST<Ship> result = new BST<>();

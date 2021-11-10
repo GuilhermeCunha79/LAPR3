@@ -44,7 +44,5 @@ public class DetailsShipController {
         this.ship=this.shipStore.getShipByCallSign(callSign);
         return this.ship;
     }
-
-
 }
 

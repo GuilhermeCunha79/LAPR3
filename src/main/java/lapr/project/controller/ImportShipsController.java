@@ -39,20 +39,19 @@ public class ImportShipsController extends BST<Ship> {
                 switch (type) {
                     case ("MMSI"):
                         this.ctrl.newShip(shipDTO);
-                        this.shipStore.saveShip(ship, "MMSI");
-
+                        this.shipStore.saveShipMmsi(ship, "MMSI");
                         bst.insert(ship);
                         break;
                     case ("Call Sign"):
                         CallSignTree callSignTree = new CallSignTree(shipDTO);
                         this.ctrl.newShip(shipDTO);
-                        this.shipStore.saveShip(callSignTree, "Call Sign");
+                        this.shipStore.saveShipCallSign(callSignTree);
                         bst.insert(ship);
                         break;
                     case ("IMO"):
                         IMOTree imoTree = new IMOTree(shipDTO);
                         this.ctrl.newShip(shipDTO);
-                        this.shipStore.saveShip(imoTree, "IMO");
+                        this.shipStore.saveShipImo(imoTree);
                         break;
                 }
             }

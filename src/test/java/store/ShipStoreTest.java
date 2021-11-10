@@ -16,7 +16,7 @@ public class ShipStoreTest {
     public void createShipTree() {
         ShipDTO dto = new ShipDTO(111111111, "VARAMO", "IMO3212345", "C4SQ2", 70, 1, 1, 9.5, "NA");
         Ship ct01 = store.newShip(dto);
-        store.saveShip(ct01,"MMSI");
+        store.saveShipMmsi(ct01,"MMSI");
     }
 
     @Test
@@ -24,25 +24,25 @@ public class ShipStoreTest {
         ShipDTO dto = new ShipDTO(114111111, "VARAMO", "IMO3212345", "C4SQ2", 70, 1, 1, 9.5, "NA");
         Ship ct01 = store.newShip(dto);
         Ship ct02 = store.newShip(dto);
-        store.saveShip(ct01,"MMSI");
-        assertFalse(store.saveShip(ct02,"MMSI"));
+        store.saveShipMmsi(ct01,"MMSI");
+        assertFalse(store.saveShipMmsi(ct02,"MMSI"));
     }
 
-    /*@Test
+    @Test
     public void getClientListTest(){
         ShipDTO dto = new ShipDTO(114133111, "VARAMO", "IMO3212345", "C4SQ2", 70, 1, 1, 9.5, "NA");
         Ship ct01 = store.newShip(dto);
         BST<Ship> shipBST=new BST<>();
-        shipBST.insert(ct01);
-        store.saveShip(ct01,"MMSI");
-        assertEquals(shipBST, store.getShipTree());
-    }*/
+        store.addShipMmsi(ct01);
+        store.saveShipMmsi(ct01,"MMSI");
+        assertEquals(shipBST.toString(), store.getShipTree().toString());
+    }
 
     @Test
     public void getShipByMmsi(){
         ShipDTO dto = new ShipDTO(543456768, "VARAMO", "IMO3212345", "C4SQ2", 70, 1, 1, 9.5, "NA");
         Ship ct01 = store.newShip(dto);
-        store.saveShip(ct01,"MMSI");
+        store.saveShipMmsi(ct01,"MMSI");
         int mmsi=543456768;
         assertEquals(ct01, store.getShipByMMSI(mmsi));
     }
@@ -51,17 +51,17 @@ public class ShipStoreTest {
     public void testSaveClient() {
         ShipDTO dto = new ShipDTO(653919469, "VARAMO", "IMO3212345", "C4SQ2", 70, 1, 1, 9.5, "NA");
         Ship ct01 = store.newShip(dto);
-        assertTrue(store.saveShip(ct01,"MMSI"));
+        assertTrue(store.saveShipMmsi(ct01,"MMSI"));
     }
 
     @Test
     public void checkDuplicate(){
         ShipDTO dto = new ShipDTO(653929469, "VARAMO", "IMO3212345", "C4SQ2", 70, 1, 1, 9.5, "NA");
         Ship ct01 = store.newShip(dto);
-        store.saveShip(ct01,"MMSI");
+        store.saveShipMmsi(ct01,"MMSI");
         ShipDTO dto1 = new ShipDTO(653929469, "VARAMO", "IMO3212345", "C4SQ2", 70, 1, 1, 9.5, "NA");
         Ship ct02 = store.newShip(dto1);
-        store.saveShip(ct02,"MMSI");
+        store.saveShipMmsi(ct02,"MMSI");
         assertTrue(store.checkDuplicate(ct01));
     }
 
@@ -69,7 +69,7 @@ public class ShipStoreTest {
     public void validateShip(){
         ShipDTO dto = new ShipDTO(989898989, "VARAMO", "IMO3212445", "C4SQ2", 70, 1, 1, 9.5, "NA");
         Ship ct01 = store.newShip(dto);
-        store.saveShip(ct01,"MMSI");
+        store.saveShipMmsi(ct01,"MMSI");
         assertFalse(store.validateShip(ct01));
     }
 }
