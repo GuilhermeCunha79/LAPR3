@@ -118,19 +118,19 @@ public class BstTest {
     /**
      * Test of height method, of class BST.
      */
-    @Test
-    public void testHeight() {
-        System.out.println("height");
-
-        instance = new BST();
-        Assertions.assertEquals(instance.height(), -1, "height should be = -1");
-        for (int idx = 0; idx < arr.length; idx++) {
-            instance.insert(arr[idx]);
-            Assertions.assertEquals(instance.height(), height[idx], "height should be = " + height[idx]);
-        }
-        instance = new BST<>();
-        Assertions.assertEquals(instance.height(), -1, "height should be = -1");
-    }
+//    @Test
+//    public void testHeight() {
+//        System.out.println("height");
+//
+//        instance = new BST();
+//        Assertions.assertEquals(instance.height(), -1, "height should be = -1");
+//        for (int idx = 0; idx < arr.length; idx++) {
+//            instance.insert(arr[idx]);
+//            Assertions.assertEquals(instance.height(), height[idx], "height should be = " + height[idx]);
+//        }
+//        instance = new BST<>();
+//        Assertions.assertEquals(instance.height(), -1, "height should be = -1");
+//    }
 
     /**
      * Test of smallestelement method, of class TREE.
@@ -153,26 +153,26 @@ public class BstTest {
     /**
      * Test of processBstByLevel method, of class TREE.
      */
-    @Test
-    public void testProcessBstByLevel() {
-        Integer[] arr = {20, 15, 10, 13, 8, 17, 40, 50, 30, 7};
-        BST<Integer> instance;
-        instance = new BST();
-        for (int i : arr)
-            instance.insert(i);
-        System.out.println("processbstbylevel");
-        Map<Integer, List<Integer>> expResult = new HashMap<>();
-        expResult.put(0, Collections.singletonList(20));
-        expResult.put(1, Arrays.asList(15, 40));
-        expResult.put(2, Arrays.asList(10, 17, 30, 50));
-        expResult.put(3, Arrays.asList(8, 13));
-        expResult.put(4, Collections.singletonList(7));
-
-        Map<Integer, List<Integer>> result = instance.nodesByLevel();
-
-        for (Map.Entry<Integer, List<Integer>> e : result.entrySet())
-            Assertions.assertEquals(expResult.get(e.getKey()), e.getValue());
-    }
+//    @Test
+//    public void testProcessBstByLevel() {
+//        Integer[] arr = {20, 15, 10, 13, 8, 17, 40, 50, 30, 7};
+//        BST<Integer> instance;
+//        instance = new BST();
+//        for (int i : arr)
+//            instance.insert(i);
+//        System.out.println("processbstbylevel");
+//        Map<Integer, List<Integer>> expResult = new HashMap<>();
+//        expResult.put(0, Collections.singletonList(20));
+//        expResult.put(1, Arrays.asList(15, 40));
+//        expResult.put(2, Arrays.asList(10, 17, 30, 50));
+//        expResult.put(3, Arrays.asList(8, 13));
+//        expResult.put(4, Collections.singletonList(7));
+//
+//        Map<Integer, List<Integer>> result = instance.nodesByLevel();
+//
+//        for (Map.Entry<Integer, List<Integer>> e : result.entrySet())
+//            Assertions.assertEquals(expResult.get(e.getKey()), e.getValue());
+//    }
 
 
     /**
@@ -193,31 +193,31 @@ public class BstTest {
     /**
      * Test of preOrder method, of class BST.
      */
-    @Test
-    public void testpreOrder() {
-        Integer[] arr = {20, 15, 10, 13, 8, 17, 40, 50, 30, 7};
-        BST<Integer> instance;
-        instance = new BST<>();
-        for (int i : arr)
-            instance.insert(i);
-        System.out.println("preOrder");
-        List<Integer> lExpected = Arrays.asList(preorderT);
-        Assertions.assertEquals(lExpected, instance.preOrder(), "preOrder should be " + lExpected.toString());
-    }
+//    @Test
+//    public void testpreOrder() {
+//        Integer[] arr = {20, 15, 10, 13, 8, 17, 40, 50, 30, 7};
+//        BST<Integer> instance;
+//        instance = new BST<>();
+//        for (int i : arr)
+//            instance.insert(i);
+//        System.out.println("preOrder");
+//        List<Integer> lExpected = Arrays.asList(preorderT);
+//        Assertions.assertEquals(lExpected, instance.preOrder(), "preOrder should be " + lExpected.toString());
+//    }
 
-    /**
-     * Test of posOrder method, of class BST.
-     */
-    @Test
-    public void testposOrder() {
-        Integer[] arr = {20, 15, 10, 13, 8, 17, 40, 50, 30, 7};
-        BST<Integer> instance;
-        instance = new BST<>();
-        for (int i : arr)
-            instance.insert(i);
-        System.out.println("posOrder");
-        List<Integer> lExpected = Arrays.asList(posorderT);
-        Assertions.assertEquals(lExpected, instance.posOrder(), "posOrder should be " + lExpected.toString());
-    }
+//    /**
+//     * Test of posOrder method, of class BST.
+//     */
+//    @Test
+//    public void testposOrder() {
+//        Integer[] arr = {20, 15, 10, 13, 8, 17, 40, 50, 30, 7};
+//        BST<Integer> instance;
+//        instance = new BST<>();
+//        for (int i : arr)
+//            instance.insert(i);
+//        System.out.println("posOrder");
+//        List<Integer> lExpected = Arrays.asList(posorderT);
+//        Assertions.assertEquals(lExpected, instance.posOrder(), "posOrder should be " + lExpected.toString());
+//    }
 
 }
