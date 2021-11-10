@@ -93,6 +93,10 @@ public class BST<E extends Comparable<E>> implements BSTInterface<E> {
         return root == null;
     }
 
+    public E findE(E element){
+        return find(root, element).getElement();
+    }
+
     /**
      * Returns the Node containing a specific Element, or null otherwise.
      *
@@ -111,7 +115,23 @@ public class BST<E extends Comparable<E>> implements BSTInterface<E> {
         else return find(node.getRight(), element);
     }
 
-    /*
+
+
+   /* protected Node<E> find(Node<E> node,E element){
+        if(node == null) {
+            return null;
+        }
+        if(node.getElement().equals(element)) {
+            return node;
+        }
+        if(node.getElement().compareTo(element) > 0) {
+            return find(node.getLeft(), element);
+        } else {
+            return find(node.getRight(), element);
+        }
+    }
+
+
      * Inserts an element in the tree.
      */
     public void insert(E element) {
