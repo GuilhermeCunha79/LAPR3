@@ -26,6 +26,8 @@
             <artifactId>ojdbc10</artifactId>
             <version>19.3.0.0</version>
         </dependency>
+
+
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>

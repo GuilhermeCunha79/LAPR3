@@ -8,9 +8,6 @@ public class CallSignTree extends Ship {
         super(dto);
     }
 
-    public CallSignTree(String callSign){
-        super(0, null, null, callSign, 0, 0, 0, 0, null);
-    }
 
     @Override
     public int compareTo(Ship o) {
