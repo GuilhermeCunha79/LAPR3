@@ -13,7 +13,7 @@ import java.util.Scanner;
 
 public class ImportShipsController extends BST<Ship> {
     DetailsShipController ctrl = new DetailsShipController();
-    private final ShipStore shipStore;
+    private final ShipStore shipStore ;
     private Ship ship;
 
     public ImportShipsController() {
