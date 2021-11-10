@@ -20,7 +20,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class PositionalMessagesTest {
 
-   /* @Test
+   @Test
     void getPositionalMessages() throws IOException {
         List<Position> list = new ArrayList<>();
         BST<Ship> bst1= ImportShipsController.importShips("sships.csv","MMSI");
@@ -47,15 +47,15 @@ class PositionalMessagesTest {
         Position p5 = new Position(dto5);
 
         list.add(p2);
-        list.add(p1);
         list.add(p3);
-        list.add(p4);
         list.add(p5);
+        list.add(p1);
+        list.add(p4);
 
         assertEquals(list,positions);
-    }*/
+    }
 
-    /* @Test
+   /* @Test
     public void associatePositions() throws FileNotFoundException {
 
         BST<Ship> bst1= ImportShipsController.importShips("sshipsTest2.csv","MMSI");

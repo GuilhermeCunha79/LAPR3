@@ -1,6 +1,5 @@
 package lapr.project.model;
 
-
 import lapr.project.utils.DTO.ShipDTO;
 
 public class MMSITree extends Ship{
@@ -12,6 +11,7 @@ public class MMSITree extends Ship{
     public MMSITree(int mmsi){
         super(mmsi,"VARAMO","IMO9395044","C4SQ2",70,4,4,8.7,"NA");
     }
+
     @Override
     public int compareTo(Ship o) {
         return super.compareTo(o);

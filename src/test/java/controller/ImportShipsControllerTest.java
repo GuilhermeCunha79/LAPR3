@@ -1,7 +1,8 @@
-package controller;/*package lapr.project.controller;
+package lapr.project.controller;
 
 import lapr.project.model.CallSignTree;
 import lapr.project.model.IMOTree;
+import lapr.project.model.Position;
 import lapr.project.model.Ship;
 import lapr.project.utils.BST.BST;
 import lapr.project.utils.DTO.ShipDTO;
@@ -42,14 +43,14 @@ class ImportShipsControllerTest {
         Assertions.assertEquals(result.size(), expResult.size());
     }
 
-   /*@Test
-    public void importPositionsTest2() throws FileNotFoundException {
+   @Test
+    public void importPositionsTest2() {
         int result = 181;
         BST<Position> expResult = new BST<>();
-        expResult = importShipsPosition("sships.csv");
-        assertEquals(result, expResult.size());
-    }*/
-/*
+        expResult = ImportShipsController.importShipsPosition("sships.csv");
+        Assertions.assertEquals(result, expResult.size());
+    }
+
     @Test
     public void importShipsTest4() throws IOException {
         BST<Ship> result = new BST<>();
@@ -225,5 +226,46 @@ class ImportShipsControllerTest {
         expResult = ImportShipsController.importShips("sshipsTest.txt", "IMO");
         Assertions.assertEquals(result.smallestElement(), expResult.smallestElement());
     }
+    @Test
+    public void importShipsTest10() throws IOException {
+        Exception thrown = Assertions.assertThrows(Exception.class, () -> {
+            BST<Ship> result = new BST<>();
+            BST<Ship> expResult = new BST<>();
+            ShipDTO shipDTO1 = new ShipDTO(210950015, "VARAMO", "IMO9395044", "C4SQ2", 70, 166, 25, 9.5, "NA");
+            IMOTree ship1 = new IMOTree(shipDTO1);
+            result.insert(ship1);
+            ShipDTO shipDTO2 = new ShipDTO(210950010, "VARAMO", "IMO9395044", "C4SQ2", 70, 166, 25, 9.5, "NA");
+            IMOTree ship2 = new IMOTree(shipDTO2);
+            result.insert(ship2);
+            ShipDTO shipDTO3 = new ShipDTO(210950020, "SAITA I", "IMO9643544", "5BBA4", 70, 228, 32, 14.4, "NA");
+            IMOTree ship3 = new IMOTree(shipDTO3);
+            result.insert(ship3);
+            ShipDTO shipDTO4 = new ShipDTO(210950008, "SAITA I", "IMO9643544", "5BBA4", 70, 228, 32, 14.4, "NA");
+            IMOTree ship4 = new IMOTree(shipDTO4);
+            result.insert(ship4);
+            ShipDTO shipDTO5 = new ShipDTO(210950012, "CMA CGM ALMAVIVA", "IMO9450648", "FLSUE", 70, 334, 42, 15, "79");
+            IMOTree ship5 = new IMOTree(shipDTO5);
+            result.insert(ship5);
+            ShipDTO shipDTO6 = new ShipDTO(210950017, "CMA CGM ALMAVIVA", "IMO9450648", "FLSUE", 70, 334, 42, 15, "79");
+            IMOTree ship6 = new IMOTree(shipDTO6);
+            result.insert(ship6);
+            ShipDTO shipDTO7 = new ShipDTO(210950025, "CMA CGM ALMAVIVA", "IMO9450648", "FLSUE", 70, 334, 42, 15, "79");
+            IMOTree ship7 = new IMOTree(shipDTO7);
+            result.insert(ship7);
+            expResult = ImportShipsController.importShips("sQshipsTest.txt", "IMO");
+            Assertions.assertEquals(result.smallestElement(), expResult.smallestElement());
+        });
+        Assertions.assertEquals("File not found", thrown.getMessage());
+    }
+
+    @Test
+    public void importPositionsTest3() {
+        Exception thrown = Assertions.assertThrows(Exception.class, () -> {
+        int result = 181;
+        BST<Position> expResult = new BST<>();
+        expResult = ImportShipsController.importShipsPosition("ssqhips.csv");
+        Assertions.assertEquals(result, expResult.size());
+        });
+        Assertions.assertEquals("File not found", thrown.getMessage());
+    }
 }
-*/

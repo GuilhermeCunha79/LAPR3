@@ -8,6 +8,9 @@ public class CallSignTree extends Ship {
         super(dto);
     }
 
+
+
+
     @Override
     public int compareTo(Ship o) {
         return super.getCallSign().compareTo(o.getCallSign());
