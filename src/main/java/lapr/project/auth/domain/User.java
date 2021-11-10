@@ -1,4 +1,4 @@
-package lapr.project.auth.domain;
+/*package lapr.project.auth.domain;
 
 
 
@@ -11,7 +11,7 @@ import java.util.Objects;
 /**
  *
  * @author Paulo Maio <pam@isep.ipp.pt>
- */
+ *//*
 public class User implements Serializable {
 
     private Email id;
@@ -118,4 +118,4 @@ public class User implements Serializable {
     {
         return String.format("%s - %s", this.id.toString(), this.name);
     }
-}
+}*/

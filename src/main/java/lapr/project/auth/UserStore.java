@@ -1,4 +1,4 @@
-package lapr.project.auth;
+/*package lapr.project.auth;
 
 import lapr.project.auth.domain.Email;
 import lapr.project.auth.domain.Password;
@@ -14,7 +14,7 @@ import java.util.Set;
 /**
  * @author Paulo Maio <pam@isep.ipp.pt>
  */
-
+/*
 public class UserStore {
     private Set<User> store = new HashSet<User>();
 
@@ -84,3 +84,4 @@ public class UserStore {
         }
     }
 }
+*/

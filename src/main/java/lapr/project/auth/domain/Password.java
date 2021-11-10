@@ -1,7 +1,6 @@
-package lapr.project.auth.domain;
+/*package lapr.project.auth.domain;
 
 
-import at.favre.lib.crypto.bcrypt.BCrypt;
 import org.apache.maven.surefire.shade.org.apache.commons.lang3.StringUtils;
 
 
@@ -11,7 +10,7 @@ import java.util.Objects;
 /**
  *
  * @author Paulo Maio <pam@isep.ipp.pt>
- */
+ *//*
 public class Password implements Serializable {
 
     private String password;
@@ -69,3 +68,4 @@ public class Password implements Serializable {
     }
 
 }
+*/
