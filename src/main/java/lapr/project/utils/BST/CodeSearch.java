@@ -94,7 +94,7 @@ public class CodeSearch {
         return node.getElement();
     }*/
 
-    public Ship findShipCallSign(BST bst, String imo){
+    public Ship findShipCallSign(BST<Ship> bst, String imo){
         Iterable<Ship> arvore= bst.preOrder();
         for(Ship ship : arvore){
             if(imo.compareTo(ship.getCallSign())==0){

@@ -1,4 +1,4 @@
-/*package utils;
+package utils;
 
 import lapr.project.model.CallSignTree;
 import lapr.project.model.IMOTree;
@@ -60,7 +60,7 @@ public class CodeSearchTest {
         //Assert.assertTrue(expResult.equals(result));
         assertEquals(expResult, result);
     }
-
+/*
     @Test
     public void testSearchBYIMO1() throws IOException {
         String imo = "IMO9321677";
@@ -110,7 +110,6 @@ public class CodeSearchTest {
 
     }
 
-
     @Test
     public void testSearchByCallsign2() throws IOException{
         String callSign = "9HJC9";
@@ -134,5 +133,5 @@ public class CodeSearchTest {
         //assertEquals(expResult, result);
 
     }
-
-}*/
+*/
+}

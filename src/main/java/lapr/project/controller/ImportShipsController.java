@@ -5,12 +5,14 @@ import lapr.project.store.ShipStore;
 import lapr.project.utils.BST.BST;
 import lapr.project.utils.DTO.PositionDTO;
 import lapr.project.utils.DTO.ShipDTO;
+
 import java.io.File;
 import java.io.IOException;
+
 import java.util.Scanner;
 
 public class ImportShipsController extends BST<Ship> {
-    DetailsShipController ctrl=new DetailsShipController();
+    DetailsShipController ctrl = new DetailsShipController();
     private final ShipStore shipStore;
     private Ship ship;
 
@@ -19,8 +21,8 @@ public class ImportShipsController extends BST<Ship> {
     }
 
     public ImportShipsController(Company company) {
-        this.shipStore=company.getShipStore();
-        this.ship=null;
+        this.shipStore = company.getShipStore();
+        this.ship = null;
     }
 
     public BST<Ship> importShips(String file, String type) throws IOException {
@@ -36,18 +38,21 @@ public class ImportShipsController extends BST<Ship> {
                 Ship ship = this.shipStore.newShip(shipDTO);
                 switch (type) {
                     case ("MMSI"):
-                        this.shipStore.saveShip(ship,"MMSI");
-                        ctrl.newShip(shipDTO);
+                        this.ctrl.newShip(shipDTO);
+                        this.shipStore.saveShip(ship, "MMSI");
+
+                        bst.insert(ship);
                         break;
                     case ("Call Sign"):
                         CallSignTree callSignTree = new CallSignTree(shipDTO);
-                        this.shipStore.saveShip(callSignTree,"Call Sign");
-                        ctrl.newShip(shipDTO);
+                        this.ctrl.newShip(shipDTO);
+                        this.shipStore.saveShip(callSignTree, "Call Sign");
+                        bst.insert(ship);
                         break;
                     case ("IMO"):
                         IMOTree imoTree = new IMOTree(shipDTO);
-                        this.shipStore.saveShip(imoTree,"IMO");
-                        ctrl.newShip(shipDTO);
+                        this.ctrl.newShip(shipDTO);
+                        this.shipStore.saveShip(imoTree, "IMO");
                         break;
                 }
             }
@@ -74,5 +79,9 @@ public class ImportShipsController extends BST<Ship> {
             throw new IllegalArgumentException("File not found");
         }
         return bst1;
+    }
+
+    public BST<Ship> getShipTree() {
+        return App.getInstance().getCompany().getShipStore().getShipTree();
     }
 }

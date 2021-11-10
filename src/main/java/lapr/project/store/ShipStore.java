@@ -18,6 +18,7 @@ public class ShipStore {
         return new Ship(dto);
     }
 
+
     public BST<Ship> getShipTree() {
         return new BST<>(shipTree);
     }
