@@ -1,8 +1,8 @@
 package lapr.project.model;
 
 
-import lapr.project.auth.AuthFacade;
-import lapr.project.auth.domain.model.User;
+//import lapr.project.auth.AuthFacade;
+//import lapr.project.auth.domain.model.User;
 import lapr.project.store.ShipStore;
 import lapr.project.utils.BST.BST;
 import org.apache.maven.surefire.shade.org.apache.commons.lang3.StringUtils;
@@ -24,7 +24,7 @@ public class Company {
 
 
     private String designation;
-    private AuthFacade authFacade;
+    //private AuthFacade authFacade;
 
     private ShipStore shipStore = new ShipStore();
     //private PositionStore positionStore = new PositionStore();
@@ -41,22 +41,22 @@ public class Company {
             throw new IllegalArgumentException("Designation cannot be blank.");
 
         this.designation = designation;
-        this.authFacade = new AuthFacade();
+        //this.authFacade = new AuthFacade();
 
         //setPositionStore();
         setShipStore();
-        setUserStore();
+        //setUserStore();
 
     }
 
-    private void setUserStore() {
+    /*private void setUserStore() {
         try (FileInputStream input = new FileInputStream("data\\user.dat"); ObjectInputStream in = new ObjectInputStream(input)){
             Set<User> userList = new HashSet<>((Set<User>) in.readObject());
             this.authFacade.getUsers().setStore(userList);
         }catch (IOException | ClassNotFoundException e){
             e.getLocalizedMessage();
         }
-    }
+    }*/
 
     private void setShipStore() {
         try (FileInputStream input = new FileInputStream("data\\ship.dat"); ObjectInputStream in = new ObjectInputStream(input)) {
@@ -91,9 +91,9 @@ public class Company {
      * @return the authentication facade
      */
 
-    public AuthFacade getAuthFacade() {
+    /*public AuthFacade getAuthFacade() {
         return authFacade;
-    }
+    }*/
 
     /**
      * This method returns the Ship store used by the company

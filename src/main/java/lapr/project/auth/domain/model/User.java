@@ -1,4 +1,4 @@
-package lapr.project.auth.domain.model;
+/*package lapr.project.auth.domain.model;
 
 
 import org.apache.maven.surefire.util.internal.StringUtils;
@@ -11,10 +11,10 @@ import java.util.Objects;
 
 /**
  * @author Paulo Maio <pam@isep.ipp.pt>
- */
+ *//*
 public class User implements Serializable {
 
-    private Email id;
+    //private Email id;
     private Password password;
     private String name;
     private Set<UserRole> roles = new HashSet<UserRole>();
@@ -25,13 +25,13 @@ public class User implements Serializable {
         if (StringUtils.isBlank(name))
             throw new IllegalArgumentException("User cannot have an id, password or name as null/blank.");
 
-        this.id = id;
+        //this.id = id;
         this.password = pwd;
         this.name = name.trim();
     }
 
 
-    public Email getId() {
+    /*public Email getId() {
         return id;
     }
 
@@ -39,7 +39,7 @@ public class User implements Serializable {
         return name;
     }
 
-    public boolean hasId(Email id) {
+   /* public boolean hasId(Email id) {
         return this.id.equals(id);
     }
 
@@ -78,14 +78,14 @@ public class User implements Serializable {
         return Collections.unmodifiableList(list);
     }
 
-    @Override
+    /*@Override
     public int hashCode() {
         int hash = 7;
         hash = 23 * hash + this.id.hashCode();
         return hash;
-    }
+    }*/
 
-    @Override
+   /* @Override
     public boolean equals(Object o) {
         // Inspired in https://www.sitepoint.com/implement-javas-equals-method-correctly/
 
@@ -107,4 +107,4 @@ public class User implements Serializable {
     public String toString() {
         return String.format("%s - %s", this.id.toString(), this.name);
     }
-}
+}*/

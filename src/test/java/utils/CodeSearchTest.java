@@ -28,7 +28,7 @@ public class CodeSearchTest {
         this.mmsi = cs.getMMSITree();
     }
 
-    @Test
+  /*  @Test
     public void testSearchByMMSI() throws IOException {
         int mmsiNumber = 210950000;
         ShipDTO sdto = new ShipDTO(210950000, "SEA", "IMO7819216", "WDG5171", 30, 37, 9, 3, "NA");
@@ -59,7 +59,7 @@ public class CodeSearchTest {
         Ship result = cs.findShipMmsi(this.mmsi, mmsiNumber);
         //Assert.assertTrue(expResult.equals(result));
         assertEquals(expResult, result);
-    }
+    }*/
 /*
     @Test
     public void testSearchBYIMO1() throws IOException {

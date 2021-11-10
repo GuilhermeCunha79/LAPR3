@@ -1,7 +1,7 @@
-package lapr.project.auth;
+/*package lapr.project.auth;
 
 
-import lapr.project.auth.domain.model.Email;
+//import lapr.project.auth.domain.model.Email;
 import lapr.project.auth.domain.model.User;
 import lapr.project.auth.mappers.UserRoleMapper;
 import lapr.project.auth.mappers.dto.UserRoleDTO;
@@ -13,7 +13,7 @@ import java.util.List;
 /**
  *
  * @author Paulo Maio <pam@isep.ipp.pt>
- */
+ *//*
 public class UserSession {
 
     private User user;
@@ -56,7 +56,7 @@ public class UserSession {
         return null;
     }
 
-    public Email getUserId()
+   /* public Email getUserId()
     {
         if (isLoggedIn())
             return this.user.getId();
@@ -71,4 +71,4 @@ public class UserSession {
         }
         return Collections.EMPTY_LIST;
     }
-}
+}*/

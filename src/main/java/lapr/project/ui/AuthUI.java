@@ -1,4 +1,4 @@
-package lapr.project.ui;
+/*package lapr.project.ui;
 
 import lapr.project.controller.AuthController;
 import lapr.project.ui.utils.Utils;
@@ -14,7 +14,7 @@ import java.util.List;
 
 /**
  * @author Paulo Maio <pam@isep.ipp.pt>
- */
+ *//*
 
 public class AuthUI implements Runnable {
     private AuthController ctrl;
@@ -95,4 +95,4 @@ public class AuthUI implements Runnable {
     }
 
 
-}
+}*/

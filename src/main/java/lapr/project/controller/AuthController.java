@@ -1,4 +1,4 @@
-package lapr.project.controller;
+/*package lapr.project.controller;
 
 
 import lapr.project.auth.mappers.dto.UserRoleDTO;
@@ -8,7 +8,7 @@ import java.util.List;
 /**
  *
  * @author Paulo Maio <pam@isep.ipp.pt>
- */
+ *//*
 public class AuthController {
 
     private final App app;
@@ -41,5 +41,5 @@ public class AuthController {
     {
         this.app.doLogout();
     }
-}
+}*/
 
