@@ -1,16 +1,10 @@
 package lapr.project.utils.BST;
 
-import lapr.project.controller.DetailsShipController;
 import lapr.project.controller.ImportShipsController;
-import lapr.project.model.CallSignTree;
-import lapr.project.model.IMOTree;
-import lapr.project.model.MMSITree;
 import lapr.project.model.Ship;
 import lapr.project.store.ShipStore;
-import lapr.project.utils.BST.BST;
 
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 
@@ -20,14 +14,16 @@ public class CodeSearch {
     private final BST<Ship> callSignTree;
     private final BST<Ship> imoTree;
 
+    ImportShipsController ctrl = new ImportShipsController();
+
     public CodeSearch(String fileName) throws IOException {
         //this.imoTree = new BST<>();
         //this.callSignTree = new BST<>();
         //this.mmsiTree = new BST<>();
 
-        this.mmsiTree = ImportShipsController.importShips(fileName, "MMSI");
-        this.callSignTree = ImportShipsController.importShips(fileName, "CallSign");
-        this.imoTree = ImportShipsController.importShips(fileName, "IMO");
+        this.mmsiTree = ctrl.importShips(fileName, "MMSI");
+        this.callSignTree = ctrl.importShips(fileName, "CallSign");
+        this.imoTree = ctrl.importShips(fileName, "IMO");
 
     }
 
@@ -55,7 +51,7 @@ public class CodeSearch {
         return node.getElement();
     }*/
 
-    public Ship findShipMmsi(BST bst, int mmsi){
+    public Ship findShipMmsi(BST<Ship> bst, int mmsi){
         Iterable<Ship> arvore= bst.preOrder();
         for(Ship ship : arvore){
             if(mmsi==ship.getMmsi()){

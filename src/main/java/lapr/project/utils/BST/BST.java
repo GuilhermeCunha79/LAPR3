@@ -1,5 +1,7 @@
 package lapr.project.utils.BST;
 
+import lapr.project.model.Ship;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -12,6 +14,10 @@ import java.util.Map;
 
 public class BST<E extends Comparable<E>> implements BSTInterface<E> {
 
+
+    public BST() {
+        root=null;
+    }
 
     /**
      * Nested static class for a binary search tree node.
@@ -68,7 +74,7 @@ public class BST<E extends Comparable<E>> implements BSTInterface<E> {
 
 
     /* Constructs an empty binary search tree. */
-    public BST() {
+    public BST(BST<Ship> lClient) {
         root = null;
     }
 

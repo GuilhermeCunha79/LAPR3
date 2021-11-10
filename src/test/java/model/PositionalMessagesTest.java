@@ -1,5 +1,5 @@
-package lapr.project.model;
-
+package model;
+/*
 import lapr.project.controller.ImportShipsController;
 import lapr.project.utils.BST.BST;
 import lapr.project.utils.DTO.PositionDTO;
@@ -92,7 +92,7 @@ class PositionalMessagesTest {
         Assert.assertEquals(map2, map);
     }*/
 
-    @Test
+    /*@Test
     public void getPositionalMessagesShipNotFound(){
         IllegalArgumentException thrown = Assertions.assertThrows(IllegalArgumentException.class, () -> {
 
@@ -112,4 +112,4 @@ class PositionalMessagesTest {
 
         Assertions.assertEquals("This Ship does not exist.", thrown.getMessage());
     }
-}
+}*/

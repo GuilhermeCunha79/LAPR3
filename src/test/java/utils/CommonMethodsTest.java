@@ -1,9 +1,13 @@
-package lapr.project.utils;
+package utils;
 
+import lapr.project.utils.CommonMethods;
 import org.junit.Test;
-import static org.junit.Assert.*;
+
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
+
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class CommonMethodsTest {
 

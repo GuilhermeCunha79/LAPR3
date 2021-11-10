@@ -1,9 +1,11 @@
-package lapr.project.model;
+package model;
 
+import lapr.project.model.DistanceCalculator;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class DistanceCalculatorTest {
 

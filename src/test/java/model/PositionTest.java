@@ -1,5 +1,6 @@
-package lapr.project.model;
+package model;
 
+import lapr.project.model.Position;
 import lapr.project.utils.CommonMethods;
 import lapr.project.utils.DTO.PositionDTO;
 import org.junit.jupiter.api.Assertions;
@@ -8,7 +9,7 @@ import org.junit.jupiter.api.Test;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeParseException;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 class PositionTest {
@@ -31,7 +32,7 @@ class PositionTest {
             PositionDTO dto = new PositionDTO(1111111181, "VARAMO", 2, 2, 70, 1, 1, "A");
             new Position(dto);
         });
-        Assertions.assertEquals("The MMSI code must have 9 number digits", thrown.getMessage());
+        assertEquals("The MMSI code must have 9 number digits", thrown.getMessage());
     }
 
     @Test
@@ -40,7 +41,7 @@ class PositionTest {
             PositionDTO dto = new PositionDTO(222222222, "31/12/2020 17:19", 1, 1, 2.4, 2.4, 0, null);
             new Position(dto);
         });
-        Assertions.assertEquals("not available", thrown.getMessage());
+        assertEquals("not available", thrown.getMessage());
     }
 
     @Test
@@ -49,7 +50,7 @@ class PositionTest {
             PositionDTO dto = new PositionDTO(111111111, null, 1, 1, 2.4, 2.4, 0, "A");
             new Position(dto);
         });
-        Assertions.assertEquals("not available", thrown.getMessage());
+        assertEquals("not available", thrown.getMessage());
     }
 
     @Test
@@ -58,7 +59,7 @@ class PositionTest {
             PositionDTO dto = new PositionDTO(111111111, "31/12/2020 17:19", 120, 1, 2.4, 2.4, 0, "A");
             new Position(dto);
         });
-        Assertions.assertEquals("not available", thrown.getMessage());
+        assertEquals("not available", thrown.getMessage());
     }
 
     @Test
@@ -67,7 +68,7 @@ class PositionTest {
             PositionDTO dto = new PositionDTO(111111111, "31/12/2020 17:19", 76, 181, 2.4, 2.4, 0, "A");
             new Position(dto);
         });
-        Assertions.assertEquals("not available", thrown.getMessage());
+        assertEquals("not available", thrown.getMessage());
     }
 
     @Test
@@ -76,7 +77,7 @@ class PositionTest {
             PositionDTO dto = new PositionDTO(111111111, "31/12/2020 17:19", 76, 181, -4, 2.4, 0, "A");
             new Position(dto);
         });
-        Assertions.assertEquals("not available", thrown.getMessage());
+        assertEquals("not available", thrown.getMessage());
     }
 
     @Test
@@ -97,7 +98,7 @@ class PositionTest {
             PositionDTO dto = new PositionDTO(111111111, "31/12/2020 17:19", 76, 170, 5, 34, 300, "AA");
             new Position(dto);
         });
-        Assertions.assertEquals("not available", thrown.getMessage());
+        assertEquals("not available", thrown.getMessage());
     }
 
     @Test
@@ -258,7 +259,7 @@ class PositionTest {
             Position posi = new Position(dto);
             posi.setDateTime(null);
         });
-        Assertions.assertEquals("not available", thrown.getMessage());
+        assertEquals("not available", thrown.getMessage());
     }
 
     @Test
@@ -268,7 +269,7 @@ class PositionTest {
             Position posi = new Position(dto);
             posi.setLatitude(76000);
         });
-        Assertions.assertEquals("not available", thrown.getMessage());
+        assertEquals("not available", thrown.getMessage());
     }
 
     @Test
@@ -278,7 +279,7 @@ class PositionTest {
             Position posi = new Position(dto);
             posi.setLongitude(17000);
         });
-        Assertions.assertEquals("not available", thrown.getMessage());
+        assertEquals("not available", thrown.getMessage());
     }
 
     @Test
@@ -318,7 +319,7 @@ class PositionTest {
             Position posi = new Position(dto);
             posi.setTranscieverClass(null);
         });
-        Assertions.assertEquals("not available", thrown.getMessage());
+        assertEquals("not available", thrown.getMessage());
     }
 
     @Test
@@ -328,7 +329,7 @@ class PositionTest {
             Position posi = new Position(dto);
             posi.setTranscieverClass("BB");
         });
-        Assertions.assertEquals("not available", thrown.getMessage());
+        assertEquals("not available", thrown.getMessage());
     }
 
     /*@Test
@@ -348,7 +349,7 @@ class PositionTest {
         PositionDTO dto1 = new PositionDTO(111111111, "23/12/2010 17:19", 72, 170, 5, 34, 300, "B");
         Position posi1 = new Position(dto1);
         int expected = -1;
-        Assertions.assertEquals(expected, posi1.compareTo(posi));
+        assertEquals(expected, posi1.compareTo(posi));
     }
 
     @Test
@@ -358,7 +359,7 @@ class PositionTest {
         PositionDTO dto1 = new PositionDTO(111111111, "23/12/2010 17:19", 72, 170, 5, 34, 300, "B");
         Position posi1 = new Position(dto1);
         int expected = 1;
-        Assertions.assertEquals(expected, posi.compareTo(posi1));
+        assertEquals(expected, posi.compareTo(posi1));
     }
 
     @Test
@@ -367,7 +368,7 @@ class PositionTest {
         Position posi = new Position(dto);
         PositionDTO dto1 = new PositionDTO(111111112, "31/12/2010 17:19", 72, 170, 5, 34, 300, "B");
         Position posi1 = new Position(dto1);
-        Assertions.assertEquals(posi, posi1);
+        assertEquals(posi, posi1);
     }
 
     @Test
@@ -385,7 +386,7 @@ class PositionTest {
         Position posi = new Position(dto);
         LocalDateTime date = CommonMethods.convertStringToDate(posi.getDateTime());
         LocalDateTime newDate = LocalDateTime.of(2010, 12, 31, 17, 19);
-        Assertions.assertEquals(newDate, date);
+        assertEquals(newDate, date);
     }
 
     @Test
@@ -395,9 +396,9 @@ class PositionTest {
             Position posi = new Position(dto);
             LocalDateTime date = CommonMethods.convertStringToDate(posi.getDateTime());
             LocalDateTime newDate = LocalDateTime.of(2010, 12, 31, 17, 19);
-            Assertions.assertEquals(newDate, date);
+            assertEquals(newDate, date);
         });
-        Assertions.assertEquals("Text '31/12/201 17:19' could not be parsed at index 6", thrown.getMessage());
+        assertEquals("Text '31/12/201 17:19' could not be parsed at index 6", thrown.getMessage());
     }
 }
 

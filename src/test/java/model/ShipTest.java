@@ -1,12 +1,12 @@
-package lapr.project.model;
+package model;
 
+import lapr.project.model.Ship;
 import lapr.project.utils.DTO.ShipDTO;
 import org.junit.Assert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.slf4j.ILoggerFactory;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ShipTest {
 
@@ -32,7 +32,7 @@ class ShipTest {
             ShipDTO dto = new ShipDTO(111111111, null, "IMO3212345", "C4SQ2", 70, 1, 1, 9.5, "NA");
             new Ship(dto);
         });
-        Assertions.assertEquals("not available", thrown.getMessage());
+        assertEquals("not available", thrown.getMessage());
     }
 
     @Test
@@ -41,7 +41,7 @@ class ShipTest {
             ShipDTO dto = new ShipDTO(111111111, "VARAMO", null, "C4SQ2", 70, 1, 1, 9.5, "NA");
             new Ship(dto);
         });
-        Assertions.assertEquals("not available", thrown.getMessage());
+        assertEquals("not available", thrown.getMessage());
 
     }
 
@@ -51,7 +51,7 @@ class ShipTest {
             ShipDTO dto = new ShipDTO(111111111, "VARAMO", "IMO3212345", null, 70, 1, 1, 9.5, "NA");
             new Ship(dto);
         });
-        Assertions.assertEquals("not available", thrown.getMessage());
+        assertEquals("not available", thrown.getMessage());
 
     }
 
@@ -61,7 +61,7 @@ class ShipTest {
             ShipDTO dto = new ShipDTO(1111111181, "VARAMO", "IMO3212345", "C4SQ2", 70, 1, 1, 9.5, "NA");
             new Ship(dto);
         });
-        Assertions.assertEquals("The MMSI code must have 9 number digits", thrown.getMessage());
+        assertEquals("The MMSI code must have 9 number digits", thrown.getMessage());
     }
 
     @Test
@@ -70,7 +70,7 @@ class ShipTest {
             ShipDTO dto = new ShipDTO(111111111, "VARAMO", "OLA3212345", "-lh,j", 70, 1, 1, 9.5, "NA");
             new Ship(dto);
         });
-        Assertions.assertEquals("The format must be IMOXXXXXXX.", thrown.getMessage());
+        assertEquals("The format must be IMOXXXXXXX.", thrown.getMessage());
     }
 
     @Test
@@ -79,7 +79,7 @@ class ShipTest {
             ShipDTO dto = new ShipDTO(111111111, "VARAMO", "IMO1234567", "-lh,j", 70, 1, 1, 9.5, "NA");
             new Ship(dto);
         });
-        Assertions.assertEquals("Call Sign must have just alphanumerical", thrown.getMessage());
+        assertEquals("Call Sign must have just alphanumerical", thrown.getMessage());
     }
 
     @Test
@@ -88,7 +88,7 @@ class ShipTest {
             ShipDTO dto = new ShipDTO(111111111, "VARAMO", "IMO1234567", "CDS56", -70, 1, 1, 9.5, "NA");
             new Ship(dto);
         });
-        Assertions.assertEquals("not available", thrown.getMessage());
+        assertEquals("not available", thrown.getMessage());
 
     }
 
@@ -98,7 +98,7 @@ class ShipTest {
             ShipDTO dto = new ShipDTO(111111111, "VARAMO", "IMO1234567", "CD456", 70, 0, 1, 9.5, "NA");
             new Ship(dto);
         });
-        Assertions.assertEquals("not available", thrown.getMessage());
+        assertEquals("not available", thrown.getMessage());
     }
 
     @Test
@@ -107,7 +107,7 @@ class ShipTest {
             ShipDTO dto = new ShipDTO(111111111, "VARAMO", "IMO1234567", "CD456", 70, 4, 0, 9.5, "NA");
             new Ship(dto);
         });
-        Assertions.assertEquals("Must be bigger than 0", thrown.getMessage());
+        assertEquals("Must be bigger than 0", thrown.getMessage());
     }
 
     @Test
@@ -116,7 +116,7 @@ class ShipTest {
             ShipDTO dto = new ShipDTO(111111111, "VARAMO", "IMO1234567", "CD456", 70, 4, 6, 9.5, null);
             new Ship(dto);
         });
-        Assertions.assertEquals("not available", thrown.getMessage());
+        assertEquals("not available", thrown.getMessage());
     }
 
     @Test
@@ -125,7 +125,7 @@ class ShipTest {
             ShipDTO dto = new ShipDTO(111111111, "VARAMO", "IMO1234567", "CD456", 70, 4, 6, 0, "NA");
             new Ship(dto);
         });
-        Assertions.assertEquals("Cannot be 0", thrown.getMessage());
+        assertEquals("Cannot be 0", thrown.getMessage());
     }
 
     @Test
@@ -265,7 +265,7 @@ class ShipTest {
             Ship ship = new Ship(dto);
             ship.setMmsi(111111111);
         });
-        Assertions.assertEquals("The MMSI code must have 9 number digits", thrown.getMessage());
+        assertEquals("The MMSI code must have 9 number digits", thrown.getMessage());
     }
 
     @Test
@@ -275,7 +275,7 @@ class ShipTest {
             Ship ship = new Ship(dto);
             ship.setVesselName(null);
         });
-        Assertions.assertEquals("not available", thrown.getMessage());
+        assertEquals("not available", thrown.getMessage());
     }
 
     @Test
@@ -285,7 +285,7 @@ class ShipTest {
             Ship ship = new Ship(dto);
             ship.setImo(null);
         });
-        Assertions.assertEquals("not available", thrown.getMessage());
+        assertEquals("not available", thrown.getMessage());
     }
 
     @Test
@@ -295,7 +295,7 @@ class ShipTest {
             Ship ship = new Ship(dto);
             ship.setImo("IMO12345678");
         });
-        Assertions.assertEquals("The format must be IMOXXXXXXX.", thrown.getMessage());
+        assertEquals("The format must be IMOXXXXXXX.", thrown.getMessage());
     }
 
     @Test
@@ -305,7 +305,7 @@ class ShipTest {
             Ship ship = new Ship(dto);
             ship.setCallSign(null);
         });
-        Assertions.assertEquals("not available", thrown.getMessage());
+        assertEquals("not available", thrown.getMessage());
 
     }
 
@@ -316,7 +316,7 @@ class ShipTest {
             Ship ship = new Ship(dto);
             ship.setCallSign("CD456_*");
         });
-        Assertions.assertEquals("Call Sign must have just alphanumerical", thrown.getMessage());
+        assertEquals("Call Sign must have just alphanumerical", thrown.getMessage());
 
     }
 
@@ -328,7 +328,7 @@ class ShipTest {
             ship.setVesselType(-1);
         });
 
-        Assertions.assertEquals("not available", thrown.getMessage());
+        assertEquals("not available", thrown.getMessage());
 
     }
 
@@ -339,7 +339,7 @@ class ShipTest {
             Ship ship = new Ship(dto);
             ship.setLength(-1);
         });
-        Assertions.assertEquals("not available", thrown.getMessage());
+        assertEquals("not available", thrown.getMessage());
     }
 
     @Test
@@ -349,7 +349,7 @@ class ShipTest {
             Ship ship = new Ship(dto);
             ship.setWidth(-1);
         });
-        Assertions.assertEquals("Must be bigger than 0", thrown.getMessage());
+        assertEquals("Must be bigger than 0", thrown.getMessage());
     }
 
     @Test
@@ -359,7 +359,7 @@ class ShipTest {
             Ship ship = new Ship(dto);
             ship.setDraft(0);
         });
-        Assertions.assertEquals("Cannot be 0", thrown.getMessage());
+        assertEquals("Cannot be 0", thrown.getMessage());
     }
 
     @Test
@@ -369,7 +369,7 @@ class ShipTest {
             Ship ship = new Ship(dto);
             ship.setCargo(null);
         });
-        Assertions.assertEquals("not available", thrown.getMessage());
+        assertEquals("not available", thrown.getMessage());
     }
 
     @Test
@@ -379,7 +379,7 @@ class ShipTest {
             Ship ship = new Ship(dto);
             ship.setCargo("2_n1");
         });
-        Assertions.assertEquals("Cargo just have ONLY numbers or letters.", thrown.getMessage());
+        assertEquals("Cargo just have ONLY numbers or letters.", thrown.getMessage());
 
     }
 
@@ -389,7 +389,7 @@ class ShipTest {
         Ship ship = new Ship(dto);
         ShipDTO dto1 = new ShipDTO(111111112, "VARAMA", "IMO3412345", "C5SQ2", 71, 2, 3, 9.4, "BA");
         Ship ship1 = new Ship(dto1);
-        org.junit.Assert.assertNotNull(ship1.compareTo(ship));
+        Assert.assertNotNull(ship1.compareTo(ship));
     }
 
     @Test
@@ -398,7 +398,7 @@ class ShipTest {
         Ship ship = new Ship(dto);
         ShipDTO dto1 = new ShipDTO(111111111, "VARAMO", "IMO3212345", "C4SQ2", 70, 1, 1, 9.5, "NA");
         Ship ship1 = new Ship(dto1);
-        org.junit.Assert.assertNotNull(ship1.equals(ship));
+        Assert.assertNotNull(ship1.equals(ship));
     }
 
 

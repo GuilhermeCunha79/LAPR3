@@ -1,4 +1,4 @@
-/*package lapr.project.utils;
+package utils;/*package lapr.project.utils;
 
 import lapr.project.model.Ship;
 import lapr.project.utils.BST.BST;

@@ -10,17 +10,14 @@ import java.util.Scanner;
 
 public class FindShipUI {
 
-    DetailsShipController ctrl = new DetailsShipController("sships.csv");
+    DetailsShipController ctrl = new DetailsShipController();
 
-    public FindShipUI() throws IOException {
-    }
-
-    public void findShipUI(BST bstIMO, BST bstMMSI, BST bstCallSign) throws IOException {
+    public void findShipUI() throws IOException {
         Ship ship;
-        System.out.println("\nDigite o código IMO/MMSI/Call Sign do navio que pretende procurar:\n");
+        System.out.println("\nDigite o código IMO/MMSI/Call Sign do navio que pretende procurar:");
         Scanner scan = new Scanner(System.in);
         String code = scan.nextLine();
-        int option = 0;
+        int option;
         if (CommonMethods.imoVerification(code)) {
             option = 1;
         } else if (CommonMethods.checkIfStringJustHaveNumbers(code) && code.length() == 9) {
@@ -28,12 +25,12 @@ public class FindShipUI {
         } else {
             option = 3;
         }
-
+        System.out.println("\nShip details:");
         switch (option) {
             case 1:
                 System.out.println("Searched by IMO:\n");
                 try {
-                    ship = ctrl.searchByIMO(bstIMO,code);
+                    ship = ctrl.searchByIMO(code);
                     System.out.println(ship.toString());
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -41,18 +38,18 @@ public class FindShipUI {
 
                 break;
             case 2:
-                System.out.println("Searched by MMSI:\n");
+                System.out.println("\nSearched by MMSI:");
                 try {
-                    ship = ctrl.searchByMMSI(bstMMSI,Integer.parseInt(code));
+                    ship = ctrl.searchByMMSI(Integer.parseInt(code));
                     System.out.println(ship.toString());
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
                 break;
             case 3:
-                System.out.println("Searched by Call Sign:\n");
+                System.out.println("\nSearched by Call Sign:\n");
                 try {
-                    ship = ctrl.searchByCallSign(bstCallSign,code);
+                    ship = ctrl.searchByCallSign(code);
                     System.out.println(ship.toString());
                 } catch (IOException e) {
                     e.printStackTrace();

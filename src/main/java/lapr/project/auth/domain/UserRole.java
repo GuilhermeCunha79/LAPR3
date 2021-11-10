@@ -1,4 +1,4 @@
-/*package lapr.project.auth.domain;
+package lapr.project.auth.domain;
 
 
 
@@ -10,7 +10,7 @@ import java.util.Objects;
 /**
  *
  * @author Paulo Maio <pam@isep.ipp.pt>
- *//*
+ */
 public class UserRole implements Serializable {
 
     private String id;
@@ -75,4 +75,4 @@ public class UserRole implements Serializable {
     public String toString() {
         return String.format("%s - %s", this.id, this.description);
     }
-}*/
+}

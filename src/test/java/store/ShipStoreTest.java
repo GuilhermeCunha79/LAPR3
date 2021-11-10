@@ -1,0 +1,75 @@
+package store;
+
+import lapr.project.model.Ship;
+import lapr.project.store.ShipStore;
+import lapr.project.utils.BST.BST;
+import lapr.project.utils.DTO.ShipDTO;
+import org.junit.Before;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class ShipStoreTest {
+
+    ShipStore store = new ShipStore();
+
+    @Before
+    public void createShipTree() {
+        ShipDTO dto = new ShipDTO(111111111, "VARAMO", "IMO3212345", "C4SQ2", 70, 1, 1, 9.5, "NA");
+        Ship ct01 = store.newShip(dto);
+        store.saveShip(ct01,"MMSI");
+    }
+
+    @Test
+    public void ensureCannotAddSameShipTwice() {
+        ShipDTO dto = new ShipDTO(114111111, "VARAMO", "IMO3212345", "C4SQ2", 70, 1, 1, 9.5, "NA");
+        Ship ct01 = store.newShip(dto);
+        Ship ct02 = store.newShip(dto);
+        store.saveShip(ct01,"MMSI");
+        assertFalse(store.saveShip(ct02,"MMSI"));
+    }
+
+    /*@Test
+    public void getClientListTest(){
+        ShipDTO dto = new ShipDTO(114133111, "VARAMO", "IMO3212345", "C4SQ2", 70, 1, 1, 9.5, "NA");
+        Ship ct01 = store.newShip(dto);
+        BST<Ship> shipBST=new BST<>();
+        shipBST.insert(ct01);
+        store.saveShip(ct01,"MMSI");
+        assertEquals(shipBST, store.getShipTree());
+    }*/
+
+    @Test
+    public void getShipByMmsi(){
+        ShipDTO dto = new ShipDTO(543456768, "VARAMO", "IMO3212345", "C4SQ2", 70, 1, 1, 9.5, "NA");
+        Ship ct01 = store.newShip(dto);
+        store.saveShip(ct01,"MMSI");
+        int mmsi=543456768;
+        assertEquals(ct01, store.getShipByMMSI(mmsi));
+    }
+
+    @Test
+    public void testSaveClient() {
+        ShipDTO dto = new ShipDTO(653919469, "VARAMO", "IMO3212345", "C4SQ2", 70, 1, 1, 9.5, "NA");
+        Ship ct01 = store.newShip(dto);
+        assertTrue(store.saveShip(ct01,"MMSI"));
+    }
+
+    @Test
+    public void checkDuplicate(){
+        ShipDTO dto = new ShipDTO(653929469, "VARAMO", "IMO3212345", "C4SQ2", 70, 1, 1, 9.5, "NA");
+        Ship ct01 = store.newShip(dto);
+        store.saveShip(ct01,"MMSI");
+        ShipDTO dto1 = new ShipDTO(653929469, "VARAMO", "IMO3212345", "C4SQ2", 70, 1, 1, 9.5, "NA");
+        Ship ct02 = store.newShip(dto1);
+        store.saveShip(ct02,"MMSI");
+        assertTrue(store.checkDuplicate(ct01));
+    }
+
+    @Test
+    public void validateShip(){
+        ShipDTO dto = new ShipDTO(989898989, "VARAMO", "IMO3212445", "C4SQ2", 70, 1, 1, 9.5, "NA");
+        Ship ct01 = store.newShip(dto);
+        store.saveShip(ct01,"MMSI");
+        assertFalse(store.validateShip(ct01));
+    }
+}

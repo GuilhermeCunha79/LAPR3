@@ -1,7 +1,6 @@
 package lapr.project.ui;
 
 import lapr.project.controller.ImportShipsController;
-import lapr.project.model.CalculatorExample;
 import lapr.project.model.Position;
 import lapr.project.model.Ship;
 import lapr.project.utils.BST.BST;
@@ -34,18 +33,19 @@ class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws IOException, SQLException {
+        ImportShipsUI uii= new ImportShipsUI();
         BST <Ship> bst = new BST<>();
         BST <Position> bst1 = new BST<>();
-        bst=ImportShipsUI.importShipsUI("sships.csv");
+        bst=uii.importShipsUI();
         bst1=ImportShipsController.importShipsPosition("sships.csv");
-        //CalculatorExample calculatorExample = new CalculatorExample();
+
         FindShipUI ui=new FindShipUI();
-        ImportShipsUI.importShipsUI("sships.csv");
-         //ui.findShipUI(bst,bst1,bst2);
-        //int value = calculatorExample.sum(3, 5);
+        //ImportShipsUI.importShipsUI("sships.csv");
+        ui.findShipUI();
+
 
         if (LOGGER.isLoggable(Level.INFO)) {
-            LOGGER.log(Level.INFO, bst1.toString());
+            //LOGGER.log(Level.INFO, bst1.toString());
         }
     }
 }

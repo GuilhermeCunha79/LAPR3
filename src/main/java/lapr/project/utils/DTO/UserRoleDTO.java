@@ -1,4 +1,4 @@
-/*package lapr.project.utils.DTO;
+package lapr.project.utils.DTO;
 
 public class UserRoleDTO {
 
@@ -19,4 +19,4 @@ public class UserRoleDTO {
         return description;
     }
 }
-*/
+

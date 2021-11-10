@@ -296,8 +296,8 @@ public class Ship implements Comparable<Ship> {
                 "\nIMO='" + imo + '\'' +
                 "\nCall Sign='" + callSign + '\'' +
                 "\nVessel Type=" + vesselType +
-                "\nLength=" + length +
-                "\nWidth=" + width +
+                "\nLength=" + length +"m"+
+                "\nWidth=" + width +"m"+
                 "\nDraft=" + draft +
                 "\nCargo='" + cargo + '\'' +
                 "\nPower Output=" + powerOutput;
