@@ -1,9 +1,11 @@
-package lapr.project.controller;
+/*package controller;
 
+import lapr.project.controller.ImportShipsController;
 import lapr.project.model.CallSignTree;
 import lapr.project.model.IMOTree;
 import lapr.project.model.Position;
 import lapr.project.model.Ship;
+import lapr.project.store.ShipStore;
 import lapr.project.utils.BST.BST;
 import lapr.project.utils.DTO.ShipDTO;
 import org.junit.jupiter.api.Assertions;
@@ -13,6 +15,8 @@ import java.io.IOException;
 
 class ImportShipsControllerTest {
 
+    private ShipStore store;
+    ImportShipsController ctrl=new ImportShipsController();
     @Test
     void importShips() throws IOException {
         BST<Ship> result = new BST<>();
@@ -20,26 +24,26 @@ class ImportShipsControllerTest {
 
         ShipDTO shipDTO1 = new ShipDTO(210950015, "VARAMO", "IMO9395044", "C4SQ2", 70, 166, 25, 9.5, "NA");
         Ship ship1 = new Ship(shipDTO1);
-        result.insert(ship1);
+        store.saveShip(ship1,"MMSI");
         ShipDTO shipDTO2 = new ShipDTO(210950010, "VARAMO", "IMO9395044", "C4SQ2", 70, 166, 25, 9.5, "NA");
         Ship ship2 = new Ship(shipDTO2);
-        result.insert(ship2);
+        store.saveShip(ship2,"MMSI");
         ShipDTO shipDTO3 = new ShipDTO(210950020, "SAITA I", "IMO9643544", "5BBA4", 70, 228, 32, 14.4, "NA");
         Ship ship3 = new Ship(shipDTO3);
-        result.insert(ship3);
+        store.saveShip(ship3,"MMSI");
         ShipDTO shipDTO4 = new ShipDTO(210950008, "SAITA I", "IMO9643544", "5BBA4", 70, 228, 32, 14.4, "NA");
         Ship ship4 = new Ship(shipDTO4);
-        result.insert(ship4);
+        store.saveShip(ship4,"MMSI");
         ShipDTO shipDTO5 = new ShipDTO(210950012, "CMA CGM ALMAVIVA", "IMO9450648", "FLSUE", 70, 334, 42, 15, "79");
         Ship ship5 = new Ship(shipDTO5);
-        result.insert(ship5);
+        store.saveShip(ship5,"MMSI");
         ShipDTO shipDTO6 = new ShipDTO(210950017, "CMA CGM ALMAVIVA", "IMO9450648", "FLSUE", 70, 334, 42, 15, "79");
         Ship ship6 = new Ship(shipDTO6);
-        result.insert(ship6);
+        store.saveShip(ship6,"MMSI");
         ShipDTO shipDTO7 = new ShipDTO(210950025, "CMA CGM ALMAVIVA", "IMO9450648", "FLSUE", 70, 334, 42, 15, "79");
         Ship ship7 = new Ship(shipDTO7);
-        result.insert(ship7);
-        expResult = ImportShipsController.importShips("sshipsTest.txt", "MMSI");
+        store.saveShip(ship7,"MMSI");
+        expResult = ctrl.importShips("sshipsTest.txt", "MMSI");
         Assertions.assertEquals(result.size(), expResult.size());
     }
 
@@ -77,7 +81,7 @@ class ImportShipsControllerTest {
         ShipDTO shipDTO7 = new ShipDTO(210950025, "CMA CGM ALMAVIVA", "IMO9450648", "FLSUE", 70, 334, 42, 15, "79");
         Ship ship7 = new Ship(shipDTO7);
         result.insert(ship7);
-        expResult = ImportShipsController.importShips("sshipsTest.txt", "MMSI");
+        expResult = ctrl.importShips("sshipsTest.txt", "MMSI");
         Assertions.assertEquals(result.smallestElement(), expResult.smallestElement());
     }
 
@@ -106,7 +110,7 @@ class ImportShipsControllerTest {
         ShipDTO shipDTO7 = new ShipDTO(210950025, "CMA CGM ALMAVIVA", "IMO9450648", "FLSUE", 70, 334, 42, 15, "79");
         Ship ship7 = new Ship(shipDTO7);
         result.insert(ship7);
-        expResult = ImportShipsController.importShips("sshipsTest.txt", "MMSI");
+        expResult = ctrl.importShips("sshipsTest.txt", "MMSI");
         Assertions.assertEquals(result.toString(), expResult.toString());
     }
 
@@ -136,7 +140,7 @@ class ImportShipsControllerTest {
         ShipDTO shipDTO7 = new ShipDTO(210950025, "CMA CGM ALMAVIVA", "IMO9450648", "FLSUE", 70, 334, 42, 15, "79");
         IMOTree ship7 = new IMOTree(shipDTO7);
         result.insert(ship7);
-        expResult = ImportShipsController.importShips("sshipsTest.txt", "IMO");
+        expResult = ctrl.importShips("sshipsTest.txt", "IMO");
         Assertions.assertEquals(result.toString(), expResult.toString());
     }
 
@@ -165,7 +169,7 @@ class ImportShipsControllerTest {
         ShipDTO shipDTO7 = new ShipDTO(210950025, "CMA CGM ALMAVIVA", "IMO9450648", "FLSUE", 70, 334, 42, 15, "79");
         CallSignTree ship7 = new CallSignTree(shipDTO7);
         result.insert(ship7);
-        expResult = ImportShipsController.importShips("sshipsTest.txt", "CallSign");
+        expResult = ctrl.importShips("sshipsTest.txt", "CallSign");
         Assertions.assertEquals(result.toString(), expResult.toString());
     }
 
@@ -194,7 +198,7 @@ class ImportShipsControllerTest {
         ShipDTO shipDTO7 = new ShipDTO(210950025, "CMA CGM ALMAVIVA", "IMO9450648", "FLSUE", 70, 334, 42, 15, "79");
         CallSignTree ship7 = new CallSignTree(shipDTO7);
         result.insert(ship7);
-        expResult = ImportShipsController.importShips("sshipsTest.txt", "CallSign");
+        expResult = ctrl.importShips("sshipsTest.txt", "CallSign");
         Assertions.assertEquals(result.smallestElement(), expResult.smallestElement());
     }
 
@@ -223,7 +227,7 @@ class ImportShipsControllerTest {
         ShipDTO shipDTO7 = new ShipDTO(210950025, "CMA CGM ALMAVIVA", "IMO9450648", "FLSUE", 70, 334, 42, 15, "79");
         IMOTree ship7 = new IMOTree(shipDTO7);
         result.insert(ship7);
-        expResult = ImportShipsController.importShips("sshipsTest.txt", "IMO");
+        expResult = ctrl.importShips("sshipsTest.txt", "IMO");
         Assertions.assertEquals(result.smallestElement(), expResult.smallestElement());
     }
     @Test
@@ -252,7 +256,7 @@ class ImportShipsControllerTest {
             ShipDTO shipDTO7 = new ShipDTO(210950025, "CMA CGM ALMAVIVA", "IMO9450648", "FLSUE", 70, 334, 42, 15, "79");
             IMOTree ship7 = new IMOTree(shipDTO7);
             result.insert(ship7);
-            expResult = ImportShipsController.importShips("sQshipsTest.txt", "IMO");
+            expResult = ctrl.importShips("sQshipsTest.txt", "IMO");
             Assertions.assertEquals(result.smallestElement(), expResult.smallestElement());
         });
         Assertions.assertEquals("File not found", thrown.getMessage());
@@ -269,3 +273,4 @@ class ImportShipsControllerTest {
         Assertions.assertEquals("File not found", thrown.getMessage());
     }
 }
+*/

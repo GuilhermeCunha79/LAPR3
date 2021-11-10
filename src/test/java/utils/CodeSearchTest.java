@@ -1,4 +1,4 @@
-package lapr.project.utils;
+/*package utils;
 
 import lapr.project.model.CallSignTree;
 import lapr.project.model.IMOTree;
@@ -118,7 +118,7 @@ public class CodeSearchTest {
         CallSignTree expResult = new CallSignTree(sdto);
         //Ship result = cs.searchByMMSI(mmsiNumber);
         Ship result = cs.findShipCallSign(this.callSign, callSign);
-        Assert.assertTrue(expResult.equals(result));
+        Assert.assertEquals(expResult, result);
         //assertEquals(expResult, result);
 
     }
@@ -135,4 +135,4 @@ public class CodeSearchTest {
 
     }
 
-}
+}*/
