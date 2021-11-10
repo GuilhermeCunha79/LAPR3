@@ -8,14 +8,14 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
-/*
+
 public class DetailsShipControllerTest {
     DetailsShipController ctrl=new DetailsShipController();
-/*
+
     public DetailsShipControllerTest() throws IOException {
     }
 
-    @Test
+    /*@Test
     public void checksearchByMMSI() throws IOException {
         BST<Ship> result = new BST<>();
         ShipDTO shipDTO1 = new ShipDTO(210950015, "VARAMO", "IMO9395044", "C4SQ2", 70, 166, 25, 9.5, "NA");
@@ -39,9 +39,9 @@ public class DetailsShipControllerTest {
         ShipDTO shipDTO7 = new ShipDTO(210950025, "CMA CGM ALMAVIVA", "IMO9450648", "FLSUE", 70, 334, 42, 15, "79");
         Ship ship7 = new Ship(shipDTO7);
         result.insert(ship7);
-        Assertions.assertEquals(ship3,ctrl.searchByMMSI(result,210950020));
+        Assertions.assertEquals(ship3,ctrl.searchByMMSI(210950020));
 
-    }
+    }*/
 
     @Test
     public void checksearchByMmsiWrong() throws IOException {
@@ -67,11 +67,11 @@ public class DetailsShipControllerTest {
         ShipDTO shipDTO7 = new ShipDTO(210950025, "CMA CGM ALMAVIVA", "IMO9450648", "FLSUE", 70, 334, 42, 15, "79");
         Ship ship7 = new Ship(shipDTO7);
         result.insert(ship7);
-        Assertions.assertNotEquals(ship2,ctrl.searchByMMSI(result,210950020));
+        Assertions.assertNotEquals(ship2,ctrl.searchByMMSI(210950020));
 
     }
-
-    /*@Test
+/*
+    @Test
     public void checksearchByImo() throws IOException {
         BST<Ship> result = new BST<>();
         ShipDTO shipDTO1 = new ShipDTO(210950015, "VARAMO", "IMO9395044", "C4SQ2", 70, 166, 25, 9.5, "NA");
@@ -95,10 +95,10 @@ public class DetailsShipControllerTest {
         ShipDTO shipDTO7 = new ShipDTO(210950025, "CMA CGM ALMAVIVA", "IMO9450648", "FLSUE", 70, 334, 42, 15, "79");
         Ship ship7 = new Ship(shipDTO7);
         result.insert(ship7);
-        Assertions.assertEquals(ship6,ctrl.searchByIMO(result,"IMO9450668"));
+        Assertions.assertEquals(ship6,ctrl.searchByIMO("IMO9450668"));
 
     }
-
+*/
     @Test
     public void checksearchByImoWrong() throws IOException {
         BST<Ship> result = new BST<>();
@@ -123,12 +123,12 @@ public class DetailsShipControllerTest {
         ShipDTO shipDTO7 = new ShipDTO(210950025, "CMA CGM ALMAVIVA", "IMO9450648", "FLSUE", 70, 334, 42, 15, "79");
         Ship ship7 = new Ship(shipDTO7);
         result.insert(ship7);
-        Assertions.assertNotEquals(ship1,ctrl.searchByIMO(result,"IMO9450668"));
+        Assertions.assertNotEquals(ship1,ctrl.searchByIMO("IMO9450668"));
 
     }
-
-   /* @Test
-    public void checksearchByCallSign() throws IOException {
+/*
+    @Test
+    public void checkSearchByCallSign() throws IOException {
         BST<Ship> result = new BST<>();
         ShipDTO shipDTO1 = new ShipDTO(210950015, "VARAMO", "IMO9395044", "C4SQ2", 70, 166, 25, 9.5, "NA");
         Ship ship1 = new Ship(shipDTO1);
@@ -151,9 +151,9 @@ public class DetailsShipControllerTest {
         ShipDTO shipDTO7 = new ShipDTO(210950025, "CMA CGM ALMAVIVA", "IMO9450648", "FLSUUE", 70, 334, 42, 15, "79");
         Ship ship7 = new Ship(shipDTO7);
         result.insert(ship7);
-        Assertions.assertEquals(ship7,ctrl.searchByCallSign(result,"FLSUUE"));
+        Assertions.assertEquals(ship7,ctrl.searchByCallSign("FLSUUE"));
 
-    }
+    }*/
 
     @Test
     public void checksearchByCallSignWrong() throws IOException {
@@ -179,7 +179,7 @@ public class DetailsShipControllerTest {
         ShipDTO shipDTO7 = new ShipDTO(210950025, "CMA CGM ALMAVIVA", "IMO9450648", "FLSUUE", 70, 334, 42, 15, "79");
         Ship ship7 = new Ship(shipDTO7);
         result.insert(ship7);
-        Assertions.assertNotEquals(ship1,ctrl.searchByCallSign(result,"FLSUUE"));
+        Assertions.assertNotEquals(ship1,ctrl.searchByCallSign("FLSUUE"));
 
     }
-}*/
+}
