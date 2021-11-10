@@ -202,7 +202,7 @@ class DistanceCalculatorTest {
         Map<Ship, Set<Position>> map = PositionalMessagesController.associatePositions(bst2, bst1);
         List<Position> positions = PositionalMessagesController.getPositionalMessages(ship1, map, date1, date2);
 
-        Assertions.assertEquals(85261.64759566927, DistanceCalculator.travelledDistance(positions));
+        Assertions.assertEquals(85262, Math.round(DistanceCalculator.travelledDistance(positions)));
 
     }
 
@@ -415,9 +415,9 @@ class DistanceCalculatorTest {
 
         Map<Ship, Set<Position>> map = PositionalMessagesController.associatePositions(bst2, bst1);
         List<Position> positions = PositionalMessagesController.getPositionalMessages(ship1, map, date1, date2);
-        double expected = 85222.07283417888;
+        double expected = 85222;
 
-        Assertions.assertEquals(expected, DistanceCalculator.deltaDistance(positions));
+        Assertions.assertEquals(expected, Math.round(DistanceCalculator.deltaDistance(positions)));
     }
 
     //https://github.com/ice-lenor/ExampleUnitTests/blob/master/src/test/java/geometry/GeometryHelpersTest2.java
