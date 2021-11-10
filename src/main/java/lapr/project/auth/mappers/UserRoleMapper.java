@@ -1,7 +1,7 @@
-/*package lapr.project.utils.mappers;
+package lapr.project.auth.mappers;
 
-import lapr.project.auth.domain.UserRole;
-import lapr.project.utils.DTO.UserRoleDTO;
+import lapr.project.auth.domain.model.UserRole;
+import lapr.project.auth.mappers.dto.UserRoleDTO;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,4 +22,4 @@ public class UserRoleMapper {
         }
         return rolesDTO;
     }
-}*/
+}

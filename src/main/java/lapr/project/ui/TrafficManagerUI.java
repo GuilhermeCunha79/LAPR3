@@ -1,4 +1,7 @@
-package lapr.project.ui;
+/*package lapr.project.ui;
 
-public class TrafficManagerUI {
-}
+import java.awt.*;
+
+public class TrafficManagerUI  {
+
+}*/
