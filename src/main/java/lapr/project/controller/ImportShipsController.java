@@ -46,12 +46,13 @@ public class ImportShipsController extends BST<Ship> {
                         CallSignTree callSignTree = new CallSignTree(shipDTO);
                         this.ctrl.newShip(shipDTO);
                         this.shipStore.saveShipCallSign(callSignTree);
-                        bst.insert(ship);
+                        bst.insert(callSignTree);
                         break;
                     case ("IMO"):
                         IMOTree imoTree = new IMOTree(shipDTO);
                         this.ctrl.newShip(shipDTO);
                         this.shipStore.saveShipImo(imoTree);
+                        bst.insert(imoTree);
                         break;
                 }
             }

@@ -134,18 +134,91 @@ public class BST<E extends Comparable<E>> implements BSTInterface<E> {
 
      * Inserts an element in the tree.
      */
-    public void insert(E element) {
-        root = insert(element, root);
-    }
+   public void insert(E element) {
+       root = insert(root, element);
+       switch (balanceNumber(root)) {
+           case 1:
+               root = rotateLeft(root);
+               break;
+           case -1:
+               root = rotateRight(root);
+               break;
+           default:
+               break;
+       }
+       root = insert(root(),element);
+   }
 
-    private Node<E> insert(E element, Node<E> node) {
-        if (node == null) return new Node<>(element, null, null);
-        if (node.getElement().compareTo(element) < 0)
-            node.setRight(insert(element, node.getRight()));
-        if (node.getElement().compareTo(element) > 0)
-            node.setLeft(insert(element, node.getLeft()));
+    public Node<E> insert(Node<E> node, E element) {
+        if (node == null)
+            return new Node<E>(element,null,null);
+        if (node.getElement().compareTo(element) > 0) {
+            node = new Node<E>(node.getElement(), insert(node.getLeft(), element),
+                    node.getRight());
+            // node.setLeft(insert(node.getLeft(), element));
+        } else if (node.getElement().compareTo(element) < 0) {
+            // node.setRight(insert(node.getRight(), element));
+            node = new Node<E>(node.getElement(), node.getLeft(), insert(
+                    node.getRight(), element));
+        }
+        // After insert the new node, check and rebalance the current node if
+        // necessary.
+        switch (balanceNumber(node)) {
+            case 1:
+                node = rotateLeft(node);
+                break;
+            case -1:
+                node = rotateRight(node);
+                break;
+            default:
+                return node;
+        }
         return node;
     }
+
+    private int balanceNumber(Node<E> node) {
+        int L = height(node.getLeft());
+        int R = height(node.getRight());
+        if (L - R >= 2)
+            return -1;
+        else if (L - R <= -2)
+            return 1;
+        return 0;
+    }
+
+    private Node<E> rotateLeft(Node<E> node) {
+        Node<E> q = node;
+        Node<E> p = q.getRight();
+        Node<E> c = q.getLeft();
+        Node<E> a = p.getLeft();
+        Node<E> b = p.getRight();
+        q = new Node<E>(q.getElement(), c, a);
+        p = new Node<E>(p.getElement(), q, b);
+        return p;
+    }
+
+    private Node<E> rotateRight(Node<E> node) {
+        Node<E> q = node;
+        Node<E> p = q.getLeft();
+        Node<E> c = q.getRight();
+        Node<E> a = p.getLeft();
+        Node<E> b = p.getRight();
+        q = new Node<E>(q.getElement(), b, c);
+        p = new Node<E>(p.getElement(), a, q);
+        return p;
+    }
+//    public void insert(E element) {
+//        root = insert(element, root);
+//    }
+//
+//    private Node<E> insert(E element, Node<E> node) {
+//        if (node == null) return new Node<>(element, null, null);
+//        if (node.getElement().compareTo(element) < 0)
+//            node.setRight(insert(element, node.getRight()));
+//        if (node.getElement().compareTo(element) > 0)
+//            node.setLeft(insert(element, node.getLeft()));
+//        return node;
+//    }
 
     /**
      * Removes an element from the tree maintaining its consistency as a Binary Search Tree.
