@@ -1,11 +1,12 @@
-package model;
-/*
+/*package model;
+
 import lapr.project.controller.ImportShipsController;
+import lapr.project.controller.PositionalMessagesController;
+import lapr.project.model.Position;
+import lapr.project.model.Ship;
 import lapr.project.utils.BST.BST;
 import lapr.project.utils.DTO.PositionDTO;
 import lapr.project.utils.DTO.ShipDTO;
-import org.junit.Assert;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.io.FileNotFoundException;
@@ -19,21 +20,23 @@ import java.util.Set;
 import static org.junit.jupiter.api.Assertions.*;
 
 class PositionalMessagesTest {
+    ImportShipsController ctrl = new ImportShipsController();
+    PositionalMessagesController ctrl1 = new PositionalMessagesController();
 
-   @Test
+    @Test
     void getPositionalMessages() throws IOException {
         List<Position> list = new ArrayList<>();
-        BST<Ship> bst1= ImportShipsController.importShips("sships.csv","MMSI");
+        BST<Ship> bst1 = ctrl.importShips("sships.csv", "MMSI");
         BST<Position> bst2 = ImportShipsController.importShipsPosition("sships.csv");
 
-        LocalDateTime date1 = LocalDateTime.of(2020,12,31,0,0);
-        LocalDateTime date2 = LocalDateTime.of(2020,12,31,0,20);
+        LocalDateTime date1 = LocalDateTime.of(2020, 12, 31, 0, 0);
+        LocalDateTime date2 = LocalDateTime.of(2020, 12, 31, 0, 20);
 
-        ShipDTO shipDTO1=new ShipDTO(228339600,"CMA CGM ALMAVIVA","IMO9450648","FLSU",70,334,42,15,"79");
+        ShipDTO shipDTO1 = new ShipDTO(228339600, "CMA CGM ALMAVIVA", "IMO9450648", "FLSU", 70, 334, 42, 15, "79");
         Ship ship1 = new Ship(shipDTO1);
 
-        Map<Ship, Set<Position>> map = PositionalMessages.associatePositions(bst2, bst1);
-        List<Position> positions = PositionalMessages.getPositionalMessages(ship1, map, date1, date2);
+        Map<Ship, Set<Position>> map = PositionalMessagesController.associatePositions(bst2, bst1);
+        List<Position> positions = PositionalMessagesController.getPositionalMessages(ship1, map, date1, date2);
 
         PositionDTO dto1 = new PositionDTO(228339600, "31/12/2020 00:16", 28.34134, -88.83706, 11.899999618530273, 126.9000015258789, 129, "B");
         Position p1 = new Position(dto1);
@@ -52,9 +55,10 @@ class PositionalMessagesTest {
         list.add(p1);
         list.add(p4);
 
-        assertEquals(list,positions);
+        assertEquals(list, positions);
     }
-
+}
+*/
    /* @Test
     public void associatePositions() throws FileNotFoundException {
 

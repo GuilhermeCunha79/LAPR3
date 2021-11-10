@@ -1,7 +1,10 @@
-package lapr.project.model;
+package lapr.project.controller;
 
 
 import lapr.project.controller.App;
+import lapr.project.model.Company;
+import lapr.project.model.Position;
+import lapr.project.model.Ship;
 import lapr.project.store.PositionStore;
 import lapr.project.store.ShipStore;
 import lapr.project.utils.BST.BST;
