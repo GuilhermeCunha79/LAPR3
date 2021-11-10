@@ -1,5 +1,7 @@
 package lapr.project.store;
 
+import lapr.project.model.CallSignTree;
+import lapr.project.model.IMOTree;
 import lapr.project.model.Ship;
 import lapr.project.utils.BST.BST;
 import lapr.project.utils.BST.CodeSearch;
@@ -23,7 +25,7 @@ public class ShipStore {
         return new BST<>(shipTree);
     }
 
-    private boolean addShipMmsi(Ship ship) {
+    public boolean addShipMmsi(Ship ship) {
         if (validateShip(ship)) {
             this.shipTree.insert(ship);
             return true;
@@ -31,7 +33,15 @@ public class ShipStore {
         return false;
     }
 
-    private boolean addShipImo(Ship ship) {
+    private boolean addShipImo(IMOTree ship) {
+        if (validateShip(ship)) {
+            this.shipTree.insert(ship);
+            return true;
+        }
+        return false;
+    }
+
+    private boolean addShipCallSign(CallSignTree ship) {
         if (validateShip(ship)) {
             this.shipTree.insert(ship);
             return true;
@@ -90,21 +100,30 @@ public class ShipStore {
      * @param ship object test to be saved
      * @return true if added with success, false if not
      */
-    public boolean saveShip(Ship ship, String type) {
+    public boolean saveShipMmsi(Ship ship, String type) {
         if (validateShip(ship)) {
-            if(type.equals("MMSI")) {
+            if (ship != null) {
                 addShipMmsi(ship);
-                CommonMethods.serializeStore(this.shipTree, "data\\ship.dat");
-                return true;
-            }else if (type.equals("IMO")){
-                addShipMmsi(ship);
-                CommonMethods.serializeStore(this.shipTree, "data\\ship.dat");
-                return true;
-            }else if(type.equals("Call Sign")){
-                addShipMmsi(ship);
-                CommonMethods.serializeStore(this.shipTree, "data\\ship.dat");
                 return true;
             }
+        }
+        return false;
+    }
+
+    public boolean saveShipImo(IMOTree tree){
+        if(tree!=null) {
+            addShipImo(tree);
+            CommonMethods.serializeStore(this.shipTree, "data\\ship.dat");
+            return true;
+        }
+        return false;
+    }
+
+    public boolean saveShipCallSign(CallSignTree tree){
+        if(tree!=null) {
+            addShipCallSign(tree);
+            CommonMethods.serializeStore(this.shipTree, "data\\ship.dat");
+            return true;
         }
         return false;
     }

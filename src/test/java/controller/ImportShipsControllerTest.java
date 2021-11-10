@@ -5,7 +5,6 @@ import lapr.project.model.CallSignTree;
 import lapr.project.model.IMOTree;
 import lapr.project.model.Position;
 import lapr.project.model.Ship;
-import lapr.project.store.ShipStore;
 import lapr.project.utils.BST.BST;
 import lapr.project.utils.DTO.ShipDTO;
 import org.junit.jupiter.api.Assertions;
@@ -113,9 +112,8 @@ class ImportShipsControllerTest {
         expResult = ctrl.importShips("sshipsTest.txt", "MMSI");
         Assertions.assertEquals(result.toString(), expResult.toString());
     }
-}
-/*
-    @Test
+
+   /* @Test
     public void importShipsTest6() throws IOException {
         BST<Ship> result = new BST<>();
         BST<Ship> expResult = new BST<>();
@@ -230,7 +228,7 @@ class ImportShipsControllerTest {
         result.insert(ship7);
         expResult = ctrl.importShips("sshipsTest.txt", "IMO");
         Assertions.assertEquals(result.smallestElement(), expResult.smallestElement());
-    }
+    }*/
 
     @Test
     public void importShipsTest10() throws IOException {
@@ -258,13 +256,12 @@ class ImportShipsControllerTest {
             ShipDTO shipDTO7 = new ShipDTO(210950025, "CMA CGM ALMAVIVA", "IMO9450648", "FLSUE", 70, 334, 42, 15, "79");
             IMOTree ship7 = new IMOTree(shipDTO7);
             result.insert(ship7);
-            //expResult = ctrl.importShips("sQshipsTest.txt", "IMO");
+            expResult = ctrl.importShips("sQshipsTest.txt", "IMO");
             Assertions.assertEquals(result.smallestElement(), expResult.smallestElement());
         });
         Assertions.assertEquals("File not found", thrown.getMessage());
     }
-}*/
-/*
+
     @Test
     public void importPositionsTest3() {
         Exception thrown = Assertions.assertThrows(Exception.class, () -> {
@@ -275,4 +272,4 @@ class ImportShipsControllerTest {
         });
         Assertions.assertEquals("File not found", thrown.getMessage());
     }
-}*/
+}
