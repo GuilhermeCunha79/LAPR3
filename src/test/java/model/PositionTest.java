@@ -1,8 +1,8 @@
 package model;
 
-import lapr.project.model.Position;
-import lapr.project.utils.CommonMethods;
-import lapr.project.utils.DTO.PositionDTO;
+import app.model.Position;
+import app.utils.CommonMethods;
+import app.utils.DTO.PositionDTO;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

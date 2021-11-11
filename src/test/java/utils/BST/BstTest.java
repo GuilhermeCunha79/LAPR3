@@ -1,6 +1,6 @@
 package utils.BST;
 
-import lapr.project.utils.BST.BST;
+import app.utils.BST.BST;
 import org.junit.Before;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

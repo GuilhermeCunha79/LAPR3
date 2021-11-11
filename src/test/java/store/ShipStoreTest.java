@@ -1,9 +1,9 @@
 package store;
 
-import lapr.project.model.Ship;
-import lapr.project.store.ShipStore;
-import lapr.project.utils.BST.BST;
-import lapr.project.utils.DTO.ShipDTO;
+import app.model.Ship;
+import app.store.ShipStore;
+import app.utils.BST.BST;
+import app.utils.DTO.ShipDTO;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;

@@ -1,21 +1,18 @@
 package model;
 
 
-import lapr.project.controller.ImportShipsController;
-import lapr.project.controller.PositionalMessagesController;
-import lapr.project.model.DistanceCalculator;
-import lapr.project.model.Position;
-import lapr.project.model.Ship;
-import lapr.project.utils.BST.BST;
-import lapr.project.utils.CommonMethods;
-import lapr.project.utils.Constants;
-import lapr.project.utils.DTO.ShipDTO;
+import app.controller.ImportShipsController;
+import app.controller.PositionalMessagesController;
+import app.model.DistanceCalculator;
+import app.model.Position;
+import app.model.Ship;
+import app.utils.BST.BST;
+import app.utils.Constants;
+import app.utils.DTO.ShipDTO;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
@@ -195,7 +192,7 @@ class DistanceCalculatorTest {
     void travelledDistance() throws IOException {
 
         BST<Ship> bst1 = ctrl.importShips("sships.csv", "MMSI");
-        BST<Position> bst2 = ImportShipsController.importShipsPosition("sships.csv");
+        BST<Position> bst2 = ctrl.importShipsPosition("sships.csv");
 
         LocalDateTime date1 = LocalDateTime.of(1, 1, 1, 0, 0);
         LocalDateTime date2 = LocalDateTime.now();
@@ -203,8 +200,8 @@ class DistanceCalculatorTest {
         ShipDTO shipDTO1 = new ShipDTO(228339600, "CMA CGM ALMAVIVA", "IMO9450648", "FLSU", 70, 334, 42, 15, "79");
         Ship ship1 = new Ship(shipDTO1);
 
-        Map<Ship, Set<Position>> map = PositionalMessagesController.associatePositions(bst2, bst1);
-        List<Position> positions = PositionalMessagesController.getPositionalMessages(ship1, map, date1, date2);
+        Map<Ship, Set<Position>> map = ctrl1.associatePositions(bst2, bst1);
+        List<Position> positions = ctrl1.getPositionalMessages(ship1, map, date1, date2);
 
         Assertions.assertEquals(85262, Math.round(DistanceCalculator.travelledDistance(positions)));
 
@@ -213,7 +210,7 @@ class DistanceCalculatorTest {
     @Test
     void getStartDateBaseTime() throws IOException {
         BST<Ship> bst1 = ctrl.importShips("sships.csv", "MMSI");
-        BST<Position> bst2 = ImportShipsController.importShipsPosition("sships.csv");
+        BST<Position> bst2 = ctrl.importShipsPosition("sships.csv");
 
         LocalDateTime date1 = LocalDateTime.of(1, 1, 1, 0, 0);
         LocalDateTime date2 = LocalDateTime.now();
@@ -221,8 +218,8 @@ class DistanceCalculatorTest {
         ShipDTO shipDTO1 = new ShipDTO(228339600, "CMA CGM ALMAVIVA", "IMO9450648", "FLSU", 70, 334, 42, 15, "79");
         Ship ship1 = new Ship(shipDTO1);
 
-        Map<Ship, Set<Position>> map = PositionalMessagesController.associatePositions(bst2, bst1);
-        List<Position> positions = PositionalMessagesController.getPositionalMessages(ship1, map, date1, date2);
+        Map<Ship, Set<Position>> map = ctrl1.associatePositions(bst2, bst1);
+        List<Position> positions = ctrl1.getPositionalMessages(ship1, map, date1, date2);
         String expected = "31/12/2020 00:00";
         Assertions.assertEquals(expected, DistanceCalculator.getStartDateBaseTime(positions));
     }
@@ -230,7 +227,7 @@ class DistanceCalculatorTest {
     @Test
     void getEndDateBaseTime() throws IOException {
         BST<Ship> bst1 = ctrl.importShips("sships.csv", "MMSI");
-        BST<Position> bst2 = ImportShipsController.importShipsPosition("sships.csv");
+        BST<Position> bst2 = ctrl.importShipsPosition("sships.csv");
 
         LocalDateTime date1 = LocalDateTime.of(1, 1, 1, 0, 0);
         LocalDateTime date2 = LocalDateTime.now();
@@ -238,8 +235,8 @@ class DistanceCalculatorTest {
         ShipDTO shipDTO1 = new ShipDTO(228339600, "CMA CGM ALMAVIVA", "IMO9450648", "FLSU", 70, 334, 42, 15, "79");
         Ship ship1 = new Ship(shipDTO1);
 
-        Map<Ship, Set<Position>> map = PositionalMessagesController.associatePositions(bst2, bst1);
-        List<Position> positions = PositionalMessagesController.getPositionalMessages(ship1, map, date1, date2);
+        Map<Ship, Set<Position>> map = ctrl1.associatePositions(bst2, bst1);
+        List<Position> positions = ctrl1.getPositionalMessages(ship1, map, date1, date2);
         String expected = "31/12/2020 03:56";
         Assertions.assertEquals(expected, DistanceCalculator.getEndDateBaseTime(positions));
     }
@@ -247,7 +244,7 @@ class DistanceCalculatorTest {
     @Test
     void getNumberOfMovements() throws IOException {
         BST<Ship> bst1 = ctrl.importShips(Constants.FILE_NAME, "MMSI");
-        BST<Position> bst2 = ImportShipsController.importShipsPosition(Constants.FILE_NAME);
+        BST<Position> bst2 = ctrl.importShipsPosition(Constants.FILE_NAME);
 
         LocalDateTime date1 = LocalDateTime.of(1, 1, 1, 0, 0);
         LocalDateTime date2 = LocalDateTime.now();
@@ -255,8 +252,8 @@ class DistanceCalculatorTest {
         ShipDTO shipDTO1 = new ShipDTO(228339600, "CMA CGM ALMAVIVA", "IMO9450648", "FLSU", 70, 334, 42, 15, "79");
         Ship ship1 = new Ship(shipDTO1);
 
-        Map<Ship, Set<Position>> map = PositionalMessagesController.associatePositions(bst2, bst1);
-        List<Position> positions = PositionalMessagesController.getPositionalMessages(ship1, map, date1, date2);
+        Map<Ship, Set<Position>> map = ctrl1.associatePositions(bst2, bst1);
+        List<Position> positions = ctrl1.getPositionalMessages(ship1, map, date1, date2);
         int expected = 18;
 
         Assertions.assertEquals(expected, DistanceCalculator.getNumberOfMovements(positions));
@@ -265,7 +262,7 @@ class DistanceCalculatorTest {
     @Test
     void getMaxCOG() throws IOException {
         BST<Ship> bst1 = ctrl.importShips(Constants.FILE_NAME, "MMSI");
-        BST<Position> bst2 = ImportShipsController.importShipsPosition(Constants.FILE_NAME);
+        BST<Position> bst2 = ctrl.importShipsPosition(Constants.FILE_NAME);
 
         LocalDateTime date1 = LocalDateTime.of(1, 1, 1, 0, 0);
         LocalDateTime date2 = LocalDateTime.now();
@@ -273,8 +270,8 @@ class DistanceCalculatorTest {
         ShipDTO shipDTO1 = new ShipDTO(228339600, "CMA CGM ALMAVIVA", "IMO9450648", "FLSU", 70, 334, 42, 15, "79");
         Ship ship1 = new Ship(shipDTO1);
 
-        Map<Ship, Set<Position>> map = PositionalMessagesController.associatePositions(bst2, bst1);
-        List<Position> positions = PositionalMessagesController.getPositionalMessages(ship1, map, date1, date2);
+        Map<Ship, Set<Position>> map = ctrl1.associatePositions(bst2, bst1);
+        List<Position> positions = ctrl1.getPositionalMessages(ship1, map, date1, date2);
         double expected = 131.1;
 
         Assertions.assertEquals(expected, DistanceCalculator.getMaxCOG(positions), precision);
@@ -283,7 +280,7 @@ class DistanceCalculatorTest {
     @Test
     void getMeanCOG() throws IOException {
         BST<Ship> bst1 = ctrl.importShips(Constants.FILE_NAME, "MMSI");
-        BST<Position> bst2 = ImportShipsController.importShipsPosition(Constants.FILE_NAME);
+        BST<Position> bst2 = ctrl.importShipsPosition(Constants.FILE_NAME);
 
         LocalDateTime date1 = LocalDateTime.of(1, 1, 1, 0, 0);
         LocalDateTime date2 = LocalDateTime.now();
@@ -291,8 +288,8 @@ class DistanceCalculatorTest {
         ShipDTO shipDTO1 = new ShipDTO(228339600, "CMA CGM ALMAVIVA", "IMO9450648", "FLSU", 70, 334, 42, 15, "79");
         Ship ship1 = new Ship(shipDTO1);
 
-        Map<Ship, Set<Position>> map = PositionalMessagesController.associatePositions(bst2, bst1);
-        List<Position> positions = PositionalMessagesController.getPositionalMessages(ship1, map, date1, date2);
+        Map<Ship, Set<Position>> map = ctrl1.associatePositions(bst2, bst1);
+        List<Position> positions = ctrl1.getPositionalMessages(ship1, map, date1, date2);
         double expected = 129.0368423461914;
 
         Assertions.assertEquals(expected, DistanceCalculator.getMeanCOG(positions));
@@ -301,7 +298,7 @@ class DistanceCalculatorTest {
     @Test
     void getMaxSOG() throws IOException {
         BST<Ship> bst1 = ctrl.importShips(Constants.FILE_NAME, "MMSI");
-        BST<Position> bst2 = ImportShipsController.importShipsPosition(Constants.FILE_NAME);
+        BST<Position> bst2 = ctrl.importShipsPosition(Constants.FILE_NAME);
 
         LocalDateTime date1 = LocalDateTime.of(1, 1, 1, 0, 0);
         LocalDateTime date2 = LocalDateTime.now();
@@ -309,8 +306,8 @@ class DistanceCalculatorTest {
         ShipDTO shipDTO1 = new ShipDTO(228339600, "CMA CGM ALMAVIVA", "IMO9450648", "FLSU", 70, 334, 42, 15, "79");
         Ship ship1 = new Ship(shipDTO1);
 
-        Map<Ship, Set<Position>> map = PositionalMessagesController.associatePositions(bst2, bst1);
-        List<Position> positions = PositionalMessagesController.getPositionalMessages(ship1, map, date1, date2);
+        Map<Ship, Set<Position>> map = ctrl1.associatePositions(bst2, bst1);
+        List<Position> positions = ctrl1.getPositionalMessages(ship1, map, date1, date2);
         double expected = 12;
 
         Assertions.assertEquals(expected, DistanceCalculator.getMaxSOG(positions));
@@ -319,7 +316,7 @@ class DistanceCalculatorTest {
     @Test
     void getMeanSOG() throws IOException {
         BST<Ship> bst1 = ctrl.importShips(Constants.FILE_NAME, "MMSI");
-        BST<Position> bst2 = ImportShipsController.importShipsPosition(Constants.FILE_NAME);
+        BST<Position> bst2 = ctrl.importShipsPosition(Constants.FILE_NAME);
 
         LocalDateTime date1 = LocalDateTime.of(1, 1, 1, 0, 0);
         LocalDateTime date2 = LocalDateTime.now();
@@ -327,8 +324,8 @@ class DistanceCalculatorTest {
         ShipDTO shipDTO1 = new ShipDTO(228339600, "CMA CGM ALMAVIVA", "IMO9450648", "FLSU", 70, 334, 42, 15, "79");
         Ship ship1 = new Ship(shipDTO1);
 
-        Map<Ship, Set<Position>> map = PositionalMessagesController.associatePositions(bst2, bst1);
-        List<Position> positions = PositionalMessagesController.getPositionalMessages(ship1, map, date1, date2);
+        Map<Ship, Set<Position>> map = ctrl1.associatePositions(bst2, bst1);
+        List<Position> positions = ctrl1.getPositionalMessages(ship1, map, date1, date2);
         double expected = 11.731578927291068;
 
         Assertions.assertEquals(expected, DistanceCalculator.getMeanSOG(positions));
@@ -337,7 +334,7 @@ class DistanceCalculatorTest {
     @Test
     void getArrivalLat() throws IOException {
         BST<Ship> bst1 = ctrl.importShips(Constants.FILE_NAME, "MMSI");
-        BST<Position> bst2 = ImportShipsController.importShipsPosition(Constants.FILE_NAME);
+        BST<Position> bst2 = ctrl.importShipsPosition(Constants.FILE_NAME);
 
         LocalDateTime date1 = LocalDateTime.of(1, 1, 1, 0, 0);
         LocalDateTime date2 = LocalDateTime.now();
@@ -345,8 +342,8 @@ class DistanceCalculatorTest {
         ShipDTO shipDTO1 = new ShipDTO(228339600, "CMA CGM ALMAVIVA", "IMO9450648", "FLSU", 70, 334, 42, 15, "79");
         Ship ship1 = new Ship(shipDTO1);
 
-        Map<Ship, Set<Position>> map = PositionalMessagesController.associatePositions(bst2, bst1);
-        List<Position> positions = PositionalMessagesController.getPositionalMessages(ship1, map, date1, date2);
+        Map<Ship, Set<Position>> map = ctrl1.associatePositions(bst2, bst1);
+        List<Position> positions = ctrl1.getPositionalMessages(ship1, map, date1, date2);
         double expected = 27.87869;
 
         Assertions.assertEquals(expected, DistanceCalculator.getArrivalLat(positions));
@@ -355,7 +352,7 @@ class DistanceCalculatorTest {
     @Test
     void getArrivalLong() throws IOException {
         BST<Ship> bst1 = ctrl.importShips(Constants.FILE_NAME, "MMSI");
-        BST<Position> bst2 = ImportShipsController.importShipsPosition(Constants.FILE_NAME);
+        BST<Position> bst2 = ctrl.importShipsPosition(Constants.FILE_NAME);
 
         LocalDateTime date1 = LocalDateTime.of(1, 1, 1, 0, 0);
         LocalDateTime date2 = LocalDateTime.now();
@@ -363,8 +360,8 @@ class DistanceCalculatorTest {
         ShipDTO shipDTO1 = new ShipDTO(228339600, "CMA CGM ALMAVIVA", "IMO9450648", "FLSU", 70, 334, 42, 15, "79");
         Ship ship1 = new Ship(shipDTO1);
 
-        Map<Ship, Set<Position>> map = PositionalMessagesController.associatePositions(bst2, bst1);
-        List<Position> positions = PositionalMessagesController.getPositionalMessages(ship1, map, date1, date2);
+        Map<Ship, Set<Position>> map = ctrl1.associatePositions(bst2, bst1);
+        List<Position> positions = ctrl1.getPositionalMessages(ship1, map, date1, date2);
         double expected = -88.22321;
 
         Assertions.assertEquals(expected, DistanceCalculator.getArrivalLong(positions));
@@ -373,7 +370,7 @@ class DistanceCalculatorTest {
     @Test
     void getDepartureLat() throws IOException {
         BST<Ship> bst1 = ctrl.importShips(Constants.FILE_NAME, "MMSI");
-        BST<Position> bst2 = ImportShipsController.importShipsPosition(Constants.FILE_NAME);
+        BST<Position> bst2 = ctrl.importShipsPosition(Constants.FILE_NAME);
 
         LocalDateTime date1 = LocalDateTime.of(1, 1, 1, 0, 0);
         LocalDateTime date2 = LocalDateTime.now();
@@ -381,8 +378,8 @@ class DistanceCalculatorTest {
         ShipDTO shipDTO1 = new ShipDTO(228339600, "CMA CGM ALMAVIVA", "IMO9450648", "FLSU", 70, 334, 42, 15, "79");
         Ship ship1 = new Ship(shipDTO1);
 
-        Map<Ship, Set<Position>> map = PositionalMessagesController.associatePositions(bst2, bst1);
-        List<Position> positions = PositionalMessagesController.getPositionalMessages(ship1, map, date1, date2);
+        Map<Ship, Set<Position>> map = ctrl1.associatePositions(bst2, bst1);
+        List<Position> positions = ctrl1.getPositionalMessages(ship1, map, date1, date2);
         double expected = 28.37458;
 
         Assertions.assertEquals(expected, DistanceCalculator.getDepartureLat(positions));
@@ -391,7 +388,7 @@ class DistanceCalculatorTest {
     @Test
     void getDepartureLong() throws IOException {
         BST<Ship> bst1 = ctrl.importShips(Constants.FILE_NAME, "MMSI");
-        BST<Position> bst2 = ImportShipsController.importShipsPosition(Constants.FILE_NAME);
+        BST<Position> bst2 = ctrl.importShipsPosition(Constants.FILE_NAME);
 
         LocalDateTime date1 = LocalDateTime.of(1, 1, 1, 0, 0);
         LocalDateTime date2 = LocalDateTime.now();
@@ -399,8 +396,8 @@ class DistanceCalculatorTest {
         ShipDTO shipDTO1 = new ShipDTO(228339600, "CMA CGM ALMAVIVA", "IMO9450648", "FLSU", 70, 334, 42, 15, "79");
         Ship ship1 = new Ship(shipDTO1);
 
-        Map<Ship, Set<Position>> map = PositionalMessagesController.associatePositions(bst2, bst1);
-        List<Position> positions = PositionalMessagesController.getPositionalMessages(ship1, map, date1, date2);
+        Map<Ship, Set<Position>> map = ctrl1.associatePositions(bst2, bst1);
+        List<Position> positions = ctrl1.getPositionalMessages(ship1, map, date1, date2);
         double expected = -88.88584;
 
         Assertions.assertEquals(expected, DistanceCalculator.getDepartureLong(positions));
@@ -409,7 +406,7 @@ class DistanceCalculatorTest {
     @Test
     void deltaDistance() throws IOException {
         BST<Ship> bst1 = ctrl.importShips(Constants.FILE_NAME, "MMSI");
-        BST<Position> bst2 = ImportShipsController.importShipsPosition(Constants.FILE_NAME);
+        BST<Position> bst2 = ctrl.importShipsPosition(Constants.FILE_NAME);
 
         LocalDateTime date1 = LocalDateTime.of(1, 1, 1, 0, 0);
         LocalDateTime date2 = LocalDateTime.now();
@@ -417,8 +414,8 @@ class DistanceCalculatorTest {
         ShipDTO shipDTO1 = new ShipDTO(228339600, "CMA CGM ALMAVIVA", "IMO9450648", "FLSU", 70, 334, 42, 15, "79");
         Ship ship1 = new Ship(shipDTO1);
 
-        Map<Ship, Set<Position>> map = PositionalMessagesController.associatePositions(bst2, bst1);
-        List<Position> positions = PositionalMessagesController.getPositionalMessages(ship1, map, date1, date2);
+        Map<Ship, Set<Position>> map = ctrl1.associatePositions(bst2, bst1);
+        List<Position> positions = ctrl1.getPositionalMessages(ship1, map, date1, date2);
         double expected = 85222;
 
         Assertions.assertEquals(expected, Math.round(DistanceCalculator.deltaDistance(positions)));
@@ -428,7 +425,7 @@ class DistanceCalculatorTest {
     void getTotalMovementTime() throws IOException {
 
         BST<Ship> bst1 = ctrl.importShips(Constants.FILE_NAME, "MMSI");
-        BST<Position> bst2 = ImportShipsController.importShipsPosition(Constants.FILE_NAME);
+        BST<Position> bst2 = ctrl.importShipsPosition(Constants.FILE_NAME);
 
         LocalDateTime date1 = LocalDateTime.of(1, 1, 1, 0, 0);
         LocalDateTime date2 = LocalDateTime.now();
@@ -436,8 +433,8 @@ class DistanceCalculatorTest {
         ShipDTO shipDTO1 = new ShipDTO(228339600, "CMA CGM ALMAVIVA", "IMO9450648", "FLSU", 70, 334, 42, 15, "79");
         Ship ship1 = new Ship(shipDTO1);
 
-        Map<Ship, Set<Position>> map = PositionalMessagesController.associatePositions(bst2, bst1);
-        List<Position> positions = PositionalMessagesController.getPositionalMessages(ship1, map, date1, date2);
+        Map<Ship, Set<Position>> map = ctrl1.associatePositions(bst2, bst1);
+        List<Position> positions = ctrl1.getPositionalMessages(ship1, map, date1, date2);
 
         double expected = 236;
 
@@ -448,7 +445,7 @@ class DistanceCalculatorTest {
     void makeSumary() throws IOException {
 
         BST<Ship> bst1 = ctrl.importShips(Constants.FILE_NAME, "MMSI");
-        BST<Position> bst2 = ImportShipsController.importShipsPosition(Constants.FILE_NAME);
+        BST<Position> bst2 = ctrl.importShipsPosition(Constants.FILE_NAME);
 
         LocalDateTime date1 = LocalDateTime.of(1, 1, 1, 0, 0);
         LocalDateTime date2 = LocalDateTime.now();
@@ -456,8 +453,8 @@ class DistanceCalculatorTest {
         ShipDTO shipDTO1 = new ShipDTO(228339600, "CMA CGM ALMAVIVA", "IMO9450648", "FLSU", 70, 334, 42, 15, "79");
         Ship ship1 = new Ship(shipDTO1);
 
-        Map<Ship, Set<Position>> map = PositionalMessagesController.associatePositions(bst2, bst1);
-        List<Position> positions = PositionalMessagesController.getPositionalMessages(ship1, map, date1, date2);
+        Map<Ship, Set<Position>> map = ctrl1.associatePositions(bst2, bst1);
+        List<Position> positions = ctrl1.getPositionalMessages(ship1, map, date1, date2);
 
         String expected = "\nSHIP MOVEMENTS\n" +
                 "MMSI: 228339600\n" +

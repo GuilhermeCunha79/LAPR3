@@ -1,8 +1,7 @@
 package model;
 
-import lapr.project.model.ShipMovements;
-import lapr.project.utils.DTO.ShipMovementsDTO;
-import org.junit.Assert;
+import app.model.ShipMovements;
+import app.utils.DTO.ShipMovementsDTO;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -690,6 +689,6 @@ class ShipMovementsTest {
                 15, 10, 12.5, 12.5, 2.4, 2.4, 42.92236, -66.97243,
                 43.22513, -66.96725, 150, 12);
         ShipMovements shipMovements1 = new ShipMovements(dto1);
-        Assertions.assertTrue(shipMovements1.equals(shipMovements));
+        Assertions.assertEquals(shipMovements1, shipMovements);
     }
 }

@@ -1,10 +1,8 @@
 package model;
 
-import lapr.project.model.IMOTree;
-import lapr.project.model.MMSITree;
-import lapr.project.model.Ship;
-import lapr.project.utils.DTO.ShipDTO;
-import org.junit.jupiter.api.Assertions;
+import app.model.IMOTree;
+import app.model.Ship;
+import app.utils.DTO.ShipDTO;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

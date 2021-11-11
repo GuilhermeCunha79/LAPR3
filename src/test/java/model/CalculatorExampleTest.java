@@ -1,6 +1,6 @@
 package model;
 
-import lapr.project.model.CalculatorExample;
+import app.model.CalculatorExample;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

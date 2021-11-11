@@ -1,10 +1,10 @@
 package controller;
 
-import lapr.project.controller.DetailsShipController;
-import lapr.project.model.Ship;
-import lapr.project.store.ShipStore;
-import lapr.project.utils.BST.BST;
-import lapr.project.utils.DTO.ShipDTO;
+import app.controller.DetailsShipController;
+import app.model.Ship;
+import app.store.ShipStore;
+import app.utils.BST.BST;
+import app.utils.DTO.ShipDTO;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

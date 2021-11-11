@@ -1,13 +1,8 @@
 package utils;
 
-import lapr.project.model.CallSignTree;
-import lapr.project.model.IMOTree;
-import lapr.project.model.Ship;
-import lapr.project.utils.BST.BST;
-import lapr.project.utils.BST.CodeSearch;
-import lapr.project.utils.DTO.ShipDTO;
-import org.junit.Assert;
-import org.junit.Test;
+import app.model.Ship;
+import app.utils.BST.BST;
+import app.utils.BST.CodeSearch;
 
 import java.io.IOException;
 

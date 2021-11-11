@@ -150,17 +150,17 @@
                 <configuration>
                     <!--<timestampedReports>false</timestampedReports>-->
                     <!--<inScopeClasses>
-                        <param>lapr.project.model.*</param>
-                        <param>lapr.project.utils.*</param>
+                        <param>app.model.*</param>
+                        <param>app.utils.*</param>
                     </inScopeClasses>-->
                     <targetClasses>
-                        <param>lapr.project.model.*</param>
-                        <param>lapr.project.utils.*</param>
+                        <param>app.model.*</param>
+                        <param>app.utils.*</param>
                         <param>lapr.project.controller.*</param>
                     </targetClasses>
                     <targetTests>
-                        <param>lapr.project.model.*</param>
-                        <param>lapr.project.utils.*</param>
+                        <param>app.model.*</param>
+                        <param>app.utils.*</param>
                         <param>lapr.project.controller.*</param>
                     </targetTests>
                     <outputFormats>

@@ -1,6 +1,6 @@
 package utils;
 
-import lapr.project.utils.CommonMethods;
+import app.utils.CommonMethods;
 import org.junit.Test;
 
 import java.lang.reflect.Constructor;

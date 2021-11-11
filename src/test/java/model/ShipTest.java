@@ -1,8 +1,7 @@
 package model;
 
-import lapr.project.model.Ship;
-import lapr.project.utils.DTO.ShipDTO;
-import org.junit.Assert;
+import app.model.Ship;
+import app.utils.DTO.ShipDTO;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
