@@ -1,4 +1,4 @@
-package lapr.project.ui.console;
+package lapr.project.ui.gui;
 
 import lapr.project.controller.ImportShipsController;
 import lapr.project.model.Ship;

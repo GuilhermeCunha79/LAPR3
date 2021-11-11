@@ -1,4 +1,4 @@
-package lapr.project.ui.console;
+package lapr.project.ui.gui;
 
 import org.apache.maven.surefire.shade.org.apache.commons.lang3.StringUtils;
 

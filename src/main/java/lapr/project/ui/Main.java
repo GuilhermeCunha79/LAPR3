@@ -4,9 +4,9 @@ import lapr.project.controller.ImportShipsController;
 import lapr.project.model.Position;
 import lapr.project.model.Ship;
 import lapr.project.utils.BST.BST;
-import lapr.project.ui.console.FindShipUI;
-import lapr.project.ui.console.ImportShipsUI;
-import lapr.project.ui.console.ShipMessagesUI;
+import lapr.project.ui.gui.FindShipUI;
+import lapr.project.ui.gui.ImportShipsUI;
+import lapr.project.ui.gui.ShipMessagesUI;
 
 import java.io.IOException;
 import java.sql.SQLException;
