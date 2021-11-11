@@ -9,6 +9,7 @@ import lapr.project.utils.DTO.ShipDTO;
 
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import java.util.Scanner;
@@ -33,8 +34,8 @@ public class ImportShipsController extends BST<Ship> {
     public BST<Ship> importShips(String file, String type) throws IOException {
         BST<Ship> bst = new BST<>();
         File ficheiro = new File(file);
+        Scanner scan = new Scanner(ficheiro);
         try {
-            Scanner scan = new Scanner(ficheiro);
             String line = scan.nextLine();
 
             while (scan.hasNextLine()) {
@@ -63,15 +64,17 @@ public class ImportShipsController extends BST<Ship> {
             }
         } catch (Exception e) {
             throw new IllegalArgumentException("File not found");
+        }finally {
+            scan.close();
         }
         return bst;
     }
 
-    public  BST<Position> importShipsPosition(String file) {
+    public  BST<Position> importShipsPosition(String file) throws FileNotFoundException {
         BST<Position> bst1 = new BST<>();
         File ficheiro = new File(file);
+        Scanner scan = new Scanner(ficheiro);
         try {
-            Scanner scan = new Scanner(ficheiro);
             String line = scan.nextLine();
 
             while (scan.hasNextLine()) {
@@ -85,6 +88,8 @@ public class ImportShipsController extends BST<Ship> {
             }
         } catch (Exception e) {
             throw new IllegalArgumentException("File not found");
+        }finally {
+            scan.close();
         }
         return bst1;
     }

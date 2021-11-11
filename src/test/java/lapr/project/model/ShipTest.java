@@ -177,6 +177,15 @@ class ShipTest {
     }
 
     @Test
+    public void getPowerOutput() {
+        ShipDTO dto = new ShipDTO(115111111, "VARAMO", "IMO1234567", "CD456", 70, 4, 6, 2.3, "NA");
+        new Ship(dto);
+        double expected = 20;
+        double delta = 0.1;
+        assertEquals(dto.getPowerOutput(), expected, delta);
+    }
+
+    @Test
     public void getCargo() {
         ShipDTO dto = new ShipDTO(111111115, "VARAMO", "IMO1234567", "CD456", 70, 4, 6, 2, "NA");
         new Ship(dto);
@@ -377,6 +386,17 @@ class ShipTest {
             ShipDTO dto = new ShipDTO(111118818, "VARAMO", "IMO1234567", "CD456", 70, 4, 6, 2, "2_n1");
             Ship ship = new Ship(dto);
             ship.setCargo("2_n1");
+        });
+        assertEquals("Cargo just have ONLY numbers or letters.", thrown.getMessage());
+
+    }
+
+    @Test
+    public void setCargoPowerOutput() throws IllegalArgumentException {
+        IllegalArgumentException thrown = Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            ShipDTO dto = new ShipDTO(111118818, "VARAMO", "IMO1234567", "CD456", 70, 4, 6, 2, "2_n1");
+            Ship ship = new Ship(dto);
+            ship.setPowerOutput(24);
         });
         assertEquals("Cargo just have ONLY numbers or letters.", thrown.getMessage());
 

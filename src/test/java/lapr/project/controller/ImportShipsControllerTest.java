@@ -9,6 +9,7 @@ import lapr.project.model.Ship;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 
@@ -46,7 +47,7 @@ class ImportShipsControllerTest {
     }
 
     @Test
-    public void importPositionsTest2() {
+    public void importPositionsTest2() throws FileNotFoundException {
         int result =7;
         BST<Position> expResult;
         expResult = ctrl.importShipsPosition("sshipsTest.txt");
@@ -237,7 +238,7 @@ class ImportShipsControllerTest {
             expResult = ctrl.importShips("sQshipsTest.txt", "IMO");
             Assertions.assertEquals(result.smallestElement(), expResult.smallestElement());
         });
-        Assertions.assertEquals("File not found", thrown.getMessage());
+        Assertions.assertEquals("sQshipsTest.txt (O sistema não conseguiu localizar o ficheiro especificado)", thrown.getMessage());
     }
 
     @Test
@@ -248,6 +249,6 @@ class ImportShipsControllerTest {
             expResult = ctrl.importShipsPosition("ssqhips.csv");
             Assertions.assertEquals(result, expResult.size());
         });
-        Assertions.assertEquals("File not found", thrown.getMessage());
+        Assertions.assertEquals("ssqhips.csv (O sistema não conseguiu localizar o ficheiro especificado)", thrown.getMessage());
     }
 }

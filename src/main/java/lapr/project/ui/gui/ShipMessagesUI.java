@@ -5,6 +5,7 @@ import lapr.project.controller.ImportShipsController;
 import lapr.project.controller.PositionalMessagesController;
 import lapr.project.model.Position;
 import lapr.project.utils.CommonMethods;
+import lapr.project.utils.Constants;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -25,17 +26,18 @@ public class ShipMessagesUI {
         System.out.println("\nDigite o MMSI/IMO/Call Sign do navio que pretende obter mensagem de posição:");
         code = scan.nextLine();
         System.out.println("Defina o intervalo de datas, usando o seguinte formato 'dd/mm/aaaa hh:mm':");
-        System.out.print("Início:");
+        System.out.println("Início:");
         data1 = scan.nextLine();
         System.out.println("Fim:");
         data2 = scan.nextLine();
         System.out.println("\nMensagem de posição:\n");
         if (CommonMethods.imoVerification(code)) {
-            ctrl.getPositionalMessages(ctrl1.searchByIMO(code),ctrl.associatePositions(ctrl.getPositionTree(),ctrl2.getShipTree()),ctrl.convertStringToDate(data1),ctrl.convertStringToDate(data2));
+            ctrl.printList(ctrl.getPositionalMessages(ctrl1.searchByIMO(code),ctrl.associatePositions(ctrl2.importShipsPosition(Constants.FILE_NAME),ctrl2.importShips(Constants.FILE_NAME,"IMO")),ctrl.convertStringToDate(data1),ctrl.convertStringToDate(data2)));
         } else if (CommonMethods.checkIfStringJustHaveNumbers(code) && code.length() == 9) {
-            ctrl.getPositionalMessages(ctrl1.searchByMMSI(Integer.parseInt(code)),ctrl.associatePositions(ctrl.getPositionTree(),ctrl2.getShipTree()),ctrl.convertStringToDate(data1),ctrl.convertStringToDate(data2));
+            ctrl.printList(ctrl.getPositionalMessages(ctrl1.searchByMMSI(Integer.parseInt(code)),ctrl.associatePositions(ctrl2.importShipsPosition(Constants.FILE_NAME),ctrl2.importShips(Constants.FILE_NAME,"MMSI")),ctrl.convertStringToDate(data1),ctrl.convertStringToDate(data2)));
         } else {
-            ctrl.getPositionalMessages(ctrl1.searchByCallSign(code),ctrl.associatePositions(ctrl.getPositionTree(),ctrl2.getShipTree()),ctrl.convertStringToDate(data1),ctrl.convertStringToDate(data2));
+            ctrl.printList(ctrl.getPositionalMessages(ctrl1.searchByCallSign(code),ctrl.associatePositions(ctrl2.importShipsPosition(Constants.FILE_NAME),ctrl2.importShips(Constants.FILE_NAME,"Call Sign")),ctrl.convertStringToDate(data1),ctrl.convertStringToDate(data2)));
+
         }
     }
 }

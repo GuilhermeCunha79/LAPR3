@@ -91,6 +91,12 @@ public class PositionalMessagesController {
     public BST<Position> getPositionTree() {
         return App.getInstance().getCompany().getPositionStore().getPositionTree();
     }
+
+    public void printList(List<Position> positionList){
+        for (Position value : positionList) {
+            System.out.println(value);
+        }
+    }
 }
 
 

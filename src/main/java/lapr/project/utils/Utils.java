@@ -1,4 +1,4 @@
-package lapr.project.ui.utilss;
+package lapr.project.utils;
 
 
 import java.io.BufferedReader;
@@ -7,6 +7,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -64,9 +65,7 @@ public class Utils {
 
                 SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy");
 
-                Date date = df.parse(strDate);
-
-                return date;
+                return df.parse(strDate);
             } catch (ParseException ex) {
                 Logger.getLogger(Utils.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -81,7 +80,7 @@ public class Utils {
         String input;
         do {
             input = Utils.readLineFromConsole("\n" + message + "\n");
-        } while (!input.equalsIgnoreCase("y") && !input.equalsIgnoreCase("n"));
+        } while (!Objects.requireNonNull(input).equalsIgnoreCase("y") && !input.equalsIgnoreCase("n"));
 
         return input.equalsIgnoreCase("y");
     }
