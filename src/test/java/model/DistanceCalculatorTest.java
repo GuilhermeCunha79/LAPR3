@@ -1,17 +1,21 @@
 package model;
 
+
 import lapr.project.controller.ImportShipsController;
 import lapr.project.controller.PositionalMessagesController;
 import lapr.project.model.DistanceCalculator;
 import lapr.project.model.Position;
 import lapr.project.model.Ship;
 import lapr.project.utils.BST.BST;
+import lapr.project.utils.CommonMethods;
 import lapr.project.utils.Constants;
 import lapr.project.utils.DTO.ShipDTO;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
@@ -418,6 +422,61 @@ class DistanceCalculatorTest {
         double expected = 85222;
 
         Assertions.assertEquals(expected, Math.round(DistanceCalculator.deltaDistance(positions)));
+    }
+
+    @Test
+    void getTotalMovementTime() throws IOException {
+
+        BST<Ship> bst1 = ctrl.importShips(Constants.FILE_NAME, "MMSI");
+        BST<Position> bst2 = ImportShipsController.importShipsPosition(Constants.FILE_NAME);
+
+        LocalDateTime date1 = LocalDateTime.of(1, 1, 1, 0, 0);
+        LocalDateTime date2 = LocalDateTime.now();
+
+        ShipDTO shipDTO1 = new ShipDTO(228339600, "CMA CGM ALMAVIVA", "IMO9450648", "FLSU", 70, 334, 42, 15, "79");
+        Ship ship1 = new Ship(shipDTO1);
+
+        Map<Ship, Set<Position>> map = PositionalMessagesController.associatePositions(bst2, bst1);
+        List<Position> positions = PositionalMessagesController.getPositionalMessages(ship1, map, date1, date2);
+
+        double expected = 236;
+
+        Assertions.assertEquals(expected, Math.round(DistanceCalculator.getTotalMovementTime(positions)));
+    }
+
+    @Test
+    void makeSumary() throws IOException {
+
+        BST<Ship> bst1 = ctrl.importShips(Constants.FILE_NAME, "MMSI");
+        BST<Position> bst2 = ImportShipsController.importShipsPosition(Constants.FILE_NAME);
+
+        LocalDateTime date1 = LocalDateTime.of(1, 1, 1, 0, 0);
+        LocalDateTime date2 = LocalDateTime.now();
+
+        ShipDTO shipDTO1 = new ShipDTO(228339600, "CMA CGM ALMAVIVA", "IMO9450648", "FLSU", 70, 334, 42, 15, "79");
+        Ship ship1 = new Ship(shipDTO1);
+
+        Map<Ship, Set<Position>> map = PositionalMessagesController.associatePositions(bst2, bst1);
+        List<Position> positions = PositionalMessagesController.getPositionalMessages(ship1, map, date1, date2);
+
+        String expected = "\nSHIP MOVEMENTS\n" +
+                "MMSI: 228339600\n" +
+                "Start Date Base Time: 31/12/2020 00:00\n" +
+                "End Date Base Time: 31/12/2020 03:56\n" +
+                "Movement Time: 236.0 minutes\n" +
+                "Number of Movements: 18\n" +
+                "Maximum SOG: 12\n" +
+                "Mean SOG: 12\n" +
+                "Maximum COG: 131\n" +
+                "Mean COG: 129\n" +
+                "Departure Latitude: 28.37458 °\n" +
+                "Departure Longitude: -88.88584 °\n" +
+                "Arrival Latitude: 27.87869 °\n" +
+                "Arrival Longitude: -88.22321 °\n" +
+                "Travelled Distance: 85262 meters\n" +
+                "Delta Distance: 85222 meters\n";
+
+        Assertions.assertEquals(expected, DistanceCalculator.makeSumary(positions));
     }
 
     //https://github.com/ice-lenor/ExampleUnitTests/blob/master/src/test/java/geometry/GeometryHelpersTest2.java

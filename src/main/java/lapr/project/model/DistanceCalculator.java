@@ -3,13 +3,15 @@ package lapr.project.model;
 import lapr.project.utils.CommonMethods;
 import lapr.project.utils.Constants;
 
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 
 public class DistanceCalculator {
 
-//    private TravelledDistance() {
-//        throw new IllegalStateException("Utility class");
-//    }
+    private DistanceCalculator() {
+        throw new IllegalStateException("Utility class");
+    }
 
     public static double distance(double latitude1, double longitude1, double latitude2, double longitude2) {
 
@@ -124,18 +126,62 @@ public class DistanceCalculator {
 
         double deltaDistance = 0;
 
-            Position p1 = positions.get(0);
-            Position p2 = positions.get(positions.size()-1);
+        Position p1 = positions.get(0);
+        Position p2 = positions.get(positions.size() - 1);
 
-            double lat1 = p1.getLatitude();
-            double lat2 = p2.getLatitude();
-            double long1 = p1.getLongitude();
-            double long2 = p2.getLongitude();
+        double lat1 = p1.getLatitude();
+        double lat2 = p2.getLatitude();
+        double long1 = p1.getLongitude();
+        double long2 = p2.getLongitude();
 
-            deltaDistance = deltaDistance + distance(lat1, long1, lat2, long2);
+        deltaDistance = deltaDistance + distance(lat1, long1, lat2, long2);
 
         return deltaDistance;
     }
 
+    public static double getTotalMovementTime(List<Position> positions) {
+
+        LocalDateTime startDate = CommonMethods.convertStringToDate(getStartDateBaseTime(positions));
+        LocalDateTime endDate = CommonMethods.convertStringToDate(getEndDateBaseTime(positions));
+
+
+        return ChronoUnit.MINUTES.between(startDate, endDate);
+    }
+
+    public static String makeSumary(List<Position> positions) {
+        int mmsi = positions.get(0).getMmsi();
+
+        double traveledDistance = travelledDistance(positions);
+        double deltaDistance = deltaDistance(positions);
+        double arrivalLat = getArrivalLat(positions);
+        double arrivalLong = getArrivalLong(positions);
+        double departureLat = getDepartureLat(positions);
+        double departureLong = getDepartureLong(positions);
+        double totalMovementTime = getTotalMovementTime(positions);
+        double maxSOG = getMaxSOG(positions);
+        double meanSOG = getMeanSOG(positions);
+        double maxCOG = getMaxCOG(positions);
+        double meanCOG = getMeanCOG(positions);
+        String endDate = getEndDateBaseTime(positions);
+        String startDate = getStartDateBaseTime(positions);
+        int numMovements = getNumberOfMovements(positions);
+
+        return "\nSHIP MOVEMENTS" +
+                "\nMMSI: " + mmsi +
+                "\nStart Date Base Time: " + startDate +
+                "\nEnd Date Base Time: " + endDate +
+                "\nMovement Time: " + totalMovementTime + " minutes"+
+                "\nNumber of Movements: " + numMovements +
+                "\nMaximum SOG: " + Math.round(maxSOG) +
+                "\nMean SOG: " + Math.round(meanSOG) +
+                "\nMaximum COG: " + Math.round(maxCOG) +
+                "\nMean COG: " + Math.round(meanCOG) +
+                "\nDeparture Latitude: " + departureLat + " °" +
+                "\nDeparture Longitude: " + departureLong + " °" +
+                "\nArrival Latitude: " + arrivalLat + " °" +
+                "\nArrival Longitude: " + arrivalLong + " °" +
+                "\nTravelled Distance: " + Math.round(traveledDistance) + " meters" +
+                "\nDelta Distance: " + Math.round(deltaDistance) + " meters" + "\n";
+    }
 
 }
