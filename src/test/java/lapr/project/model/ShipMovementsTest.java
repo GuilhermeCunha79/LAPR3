@@ -401,7 +401,7 @@ class ShipMovementsTest {
                 43.22513, -66.96725, 150, 12);
         ShipMovements shipMovements = new ShipMovements(dto);
         shipMovements.setMaxCOG(2);
-        Assertions.assertEquals(expected, shipMovements.getMeanCOG());
+        Assertions.assertEquals(expected, shipMovements.getMaxCOG());
     }
 
     @Test
