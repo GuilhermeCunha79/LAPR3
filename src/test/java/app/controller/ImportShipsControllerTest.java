@@ -1,11 +1,11 @@
 package app.controller;
 
+import app.domain.utils.BST.BST;
+import app.domain.utils.DTO.ShipDTO;
 import app.domain.model.CallSignTree;
 import app.domain.model.IMOTree;
 import app.domain.model.Position;
 import app.domain.model.Ship;
-import app.domain.utils.BST.BST;
-import app.domain.utils.DTO.ShipDTO;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -47,9 +47,9 @@ class ImportShipsControllerTest {
 
     @Test
     public void importPositionsTest2() {
-        int result = 181;
+        int result =7;
         BST<Position> expResult;
-        expResult = ctrl.importShipsPosition("sships.csv");
+        expResult = ctrl.importShipsPosition("sshipsTest.txt");
         Assertions.assertEquals(result, expResult.size());
     }
 
