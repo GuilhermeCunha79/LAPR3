@@ -1,4 +1,4 @@
-package app.domain.utils;
+/*package app.domain.utils;
 
 import app.domain.model.Ship;
 import app.domain.utils.BST.BST;
@@ -23,7 +23,7 @@ public class CodeSearchTest {
         this.mmsi = cs.getMMSITree();
     }
 
-  /*  @Test
+    @Test
     public void testSearchByMMSI() throws IOException {
         int mmsiNumber = 210950000;
         ShipDTO sdto = new ShipDTO(210950000, "SEA", "IMO7819216", "WDG5171", 30, 37, 9, 3, "NA");
@@ -128,5 +128,5 @@ public class CodeSearchTest {
         //assertEquals(expResult, result);
 
     }
-*/
-}
+
+}*/
