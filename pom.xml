@@ -28,12 +28,6 @@
         </dependency>
 
         <dependency>
-            <groupId>at.favre.lib</groupId>
-            <artifactId>bcrypt</artifactId>
-            <version>0.9.0</version>
-        </dependency>
-
-        <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
             <version>${junit.jupiter.version}</version>
@@ -150,18 +144,18 @@
                 <configuration>
                     <!--<timestampedReports>false</timestampedReports>-->
                     <!--<inScopeClasses>
-                        <param>lapr.project.model.*</param>
-                        <param>lapr.project.utils.*</param>
+                        <param>app.app.domain.model.*</param>
+                        <param>app.app.domain.utils.*</param>
                     </inScopeClasses>-->
                     <targetClasses>
-                        <param>lapr.project.model.*</param>
-                        <param>lapr.project.utils.*</param>
-                        <param>lapr.project.controller.*</param>
+                        <param>app.app.domain.model.*</param>
+                        <param>app.app.domain.utils.*</param>
+                        <param>lapr.project.app.controller.*</param>
                     </targetClasses>
                     <targetTests>
-                        <param>lapr.project.model.*</param>
-                        <param>lapr.project.utils.*</param>
-                        <param>lapr.project.controller.*</param>
+                        <param>app.app.domain.model.*</param>
+                        <param>app.app.domain.utils.*</param>
+                        <param>lapr.project.app.controller.*</param>
                     </targetTests>
                     <outputFormats>
                         <outputFormat>XML</outputFormat>
