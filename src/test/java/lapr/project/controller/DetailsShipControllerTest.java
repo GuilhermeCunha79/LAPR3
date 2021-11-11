@@ -1,9 +1,9 @@
 package lapr.project.controller;
 
-import lapr.project.domain.model.Ship;
-import lapr.project.domain.store.ShipStore;
-import lapr.project.domain.utils.BST.BST;
-import lapr.project.domain.utils.DTO.ShipDTO;
+import lapr.project.model.Ship;
+import lapr.project.store.ShipStore;
+import lapr.project.utils.BST.BST;
+import lapr.project.utils.DTO.ShipDTO;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

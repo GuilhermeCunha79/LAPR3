@@ -4,8 +4,8 @@ package lapr.project.controller;
 //import lapr.project.auth.AuthFacade;
 //import lapr.project.auth.UserSession;
 
-import lapr.project.domain.model.Company;
-import lapr.project.domain.utils.Constants;
+import lapr.project.model.Company;
+import lapr.project.utils.Constants;
 
 import java.io.FileInputStream;
 import java.io.IOException;

@@ -1,10 +1,10 @@
 package lapr.project.controller;
 
-import lapr.project.domain.model.Company;
-import lapr.project.domain.model.Ship;
-import lapr.project.domain.store.ShipStore;
-import lapr.project.domain.utils.BST.CodeSearch;
-import lapr.project.domain.utils.DTO.ShipDTO;
+import lapr.project.model.Company;
+import lapr.project.model.Ship;
+import lapr.project.store.ShipStore;
+import lapr.project.utils.BST.CodeSearch;
+import lapr.project.utils.DTO.ShipDTO;
 
 import java.io.IOException;
 

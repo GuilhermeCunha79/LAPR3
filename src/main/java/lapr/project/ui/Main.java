@@ -1,9 +1,9 @@
 package lapr.project.ui;
 
 import lapr.project.controller.ImportShipsController;
-import lapr.project.domain.model.Position;
-import lapr.project.domain.model.Ship;
-import lapr.project.domain.utils.BST.BST;
+import lapr.project.model.Position;
+import lapr.project.model.Ship;
+import lapr.project.utils.BST.BST;
 import lapr.project.ui.console.FindShipUI;
 import lapr.project.ui.console.ImportShipsUI;
 import lapr.project.ui.console.ShipMessagesUI;

@@ -1,8 +1,8 @@
 package lapr.project.ui.console;
 
 import lapr.project.controller.ImportShipsController;
-import lapr.project.domain.model.Ship;
-import lapr.project.domain.utils.BST.BST;
+import lapr.project.model.Ship;
+import lapr.project.utils.BST.BST;
 
 import java.io.IOException;
 import java.util.Scanner;

@@ -1,11 +1,11 @@
 package lapr.project.controller;
 
-import lapr.project.domain.model.*;
-import lapr.project.domain.store.PositionStore;
-import lapr.project.domain.store.ShipStore;
-import lapr.project.domain.utils.BST.BST;
-import lapr.project.domain.utils.DTO.PositionDTO;
-import lapr.project.domain.utils.DTO.ShipDTO;
+import lapr.project.model.*;
+import lapr.project.store.PositionStore;
+import lapr.project.store.ShipStore;
+import lapr.project.utils.BST.BST;
+import lapr.project.utils.DTO.PositionDTO;
+import lapr.project.utils.DTO.ShipDTO;
 
 
 import java.io.File;

@@ -3,8 +3,8 @@ package lapr.project.ui.console;
 import lapr.project.controller.DetailsShipController;
 import lapr.project.controller.ImportShipsController;
 import lapr.project.controller.PositionalMessagesController;
-import lapr.project.domain.model.Position;
-import lapr.project.domain.utils.CommonMethods;
+import lapr.project.model.Position;
+import lapr.project.utils.CommonMethods;
 
 import java.io.IOException;
 import java.util.Scanner;
