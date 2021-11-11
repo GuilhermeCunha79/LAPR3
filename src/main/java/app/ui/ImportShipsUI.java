@@ -1,8 +1,8 @@
 package app.ui;
 
 import app.controller.ImportShipsController;
-import app.model.Ship;
-import app.utils.BST.BST;
+import app.domain.model.Ship;
+import app.domain.utils.BST.BST;
 
 import java.io.IOException;
 import java.util.Scanner;

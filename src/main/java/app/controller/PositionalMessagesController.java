@@ -1,17 +1,17 @@
 package app.controller;
 
 
-import app.model.Company;
-import app.model.Position;
-import app.model.Ship;
+import app.domain.model.Company;
+import app.domain.model.Position;
+import app.domain.model.Ship;
 
-import app.store.PositionStore;
-import app.store.ShipStore;
-import app.utils.BST.BST;
-import app.utils.BST.CodeSearch;
+import app.domain.store.PositionStore;
+import app.domain.store.ShipStore;
+import app.domain.utils.BST.BST;
+import app.domain.utils.BST.CodeSearch;
 
-import app.utils.CommonMethods;
-import app.utils.DTO.PositionDTO;
+import app.domain.utils.CommonMethods;
+import app.domain.utils.DTO.PositionDTO;
 
 import java.time.LocalDateTime;
 import java.util.*;

@@ -1,11 +1,11 @@
 package app.controller;
 
 
-//import app.auth.AuthFacade;
-//import app.auth.UserSession;
+//import auth.AuthFacade;
+//import auth.UserSession;
 
-import app.model.Company;
-import app.utils.Constants;
+import app.domain.model.Company;
+import app.domain.utils.Constants;
 
 import java.io.FileInputStream;
 import java.io.IOException;

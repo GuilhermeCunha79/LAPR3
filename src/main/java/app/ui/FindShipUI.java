@@ -1,8 +1,8 @@
 package app.ui;
 
 import app.controller.DetailsShipController;
-import app.model.Ship;
-import app.utils.CommonMethods;
+import app.domain.model.Ship;
+import app.domain.utils.CommonMethods;
 
 import java.io.IOException;
 import java.util.Scanner;

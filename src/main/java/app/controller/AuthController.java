@@ -1,7 +1,7 @@
-/*package lapr.project.controller;
+/*package lapr.project.app.controller;
 
 
-import app.auth.mappers.dto.UserRoleDTO;
+import auth.mappers.dto.UserRoleDTO;
 
 import java.util.List;
 

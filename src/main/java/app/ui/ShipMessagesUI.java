@@ -3,8 +3,8 @@ package app.ui;
 import app.controller.DetailsShipController;
 import app.controller.ImportShipsController;
 import app.controller.PositionalMessagesController;
-import app.model.Position;
-import app.utils.CommonMethods;
+import app.domain.model.Position;
+import app.domain.utils.CommonMethods;
 
 import java.io.IOException;
 import java.util.Scanner;

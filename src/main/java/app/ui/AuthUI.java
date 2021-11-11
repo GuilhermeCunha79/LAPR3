@@ -1,9 +1,9 @@
 /*package app.ui;
 
-import lapr.project.controller.AuthController;
-import app.ui.utils.Utils;
-import app.utils.Constants;
-import app.auth.mappers.dto.UserRoleDTO;
+import lapr.project.app.controller.AuthController;
+import app.ui.app.domain.utils.Utils;
+import app.app.domain.utils.Constants;
+import auth.mappers.dto.UserRoleDTO;
 
 import java.awt.*;
 import java.util.ArrayList;

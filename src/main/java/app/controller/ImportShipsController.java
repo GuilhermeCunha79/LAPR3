@@ -1,11 +1,11 @@
 package app.controller;
 
-import app.model.*;
-import app.store.PositionStore;
-import app.store.ShipStore;
-import app.utils.BST.BST;
-import app.utils.DTO.PositionDTO;
-import app.utils.DTO.ShipDTO;
+import app.domain.model.*;
+import app.domain.store.PositionStore;
+import app.domain.store.ShipStore;
+import app.domain.utils.BST.BST;
+import app.domain.utils.DTO.PositionDTO;
+import app.domain.utils.DTO.ShipDTO;
 
 import java.io.File;
 import java.io.IOException;

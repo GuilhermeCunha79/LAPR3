@@ -1,10 +1,10 @@
 package app.controller;
 
-import app.model.Company;
-import app.model.Ship;
-import app.store.ShipStore;
-import app.utils.BST.CodeSearch;
-import app.utils.DTO.ShipDTO;
+import app.domain.model.Company;
+import app.domain.model.Ship;
+import app.domain.store.ShipStore;
+import app.domain.utils.BST.CodeSearch;
+import app.domain.utils.DTO.ShipDTO;
 
 import java.io.IOException;
 
