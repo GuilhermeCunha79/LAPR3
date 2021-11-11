@@ -1,4 +1,4 @@
-package lapr.project.auth.domain.model;
+/*package lapr.project.auth.domain.model;
 
 import org.apache.maven.surefire.shade.org.apache.commons.lang3.StringUtils;
 
@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 
 /**
  * @author Paulo Maio <pam@isep.ipp.pt>
- */
+ *//*
 public class Email implements Serializable {
 
     private String email;
@@ -72,4 +72,4 @@ public class Email implements Serializable {
     public String toString() {
         return String.format("%s", this.email);
     }
-}
+}*/

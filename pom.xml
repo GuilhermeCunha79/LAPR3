@@ -27,6 +27,14 @@
             <version>19.3.0.0</version>
         </dependency>
 
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>${junit.jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
+
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
@@ -61,11 +69,6 @@
             <groupId>org.apache.maven.surefire</groupId>
             <artifactId>maven-surefire-common</artifactId>
             <version>2.22.2</version>
-        </dependency>
-        <dependency>
-            <groupId>at.favre.lib</groupId>
-            <artifactId>bcrypt</artifactId>
-            <version>0.9.0</version>
         </dependency>
 
     </dependencies>
@@ -142,18 +145,18 @@
                 <configuration>
                     <!--<timestampedReports>false</timestampedReports>-->
                     <!--<inScopeClasses>
-                        <param>app.app.domain.model.*</param>
-                        <param>app.app.domain.utils.*</param>
+                        <param>lapr.project.model.*</param>
+                        <param>lapr.project.utils.*</param>
                     </inScopeClasses>-->
                     <targetClasses>
-                        <param>app.app.domain.model.*</param>
-                        <param>app.app.domain.utils.*</param>
-                        <param>lapr.project.app.controller.*</param>
+                        <param>lapr.project.model.*</param>
+                        <param>lapr.project.utils.*</param>
+                        <param>lapr.project.controller.*</param>
                     </targetClasses>
                     <targetTests>
-                        <param>app.app.domain.model.*</param>
-                        <param>app.app.domain.utils.*</param>
-                        <param>lapr.project.app.controller.*</param>
+                        <param>lapr.project.model.*</param>
+                        <param>lapr.project.utils.*</param>
+                        <param>lapr.project.controller.*</param>
                     </targetTests>
                     <outputFormats>
                         <outputFormat>XML</outputFormat>

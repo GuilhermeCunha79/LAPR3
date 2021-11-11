@@ -1,4 +1,4 @@
-package lapr.project.auth.mappers;
+/*package lapr.project.auth.mappers;
 
 import lapr.project.auth.domain.model.UserRole;
 import lapr.project.auth.mappers.dto.UserRoleDTO;
@@ -23,3 +23,4 @@ public class UserRoleMapper {
         return rolesDTO;
     }
 }
+*/

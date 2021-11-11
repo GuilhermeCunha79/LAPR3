@@ -1,4 +1,4 @@
-package lapr.project.auth.domain.model;
+/*package lapr.project.auth.domain.model;
 
 
 import org.apache.maven.surefire.util.internal.StringUtils;
@@ -11,11 +11,11 @@ import java.util.Objects;
 
 /**
  * @author Paulo Maio <pam@isep.ipp.pt>
- */
+ *//*
 public class User implements Serializable {
 
     private Email id;
-    private Password password;
+    ///private Password password;
     private String name;
     private Set<UserRole> roles = new HashSet<UserRole>();
 
@@ -26,7 +26,7 @@ public class User implements Serializable {
             throw new IllegalArgumentException("User cannot have an id, password or name as null/blank.");
 
         this.id = id;
-        this.password = pwd;
+       // this.password = pwd;
         this.name = name.trim();
     }
 
@@ -107,4 +107,4 @@ public class User implements Serializable {
     public String toString() {
         return String.format("%s - %s", this.id.toString(), this.name);
     }
-}
+}*/

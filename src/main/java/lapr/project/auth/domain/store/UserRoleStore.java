@@ -1,4 +1,4 @@
-package lapr.project.auth.domain.store;
+/*package lapr.project.auth.domain.store;
 
 
 import lapr.project.auth.domain.model.UserRole;
@@ -10,7 +10,7 @@ import java.util.Set;
 /**
  *
  * @author Paulo Maio <pam@isep.ipp.pt>
- */
+ *//*
 public class UserRoleStore {
 
     private Set<UserRole> store = new HashSet<UserRole>();
@@ -57,3 +57,4 @@ public class UserRoleStore {
         return this.store.contains(role);
     }
 }
+*/

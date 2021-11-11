@@ -1,4 +1,4 @@
-package lapr.project.auth;
+/*package lapr.project.auth;
 
 
 
@@ -12,7 +12,7 @@ import java.util.Optional;
 
 /**
  * @author Paulo Maio <pam@isep.ipp.pt>
- */
+ *//*
 public class AuthFacade {
     private UserSession userSession;
 
@@ -88,3 +88,4 @@ public class AuthFacade {
     }
 
 }
+*/

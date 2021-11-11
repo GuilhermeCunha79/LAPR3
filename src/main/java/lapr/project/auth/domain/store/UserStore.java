@@ -1,8 +1,8 @@
-package lapr.project.auth.domain.store;
+/*package lapr.project.auth.domain.store;
 
 
 import lapr.project.auth.domain.model.Email;
-import lapr.project.auth.domain.model.Password;
+//import lapr.project.auth.domain.model.Password;
 import lapr.project.auth.domain.model.User;
 
 import java.io.FileOutputStream;
@@ -14,15 +14,15 @@ import java.util.Set;
 
 /**
  * @author Paulo Maio <pam@isep.ipp.pt>
- */
+ *//*
 public class UserStore {
     private Set<User> store = new HashSet<User>();
 
 
-    public User create(String name, String email, String password) {
+    /*public User create(String name, String email, String password) {
         return new User(new Email(email), new Password(password), name);
-    }
-
+    }*/
+/*
     public boolean add(User user) {
         if (user != null) {
             if (!exists(user)) {
@@ -83,4 +83,4 @@ public class UserStore {
             e.printStackTrace();
         }
     }
-}
+}*/
