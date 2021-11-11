@@ -1,7 +1,10 @@
-package app.domain.model;
+package app.controller;
+
 
 import app.controller.ImportShipsController;
 import app.controller.PositionalMessagesController;
+import app.domain.model.Position;
+import app.domain.model.Ship;
 import app.domain.utils.BST.BST;
 import app.domain.utils.DTO.PositionDTO;
 import app.domain.utils.DTO.ShipDTO;
@@ -14,7 +17,7 @@ import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class PositionalMessagesTest {
+class PositionalMessagesControllerTest {
     ImportShipsController ctrl = new ImportShipsController();
     PositionalMessagesController ctrl1 = new PositionalMessagesController();
 
