@@ -54,7 +54,7 @@ public class Position implements Comparable<Position> {
      *
      * @return mmsi
      */
-    public int getMmsi() {
+    public int  getMmsi() {
         return mmsi;
     }
 

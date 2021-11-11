@@ -70,7 +70,7 @@ public class ImportShipsController extends BST<Ship> {
         return bst;
     }
 
-    public  BST<Position> importShipsPosition(String file) throws FileNotFoundException {
+    public BST<Position> importShipsPosition(String file) throws FileNotFoundException {
         BST<Position> bst1 = new BST<>();
         File ficheiro = new File(file);
         Scanner scan = new Scanner(ficheiro);

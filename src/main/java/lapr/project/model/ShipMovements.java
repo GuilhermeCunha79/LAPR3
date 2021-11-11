@@ -6,9 +6,6 @@ import lapr.project.utils.DTO.ShipMovementsDTO;
 
 import java.util.Objects;
 
-/**
- * The type Ship movements.
- */
 public class ShipMovements implements Comparable<ShipMovements> {
 
     private int mmsi;
@@ -57,11 +54,22 @@ public class ShipMovements implements Comparable<ShipMovements> {
         setDeltaDistance(dto.getDeltaDistance());
     }
 
+
+
+    public ShipMovements(int mmsi, int totalNumberOfMovements,double travelledDistance, double deltaDistance){
+        this.mmsi=mmsi;
+        this.totalMovementTime=totalNumberOfMovements;
+        this.travelledDistance=travelledDistance;
+        this.deltaDistance=deltaDistance;
+
+    }
+
     /**
      * Gets mmsi.
      *
      * @return the mmsi
      */
+
     public int getMmsi() {
         return mmsi;
     }
