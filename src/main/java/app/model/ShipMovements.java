@@ -6,6 +6,9 @@ import app.utils.DTO.ShipMovementsDTO;
 
 import java.util.Objects;
 
+/**
+ * The type Ship movements.
+ */
 public class ShipMovements implements Comparable<ShipMovements> {
 
     private int mmsi;
@@ -28,6 +31,11 @@ public class ShipMovements implements Comparable<ShipMovements> {
     private double deltaDistance;
 
 
+    /**
+     * Instantiates a new Ship movements.
+     *
+     * @param dto the dto
+     */
     public ShipMovements(ShipMovementsDTO dto) {
         setMmsi(dto.getMmsi());
         setImo(dto.getImo());
@@ -49,10 +57,20 @@ public class ShipMovements implements Comparable<ShipMovements> {
         setDeltaDistance(dto.getDeltaDistance());
     }
 
+    /**
+     * Gets mmsi.
+     *
+     * @return the mmsi
+     */
     public int getMmsi() {
         return mmsi;
     }
 
+    /**
+     * Sets mmsi.
+     *
+     * @param mmsi the mmsi
+     */
     public void setMmsi(int mmsi) {
         if (String.valueOf(mmsi).length() == Constants.MMSI_DIGITS)
             this.mmsi = mmsi;
@@ -60,10 +78,20 @@ public class ShipMovements implements Comparable<ShipMovements> {
             throw new IllegalArgumentException("The MMSI code must have 9 number digits");
     }
 
+    /**
+     * Gets imo.
+     *
+     * @return the imo
+     */
     public String getImo() {
         return imo;
     }
 
+    /**
+     * Sets imo.
+     *
+     * @param imo the imo
+     */
     public void setImo(String imo) {
         if (imo == null)
             throw new NullPointerException(Constants.NOT_AVAILABLE);
@@ -75,10 +103,20 @@ public class ShipMovements implements Comparable<ShipMovements> {
 
     }
 
+    /**
+     * Gets call sign.
+     *
+     * @return the call sign
+     */
     public String getCallSign() {
         return callSign;
     }
 
+    /**
+     * Sets call sign.
+     *
+     * @param callSign the call sign
+     */
     public void setCallSign(String callSign) {
         if (callSign == null)
             throw new NullPointerException(Constants.NOT_AVAILABLE);
@@ -87,40 +125,80 @@ public class ShipMovements implements Comparable<ShipMovements> {
         this.callSign = callSign;
     }
 
+    /**
+     * Gets vessel name.
+     *
+     * @return the vessel name
+     */
     public String getVesselName() {
         return vesselName;
     }
 
+    /**
+     * Sets vessel name.
+     *
+     * @param vesselName the vessel name
+     */
     public void setVesselName(String vesselName) {
         if (vesselName == null)
             throw new NullPointerException(Constants.NOT_AVAILABLE);
         this.vesselName = vesselName;
     }
 
+    /**
+     * Gets start base date time.
+     *
+     * @return the start base date time
+     */
     public String getStartBaseDateTime() {
         return startBaseDateTime;
     }
 
+    /**
+     * Sets start base date time.
+     *
+     * @param startBaseDateTime the start base date time
+     */
     public void setStartBaseDateTime(String startBaseDateTime) {
         if (startBaseDateTime == null)
             throw new NullPointerException(Constants.NOT_AVAILABLE);
         this.startBaseDateTime = startBaseDateTime;
     }
 
+    /**
+     * Gets end base date time.
+     *
+     * @return the end base date time
+     */
     public String getEndBaseDateTime() {
         return endBaseDateTime;
     }
 
+    /**
+     * Sets end base date time.
+     *
+     * @param endBaseDateTime the end base date time
+     */
     public void setEndBaseDateTime(String endBaseDateTime) {
         if (endBaseDateTime == null)
             throw new NullPointerException(Constants.NOT_AVAILABLE);
         this.endBaseDateTime = endBaseDateTime;
     }
 
+    /**
+     * Gets total movement time.
+     *
+     * @return the total movement time
+     */
     public double getTotalMovementTime() {
         return totalMovementTime;
     }
 
+    /**
+     * Sets total movement time.
+     *
+     * @param totalMovementTime the total movement time
+     */
     public void setTotalMovementTime(double totalMovementTime) {
         if(totalMovementTime>=0) {
             this.totalMovementTime = totalMovementTime;
@@ -129,10 +207,20 @@ public class ShipMovements implements Comparable<ShipMovements> {
         }
     }
 
+    /**
+     * Gets total number of movements.
+     *
+     * @return the total number of movements
+     */
     public double getTotalNumberOfMovements() {
         return totalNumberOfMovements;
     }
 
+    /**
+     * Sets total number of movements.
+     *
+     * @param totalNumberOfMovements the total number of movements
+     */
     public void setTotalNumberOfMovements(double totalNumberOfMovements) {
         if(totalNumberOfMovements>=0) {
             this.totalNumberOfMovements = totalNumberOfMovements;
@@ -141,10 +229,20 @@ public class ShipMovements implements Comparable<ShipMovements> {
         }
     }
 
+    /**
+     * Gets max sog.
+     *
+     * @return the max sog
+     */
     public double getMaxSOG() {
         return maxSOG;
     }
 
+    /**
+     * Sets max sog.
+     *
+     * @param maxSOG the max sog
+     */
     public void setMaxSOG(double maxSOG) {
 
         if (maxSOG >= 0) {
@@ -155,10 +253,20 @@ public class ShipMovements implements Comparable<ShipMovements> {
         }
     }
 
+    /**
+     * Gets mean sog.
+     *
+     * @return the mean sog
+     */
     public double getMeanSOG() {
         return meanSOG;
     }
 
+    /**
+     * Sets mean sog.
+     *
+     * @param meanSOG the mean sog
+     */
     public void setMeanSOG(double meanSOG) {
         if (meanSOG >= 0) {
             this.meanSOG = meanSOG;
@@ -168,10 +276,20 @@ public class ShipMovements implements Comparable<ShipMovements> {
         }
     }
 
+    /**
+     * Gets max cog.
+     *
+     * @return the max cog
+     */
     public double getMaxCOG() {
         return maxCOG;
     }
 
+    /**
+     * Sets max cog.
+     *
+     * @param maxCOG the max cog
+     */
     public void setMaxCOG(double maxCOG) {
 
         if (Constants.COG_HEAD_MIN <= maxCOG && maxCOG <= Constants.COG_HEAD_MAX) {
@@ -183,10 +301,20 @@ public class ShipMovements implements Comparable<ShipMovements> {
 
     }
 
+    /**
+     * Gets mean cog.
+     *
+     * @return the mean cog
+     */
     public double getMeanCOG() {
         return meanCOG;
     }
 
+    /**
+     * Sets mean cog.
+     *
+     * @param meanCOG the mean cog
+     */
     public void setMeanCOG(double meanCOG) {
         if (Constants.COG_HEAD_MIN <= meanCOG && meanCOG <= Constants.COG_HEAD_MAX) {
             this.meanCOG = meanCOG;
@@ -196,10 +324,20 @@ public class ShipMovements implements Comparable<ShipMovements> {
         }
     }
 
+    /**
+     * Gets departure latitude.
+     *
+     * @return the departure latitude
+     */
     public double getDepartureLatitude() {
         return departureLatitude;
     }
 
+    /**
+     * Sets departure latitude.
+     *
+     * @param departureLatitude the departure latitude
+     */
     public void setDepartureLatitude(double departureLatitude) {
         if (CommonMethods.isValidLatitude(departureLatitude)) {
             this.departureLatitude = departureLatitude;
@@ -208,10 +346,20 @@ public class ShipMovements implements Comparable<ShipMovements> {
         }
     }
 
+    /**
+     * Gets departure longitude.
+     *
+     * @return the departure longitude
+     */
     public double getDepartureLongitude() {
         return departureLongitude;
     }
 
+    /**
+     * Sets departure longitude.
+     *
+     * @param departureLongitude the departure longitude
+     */
     public void setDepartureLongitude(double departureLongitude) {
         if (CommonMethods.isValidLongitude(departureLongitude)) {
             this.departureLongitude = departureLongitude;
@@ -220,10 +368,20 @@ public class ShipMovements implements Comparable<ShipMovements> {
         }
     }
 
+    /**
+     * Gets arrival longitude.
+     *
+     * @return the arrival longitude
+     */
     public double getArrivalLongitude() {
         return arrivalLongitude;
     }
 
+    /**
+     * Sets arrival longitude.
+     *
+     * @param arrivalLongitude the arrival longitude
+     */
     public void setArrivalLongitude(double arrivalLongitude) {
         if (CommonMethods.isValidLongitude(arrivalLongitude)) {
             this.arrivalLongitude = arrivalLongitude;
@@ -232,10 +390,20 @@ public class ShipMovements implements Comparable<ShipMovements> {
         }
     }
 
+    /**
+     * Gets arrival latitude.
+     *
+     * @return the arrival latitude
+     */
     public double getArrivalLatitude() {
         return arrivalLatitude;
     }
 
+    /**
+     * Sets arrival latitude.
+     *
+     * @param arrivalLatitude the arrival latitude
+     */
     public void setArrivalLatitude(double arrivalLatitude) {
         if (CommonMethods.isValidLatitude(arrivalLatitude)) {
             this.arrivalLatitude = arrivalLatitude;
@@ -244,10 +412,20 @@ public class ShipMovements implements Comparable<ShipMovements> {
         }
     }
 
+    /**
+     * Gets travelled distance.
+     *
+     * @return the travelled distance
+     */
     public double getTravelledDistance() {
         return travelledDistance;
     }
 
+    /**
+     * Sets travelled distance.
+     *
+     * @param travelledDistance the travelled distance
+     */
     public void setTravelledDistance(double travelledDistance) {
         if (travelledDistance >= 0) {
             this.travelledDistance = travelledDistance;
@@ -256,10 +434,20 @@ public class ShipMovements implements Comparable<ShipMovements> {
         }
     }
 
+    /**
+     * Gets delta distance.
+     *
+     * @return the delta distance
+     */
     public double getDeltaDistance() {
         return deltaDistance;
     }
 
+    /**
+     * Sets delta distance.
+     *
+     * @param deltaDistance the delta distance
+     */
     public void setDeltaDistance(double deltaDistance) {
         if (deltaDistance >= 0) {
             this.deltaDistance = deltaDistance;
