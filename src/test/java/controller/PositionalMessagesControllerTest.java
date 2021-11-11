@@ -1,4 +1,4 @@
-package model;
+package controller;
 
 import app.controller.ImportShipsController;
 import app.controller.PositionalMessagesController;
@@ -16,7 +16,7 @@ import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class PositionalMessagesTest {
+class PositionalMessagesControllerTest {
     ImportShipsController ctrl = new ImportShipsController();
     PositionalMessagesController ctrl1 = new PositionalMessagesController();
 
