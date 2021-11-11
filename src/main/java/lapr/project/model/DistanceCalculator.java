@@ -7,12 +7,24 @@ import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
 
+/**
+ * The type Distance calculator.
+ */
 public class DistanceCalculator {
 
     private DistanceCalculator() {
         throw new IllegalStateException("Utility class");
     }
 
+    /**
+     * Distance double.
+     *
+     * @param latitude1  the latitude 1
+     * @param longitude1 the longitude 1
+     * @param latitude2  the latitude 2
+     * @param longitude2 the longitude 2
+     * @return the double
+     */
     public static double distance(double latitude1, double longitude1, double latitude2, double longitude2) {
 
         if (!CommonMethods.isValidLatitude(latitude1) || !CommonMethods.isValidLatitude(latitude2) || !CommonMethods.isValidLongitude(longitude1) || !CommonMethods.isValidLongitude(longitude2))
@@ -33,6 +45,12 @@ public class DistanceCalculator {
     }
 
 
+    /**
+     * Travelled distance double.
+     *
+     * @param positions the positions
+     * @return the double
+     */
     public static double travelledDistance(List<Position> positions) {
 
         double travelledDistance = 0;
@@ -51,18 +69,42 @@ public class DistanceCalculator {
         return travelledDistance;
     }
 
+    /**
+     * Gets start date base time.
+     *
+     * @param list the list
+     * @return the start date base time
+     */
     public static String getStartDateBaseTime(List<Position> list) {
         return list.get(0).getDateTime();
     }
 
+    /**
+     * Gets end date base time.
+     *
+     * @param list the list
+     * @return the end date base time
+     */
     public static String getEndDateBaseTime(List<Position> list) {
         return list.get(list.size() - 1).getDateTime();
     }
 
+    /**
+     * Gets number of movements.
+     *
+     * @param list the list
+     * @return the number of movements
+     */
     public static int getNumberOfMovements(List<Position> list) {
         return list.size() - 1;
     }
 
+    /**
+     * Gets max sog.
+     *
+     * @param list the list
+     * @return the max sog
+     */
     public static double getMaxSOG(List<Position> list) {
         double max = list.get(0).getSog();
         for (Position p :
@@ -74,6 +116,12 @@ public class DistanceCalculator {
         return max;
     }
 
+    /**
+     * Gets mean sog.
+     *
+     * @param list the list
+     * @return the mean sog
+     */
     public static double getMeanSOG(List<Position> list) {
         double avg = 0;
         for (Position p :
@@ -83,6 +131,12 @@ public class DistanceCalculator {
         return avg / list.size();
     }
 
+    /**
+     * Gets max cog.
+     *
+     * @param list the list
+     * @return the max cog
+     */
     public static double getMaxCOG(List<Position> list) {
         double max = list.get(0).getCog();
         for (Position p :
@@ -94,6 +148,12 @@ public class DistanceCalculator {
         return max;
     }
 
+    /**
+     * Gets mean cog.
+     *
+     * @param list the list
+     * @return the mean cog
+     */
     public static double getMeanCOG(List<Position> list) {
         double avg = 0;
         for (Position p :
@@ -103,25 +163,55 @@ public class DistanceCalculator {
         return avg / list.size();
     }
 
+    /**
+     * Gets arrival lat.
+     *
+     * @param list the list
+     * @return the arrival lat
+     */
     public static double getArrivalLat(List<Position> list) {
 
         return list.get(list.size() - 1).getLatitude();
     }
 
+    /**
+     * Gets arrival long.
+     *
+     * @param list the list
+     * @return the arrival long
+     */
     public static double getArrivalLong(List<Position> list) {
 
         return list.get(list.size() - 1).getLongitude();
     }
 
+    /**
+     * Gets departure lat.
+     *
+     * @param list the list
+     * @return the departure lat
+     */
     public static double getDepartureLat(List<Position> list) {
 
         return list.get(0).getLatitude();
     }
 
+    /**
+     * Gets departure long.
+     *
+     * @param list the list
+     * @return the departure long
+     */
     public static double getDepartureLong(List<Position> list) {
         return list.get(0).getLongitude();
     }
 
+    /**
+     * Delta distance double.
+     *
+     * @param positions the positions
+     * @return the double
+     */
     public static double deltaDistance(List<Position> positions) {
 
         double deltaDistance = 0;
@@ -139,6 +229,12 @@ public class DistanceCalculator {
         return deltaDistance;
     }
 
+    /**
+     * Gets total movement time.
+     *
+     * @param positions the positions
+     * @return the total movement time
+     */
     public static double getTotalMovementTime(List<Position> positions) {
 
         LocalDateTime startDate = CommonMethods.convertStringToDate(getStartDateBaseTime(positions));
@@ -148,6 +244,12 @@ public class DistanceCalculator {
         return ChronoUnit.MINUTES.between(startDate, endDate);
     }
 
+    /**
+     * Make sumary string.
+     *
+     * @param positions the positions
+     * @return the string
+     */
     public static String makeSumary(List<Position> positions) {
         int mmsi = positions.get(0).getMmsi();
 
