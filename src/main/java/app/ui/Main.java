@@ -4,6 +4,9 @@ import app.controller.ImportShipsController;
 import app.domain.model.Position;
 import app.domain.model.Ship;
 import app.domain.utils.BST.BST;
+import app.ui.console.FindShipUI;
+import app.ui.console.ImportShipsUI;
+import app.ui.console.ShipMessagesUI;
 
 import java.io.IOException;
 import java.sql.SQLException;

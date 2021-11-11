@@ -1,15 +1,18 @@
-/*package auth;
+package auth;
 
-import auth.domain.app.domain.model.User;
-import auth.domain.app.domain.model.UserRole;
-import auth.domain.app.domain.store.UserRoleStore;
-import auth.domain.app.domain.store.UserStore;
+
+
+import auth.domain.model.User;
+import auth.domain.model.UserRole;
+import auth.domain.store.UserRoleStore;
+import auth.domain.store.UserStore;
 
 import java.util.Optional;
 
+
 /**
  * @author Paulo Maio <pam@isep.ipp.pt>
- *//*
+ */
 public class AuthFacade {
     private UserSession userSession;
 
@@ -84,4 +87,4 @@ public class AuthFacade {
         return this.userSession;
     }
 
-}*/
+}

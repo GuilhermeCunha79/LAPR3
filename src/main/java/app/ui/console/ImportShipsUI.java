@@ -1,4 +1,4 @@
-package app.ui;
+package app.ui.console;
 
 import app.controller.ImportShipsController;
 import app.domain.model.Ship;

@@ -1,6 +1,7 @@
-/*package auth.domain.app.domain.store;
+package auth.domain.store;
 
-import auth.domain.app.domain.model.UserRole;
+
+import auth.domain.model.UserRole;
 
 import java.util.HashSet;
 import java.util.Optional;
@@ -9,10 +10,10 @@ import java.util.Set;
 /**
  *
  * @author Paulo Maio <pam@isep.ipp.pt>
- *//*
+ */
 public class UserRoleStore {
 
-    private Set<UserRole> app.domain.store = new HashSet<UserRole>();
+    private Set<UserRole> store = new HashSet<UserRole>();
 
     public UserRole create(String id, String description)
     {
@@ -23,7 +24,7 @@ public class UserRoleStore {
     {
         if (role != null) {
             if (!exists(role))
-                return this.app.domain.store.add(role);
+                return this.store.add(role);
         }
         return false;
     }
@@ -31,13 +32,13 @@ public class UserRoleStore {
     public boolean remove(UserRole role)
     {
         if (role != null)
-            return this.app.domain.store.remove(role);
+            return this.store.remove(role);
         return false;
     }
 
     public Optional<UserRole> getById(String id)
     {
-        for(UserRole role: this.app.domain.store)
+        for(UserRole role: this.store)
         {
             if(role.hasId(id))
                 return Optional.of(role);
@@ -53,6 +54,6 @@ public class UserRoleStore {
 
     public boolean exists(UserRole role)
     {
-        return this.app.domain.store.contains(role);
+        return this.store.contains(role);
     }
-}*/
+}

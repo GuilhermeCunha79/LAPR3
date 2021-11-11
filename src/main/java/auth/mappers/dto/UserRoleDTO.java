@@ -1,4 +1,4 @@
-/*package auth.mappers.dto;
+package auth.mappers.dto;
 
 public class UserRoleDTO {
 
@@ -18,5 +18,5 @@ public class UserRoleDTO {
     public String getDescription() {
         return description;
     }
-}*/
+}
 

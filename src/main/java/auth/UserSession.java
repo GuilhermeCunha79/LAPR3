@@ -1,10 +1,10 @@
-/*package auth;
+package auth;
 
-
-//import auth.domain.app.domain.model.Email;
-import auth.domain.app.domain.model.User;
+import auth.domain.model.Email;
+import auth.domain.model.User;
 import auth.mappers.UserRoleMapper;
 import auth.mappers.dto.UserRoleDTO;
+
 
 import java.util.Collections;
 import java.util.List;
@@ -13,7 +13,7 @@ import java.util.List;
 /**
  *
  * @author Paulo Maio <pam@isep.ipp.pt>
- *//*
+ */
 public class UserSession {
 
     private User user;
@@ -56,7 +56,7 @@ public class UserSession {
         return null;
     }
 
-   /* public Email getUserId()
+   public Email getUserId()
     {
         if (isLoggedIn())
             return this.user.getId();
@@ -71,4 +71,4 @@ public class UserSession {
         }
         return Collections.EMPTY_LIST;
     }
-}*/
+}

@@ -1,8 +1,9 @@
-/*package auth.domain.app.domain.store;
+package auth.domain.store;
 
-import auth.domain.app.domain.model.Email;
-import auth.domain.app.domain.model.Password;
-import auth.domain.app.domain.model.User;
+
+import auth.domain.model.Email;
+import auth.domain.model.Password;
+import auth.domain.model.User;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -13,9 +14,9 @@ import java.util.Set;
 
 /**
  * @author Paulo Maio <pam@isep.ipp.pt>
- *//*
+ */
 public class UserStore {
-    private Set<User> app.domain.store = new HashSet<User>();
+    private Set<User> store = new HashSet<User>();
 
 
     public User create(String name, String email, String password) {
@@ -25,7 +26,7 @@ public class UserStore {
     public boolean add(User user) {
         if (user != null) {
             if (!exists(user)) {
-                this.app.domain.store.add(user);
+                this.store.add(user);
                 serializeStore();
                 return true;
             }
@@ -35,7 +36,7 @@ public class UserStore {
 
     public boolean remove(User user) {
         if (user != null)
-            return this.app.domain.store.remove(user);
+            return this.store.remove(user);
         return false;
     }
 
@@ -44,7 +45,7 @@ public class UserStore {
     }
 
     public Optional<User> getById(Email email) {
-        for (User user : this.app.domain.store) {
+        for (User user : this.store) {
             if (user.hasId(email))
                 return Optional.of(user);
         }
@@ -62,12 +63,12 @@ public class UserStore {
     }
 
     public boolean exists(User user) {
-        return this.app.domain.store.contains(user);
+        return this.store.contains(user);
     }
 
     public void setStore(Set<User> uList){
         Set<User> users= new HashSet<>(uList);
-        this.app.domain.store = users;
+        this.store = users;
     }
 
 
@@ -75,7 +76,7 @@ public class UserStore {
         try {
             FileOutputStream out = new FileOutputStream("data\\user.dat");
             ObjectOutputStream outputStream = new ObjectOutputStream(out);
-            outputStream.writeObject(this.app.domain.store);
+            outputStream.writeObject(this.store);
             outputStream.close();
             out.close();
         } catch (IOException e) {
@@ -83,4 +84,3 @@ public class UserStore {
         }
     }
 }
-*/

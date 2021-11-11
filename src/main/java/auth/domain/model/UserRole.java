@@ -1,4 +1,4 @@
-/*package auth.domain.app.domain.model;
+package auth.domain.model;
 
 
 import org.apache.maven.surefire.shade.org.apache.commons.lang3.StringUtils;
@@ -8,7 +8,7 @@ import java.util.Objects;
 
 /**
  * @author Paulo Maio <pam@isep.ipp.pt>
- *//*
+ */
 public class UserRole implements Serializable {
 
     private String id;
@@ -69,4 +69,4 @@ public class UserRole implements Serializable {
     public String toString() {
         return String.format("%s - %s", this.id, this.description);
     }
-}*/
+}
