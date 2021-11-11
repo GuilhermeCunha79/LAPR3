@@ -27,11 +27,6 @@
             <version>19.3.0.0</version>
         </dependency>
 
-        <dependency>
-            <groupId>at.favre.lib</groupId>
-            <artifactId>bcrypt</artifactId>
-            <version>0.9.0</version>
-        </dependency>
 
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -150,17 +145,17 @@
                 <configuration>
                     <!--<timestampedReports>false</timestampedReports>-->
                     <!--<inScopeClasses>
-                        <param>app.model.*</param>
-                        <param>app.utils.*</param>
+                        <param>lapr.project.model.*</param>
+                        <param>lapr.project.utils.*</param>
                     </inScopeClasses>-->
                     <targetClasses>
-                        <param>app.model.*</param>
-                        <param>app.utils.*</param>
+                        <param>lapr.project.model.*</param>
+                        <param>lapr.project.utils.*</param>
                         <param>lapr.project.controller.*</param>
                     </targetClasses>
                     <targetTests>
-                        <param>app.model.*</param>
-                        <param>app.utils.*</param>
+                        <param>lapr.project.model.*</param>
+                        <param>lapr.project.utils.*</param>
                         <param>lapr.project.controller.*</param>
                     </targetTests>
                     <outputFormats>
