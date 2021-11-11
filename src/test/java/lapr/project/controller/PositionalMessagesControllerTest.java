@@ -11,9 +11,12 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class PositionalMessagesControllerTest {
     ImportShipsController ctrl = new ImportShipsController();
@@ -93,7 +96,7 @@ class PositionalMessagesControllerTest {
     }
 */
     @Test
-    public void getPositionalMessagesShipNotFound(){
+    public void getPositionalMessagesShipNotFound() {
         IllegalArgumentException thrown = Assertions.assertThrows(IllegalArgumentException.class, () -> {
 
             BST<Ship> bst1 = ctrl.importShips("sships.csv", "MMSI");
@@ -111,5 +114,13 @@ class PositionalMessagesControllerTest {
         });
 
         Assertions.assertEquals("This Ship does not exist.", thrown.getMessage());
+    }
+
+    @Test
+    void convertStringToDate() {
+        String date = "31/10/2021 00:00";
+        LocalDateTime expected = LocalDateTime.of(2021, 10, 31, 0, 0);
+        PositionalMessagesController ctrl = new PositionalMessagesController();
+        Assertions.assertEquals(expected, ctrl.convertStringToDate(date));
     }
 }
