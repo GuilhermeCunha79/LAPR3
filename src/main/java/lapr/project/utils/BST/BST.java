@@ -434,4 +434,12 @@ public class BST<E extends Comparable<E>> implements BSTInterface<E> {
             sb.append(root.getElement() + "\n");
         toStringRec(root.getLeft(), level + 1, sb);
     }
+    /*
+     * @param element A valid element within the tree
+     * @return true if the element exists in tree false otherwise
+     */
+    public boolean contains(E element) {
+        if(element==null) return false;
+        return (find(root, element) !=null);
+    }
 }

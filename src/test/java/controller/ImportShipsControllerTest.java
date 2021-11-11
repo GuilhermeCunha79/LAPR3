@@ -48,9 +48,9 @@ class ImportShipsControllerTest {
 
     @Test
     public void importPositionsTest2() {
-        int result = 181;
+        int result =7;
         BST<Position> expResult;
-        expResult = ImportShipsController.importShipsPosition("sships.csv");
+        expResult = ImportShipsController.importShipsPosition("sshipsTest.txt");
         Assertions.assertEquals(result, expResult.size());
     }
 
