@@ -1,8 +1,8 @@
-package lapr.project.model;
+package app.model;
 
-import lapr.project.utils.CommonMethods;
-import lapr.project.utils.Constants;
-import lapr.project.utils.DTO.ShipMovementsDTO;
+import app.utils.CommonMethods;
+import app.utils.Constants;
+import app.utils.DTO.ShipMovementsDTO;
 
 import java.util.Objects;
 
