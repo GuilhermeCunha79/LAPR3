@@ -21,6 +21,7 @@ class PositionalMessagesControllerTest {
     ImportShipsController ctrl = new ImportShipsController();
     PositionalMessagesController ctrl1 = new PositionalMessagesController();
 
+
     @Test
     void getPositionalMessages() throws IOException {
         List<Position> list = new ArrayList<>();
