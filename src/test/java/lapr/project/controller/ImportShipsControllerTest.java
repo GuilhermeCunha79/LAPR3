@@ -208,7 +208,7 @@ class ImportShipsControllerTest {
         expResult = ctrl.importShips("sshipsTest.txt", "IMO");
         Assertions.assertEquals(result.smallestElement(), expResult.smallestElement());
     }
-/*
+
     @Test
     public void importShipsTest10() throws IOException {
         Exception thrown = Assertions.assertThrows(Exception.class, () -> {
@@ -236,9 +236,9 @@ class ImportShipsControllerTest {
             IMOTree ship7 = new IMOTree(shipDTO7);
             result.insert(ship7);
             expResult = ctrl.importShips("sQshipsTest.txt", "IMO");
-            Assertions.assertEquals(result.smallestElement(), expResult.smallestElement());
+            Assertions.assertEquals(result.size(), expResult.size());
         });
-        Assertions.assertEquals("sQshipsTest.txt (No such file or directory)", thrown.getMessage());
+        Assertions.assertEquals("sQshipsTest.txt (O sistema não conseguiu localizar o ficheiro especificado)", thrown.getMessage());
     }
 
 
@@ -250,6 +250,6 @@ class ImportShipsControllerTest {
             expResult = ctrl.importShipsPosition("ssqhips.csv");
             Assertions.assertEquals(result, expResult.size());
         });
-        Assertions.assertEquals("ssqhips.csv (No such file or directory)", thrown.getMessage());
-    }*/
+        Assertions.assertEquals("ssqhips.csv (O sistema não conseguiu localizar o ficheiro especificado)", thrown.getMessage());
+    }
 }
