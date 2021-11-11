@@ -1,12 +1,11 @@
-package controller;
+package app.controller;
 
-import lapr.project.controller.ImportShipsController;
-import lapr.project.model.CallSignTree;
-import lapr.project.model.IMOTree;
-import lapr.project.model.Position;
-import lapr.project.model.Ship;
-import lapr.project.utils.BST.BST;
-import lapr.project.utils.DTO.ShipDTO;
+import app.domain.utils.BST.BST;
+import app.domain.utils.DTO.ShipDTO;
+import app.domain.model.CallSignTree;
+import app.domain.model.IMOTree;
+import app.domain.model.Position;
+import app.domain.model.Ship;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -50,7 +49,7 @@ class ImportShipsControllerTest {
     public void importPositionsTest2() {
         int result =7;
         BST<Position> expResult;
-        expResult = ImportShipsController.importShipsPosition("sshipsTest.txt");
+        expResult = ctrl.importShipsPosition("sshipsTest.txt");
         Assertions.assertEquals(result, expResult.size());
     }
 
@@ -246,7 +245,7 @@ class ImportShipsControllerTest {
         Exception thrown = Assertions.assertThrows(Exception.class, () -> {
             int result = 181;
             BST<Position> expResult = new BST<>();
-            expResult = ImportShipsController.importShipsPosition("ssqhips.csv");
+            expResult = ctrl.importShipsPosition("ssqhips.csv");
             Assertions.assertEquals(result, expResult.size());
         });
         Assertions.assertEquals("File not found", thrown.getMessage());
