@@ -23,7 +23,7 @@ class PositionalMessagesControllerTest {
     PositionalMessagesController ctrl1 = new PositionalMessagesController();
 
 
-    @Test
+   /* @Test
     void getPositionalMessages() throws IOException {
         List<Position> list = new ArrayList<>();
         BST<Ship> bst1 = ctrl.importShips("sships.csv", "MMSI");
@@ -58,7 +58,7 @@ class PositionalMessagesControllerTest {
         assertEquals(list, positions);
     }
 
-    /*@Test
+    @Test
     public void associatePositions() throws IOException {
 
         BST<Ship> bst1= ctrl.importShips("sshipsTest2.csv","MMSI");

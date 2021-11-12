@@ -40,12 +40,11 @@ class Main {
         ImportShipsController ctrl=new ImportShipsController();
         BST <Ship> bst = new BST<>();
         BST <Position> bst1 = new BST<>();
-        bst=uii.importShipsUI();
-        bst1=ctrl.importShipsPosition("sships.csv");
+        uii.importShipsUI();
+        ctrl.importShipsPosition("sships.csv");
 
         FindShipUI ui=new FindShipUI();
         ShipMessagesUI ul=new ShipMessagesUI();
-        //ImportShipsUI.importShipsUI("sships.csv");
         ui.findShipUI();
         ul.shipMessagesUi();
 

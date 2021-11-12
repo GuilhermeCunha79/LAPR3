@@ -57,6 +57,8 @@ public class ShipMovements implements Comparable<ShipMovements> {
         setDeltaDistance(dto.getDeltaDistance());
     }
 
+
+
     /**
      * Gets mmsi.
      *

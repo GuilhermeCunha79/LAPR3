@@ -66,7 +66,7 @@ public class PositionalMessagesController {
 
             for (Position p : set) {
                 LocalDateTime date = CommonMethods.convertStringToDate(p.getDateTime());
-                if (date.isAfter(date1) && date.isBefore(date2)) {
+                if (date.isAfter(date1.minusSeconds(1)) && date.isBefore(date2.plusSeconds(1))) {
                     positions.add(p);
                 }
             }
@@ -80,7 +80,7 @@ public class PositionalMessagesController {
         return positions;
     }
 
-    public LocalDateTime convertStringToDate(String name){
+    public LocalDateTime convertStringToDate(String name) {
         return CommonMethods.convertStringToDate(name);
     }
 
@@ -92,9 +92,11 @@ public class PositionalMessagesController {
         return App.getInstance().getCompany().getPositionStore().getPositionTree();
     }
 
-    public void printList(List<Position> positionList){
+    public void printList(List<Position> positionList) {
         for (Position value : positionList) {
+            System.out.println("---------------------------------------");
             System.out.println(value);
+            System.out.println("---------------------------------------");
         }
     }
 }

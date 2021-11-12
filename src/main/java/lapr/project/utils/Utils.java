@@ -58,19 +58,6 @@ public class Utils {
         } while (true);
     }
 
-    public static Date readDateFromConsole(String prompt) {
-        do {
-            try {
-                String strDate = readLineFromConsole(prompt);
-
-                SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy");
-
-                return df.parse(strDate);
-            } catch (ParseException ex) {
-                Logger.getLogger(Utils.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        } while (true);
-    }
 
     public static void printToConsole(String message){
         System.out.printf("%s%n",message);
