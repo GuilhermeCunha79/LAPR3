@@ -56,6 +56,52 @@ public class CommonMethodsTest {
         assertFalse(CommonMethods.checkIfStringJustHaveLetters(ola));
     }
 
+    @Test
+    public void checkIsValidLatitude(){
+        double latitude=90;
+        assertTrue(CommonMethods.isValidLatitude(latitude));
+    }
+    @Test
+    public void checkIsValidLatitude1(){
+        double latitude=0;
+        assertTrue(CommonMethods.isValidLatitude(latitude));
+    }
+
+    @Test
+    public void checkIsValidLongitude(){
+        double latitude=180;
+        assertTrue(CommonMethods.isValidLongitude(latitude));
+    }
+
+    @Test
+    public void checkIsValidLongitude1(){
+        double latitude=0;
+        assertTrue(CommonMethods.isValidLongitude(latitude));
+    }
+
+    @Test
+    public void imoVerificationTest(){
+        String imo="IMO123";
+        assertFalse(CommonMethods.imoVerification(imo));
+    }
+
+    @Test
+    public void imoVerificationTest1(){
+        String imo="IBO123";
+        assertFalse(CommonMethods.imoVerification(imo));
+    }
+
+    @Test
+    public void imoVerificationTest2(){
+        String imo="OMO123";
+        assertFalse(CommonMethods.imoVerification(imo));
+    }
+
+    @Test
+    public void imoVerificationTest3(){
+        String imo="IMB123";
+        assertFalse(CommonMethods.imoVerification(imo));
+    }
 
 
 

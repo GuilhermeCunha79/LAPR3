@@ -1,4 +1,4 @@
-package lapr.project.auth.mappers.dto;
+/*package lapr.project.auth.mappers.dto;
 
 public class UserRoleDTO {
 
@@ -19,4 +19,4 @@ public class UserRoleDTO {
         return description;
     }
 }
-
+*/

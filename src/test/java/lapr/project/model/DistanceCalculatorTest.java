@@ -3,9 +3,6 @@ package lapr.project.model;
 
 import lapr.project.controller.ImportShipsController;
 import lapr.project.controller.PositionalMessagesController;
-import lapr.project.model.DistanceCalculator;
-import lapr.project.model.Position;
-import lapr.project.model.Ship;
 import lapr.project.utils.BST.BST;
 import lapr.project.utils.Constants;
 import lapr.project.utils.DTO.ShipDTO;

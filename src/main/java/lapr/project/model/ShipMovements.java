@@ -59,6 +59,7 @@ public class ShipMovements implements Comparable<ShipMovements> {
 
 
 
+
     /**
      * Gets mmsi.
      *

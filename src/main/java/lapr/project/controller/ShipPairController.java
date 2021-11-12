@@ -4,9 +4,10 @@ import lapr.project.model.DistanceCalculator;
 import lapr.project.model.Ship;
 import lapr.project.model.ShipMovements;
 import lapr.project.utils.BST.BST;
+import lapr.project.utils.Constants;
 
 import java.util.*;
-import java.util.concurrent.atomic.AtomicReference;
+
 
 public class ShipPairController {
 
@@ -19,7 +20,7 @@ public class ShipPairController {
             mmsi = ship.getMmsi();
             /*ShipMovements movements = DistanceCalculator.distance(ship);
 
-            if (movements.getTravelledDistance() > 10000) {
+            if (movements.getTravelledDistance() > Constansts.MAX_TRAVELLED_DISTANCE) {
                 shipHash.put(mmsi, movements);
             }*/
         }
@@ -38,7 +39,7 @@ public class ShipPairController {
                 );
                     double departureDistance = DistanceCalculator.distance(shipDistance.getDepartureLatitude(), nextDistance.getDepartureLatitude(), shipDistance.getDepartureLatitude(), nextDistance.getDepartureLongitude()
                 );
-                    boolean haveCloseRoutes = (arrivalDistance < 5000 || departureDistance < 5000);
+                    boolean haveCloseRoutes = (arrivalDistance < Constants.MAX_TRAV_DIST || departureDistance < Constants.MAX_TRAV_DIST);
                     boolean diffTravelledDistance = shipDistance.getTravelledDistance() != nextDistance.getTravelledDistance();
                     double diffByTravelledDistance = Math.abs(shipDistance.getTravelledDistance() - nextDistance.getTravelledDistance());
 

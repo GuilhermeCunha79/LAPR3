@@ -43,4 +43,7 @@ public class Constants {
     public static final String PARAMS_COMPANY_DESIGNATION = "Company.Designation";
     //FILE
     public static final String FILE_NAME = "sships.csv";
+    //RESTRCTIONS
+    public static final int MAX_TRAV_DIST=5000;
+    public static final int MAX_TRAVELLED_DISTANCE=10000;
 }

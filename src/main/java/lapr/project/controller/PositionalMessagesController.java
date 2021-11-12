@@ -38,7 +38,7 @@ public class PositionalMessagesController {
         this.position = null;
     }
 
-    public static Map<Ship, Set<Position>> associatePositions(BST<Position> bst1, BST<Ship> bst2) {
+    public Map<Ship, Set<Position>> associatePositions(BST<Position> bst1, BST<Ship> bst2) {
         Map<Ship, Set<Position>> map = new HashMap<>();
 
         for (Ship s : bst2.inOrder()) {

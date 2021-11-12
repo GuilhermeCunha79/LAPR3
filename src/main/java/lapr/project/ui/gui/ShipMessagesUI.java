@@ -3,7 +3,6 @@ package lapr.project.ui.gui;
 import lapr.project.controller.DetailsShipController;
 import lapr.project.controller.ImportShipsController;
 import lapr.project.controller.PositionalMessagesController;
-import lapr.project.model.DistanceCalculator;
 import lapr.project.model.Position;
 import lapr.project.utils.CommonMethods;
 import lapr.project.utils.Constants;
@@ -33,11 +32,11 @@ public class ShipMessagesUI {
         data2 = scan.nextLine();
         System.out.println("\nMensagem de posição:\n");
         if (CommonMethods.imoVerification(code)) {
-            ctrl.printList(ctrl.getPositionalMessages(ctrl1.searchByIMO(code),ctrl.associatePositions(ctrl2.importShipsPosition(Constants.FILE_NAME),ctrl2.importShips(Constants.FILE_NAME,"IMO")),ctrl.convertStringToDate(data1),ctrl.convertStringToDate(data2)));
+            ctrl.printList(ctrl.getPositionalMessages(this.ctrl1.searchByIMO(code),ctrl.associatePositions(ctrl2.importShipsPosition(Constants.FILE_NAME),ctrl2.importShips(Constants.FILE_NAME,"IMO")),ctrl.convertStringToDate(data1),ctrl.convertStringToDate(data2)));
         } else if (CommonMethods.checkIfStringJustHaveNumbers(code) && code.length() == 9) {
-            ctrl.printList(ctrl.getPositionalMessages(ctrl1.searchByMMSI(Integer.parseInt(code)),ctrl.associatePositions(ctrl2.importShipsPosition(Constants.FILE_NAME),ctrl2.importShips(Constants.FILE_NAME,"MMSI")),ctrl.convertStringToDate(data1),ctrl.convertStringToDate(data2)));
+            ctrl.printList(ctrl.getPositionalMessages(this.ctrl1.searchByMMSI(Integer.parseInt(code)),ctrl.associatePositions(ctrl2.importShipsPosition(Constants.FILE_NAME),ctrl2.importShips(Constants.FILE_NAME,"MMSI")),ctrl.convertStringToDate(data1),ctrl.convertStringToDate(data2)));
         } else {
-            ctrl.printList(ctrl.getPositionalMessages(ctrl1.searchByCallSign(code),ctrl.associatePositions(ctrl2.importShipsPosition(Constants.FILE_NAME),ctrl2.importShips(Constants.FILE_NAME,"Call Sign")),ctrl.convertStringToDate(data1),ctrl.convertStringToDate(data2)));
+            ctrl.printList(ctrl.getPositionalMessages(this.ctrl1.searchByCallSign(code), ctrl.associatePositions(ctrl2.importShipsPosition(Constants.FILE_NAME),ctrl2.importShips(Constants.FILE_NAME,"Call Sign")),ctrl.convertStringToDate(data1),ctrl.convertStringToDate(data2)));
 
         }
 

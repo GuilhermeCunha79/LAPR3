@@ -1,4 +1,4 @@
-package lapr.project.utils;
+/*package lapr.project.utils;
 
 
 import java.io.BufferedReader;
@@ -13,7 +13,7 @@ import java.util.logging.Logger;
 
 /**
  * @author Paulo Maio <pam@isep.ipp.pt>
- */
+ *//*
 public class Utils {
 
     public static String readLineFromConsole(String prompt) {
@@ -63,7 +63,7 @@ public class Utils {
         System.out.printf("%s%n",message);
     }
 
-    public static boolean confirm(String message) {
+   public static boolean confirm(String message) {
         String input;
         do {
             input = Utils.readLineFromConsole("\n" + message + "\n");
@@ -120,4 +120,4 @@ public class Utils {
 
         return value - 1;
     }
-}
+}*/
