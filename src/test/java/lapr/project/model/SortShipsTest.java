@@ -1,5 +1,5 @@
 package lapr.project.model;
-
+/*
 import lapr.project.controller.ImportShipsController;
 import lapr.project.controller.PositionalMessagesController;
 import lapr.project.model.*;
@@ -188,6 +188,6 @@ class SortShipsTest {
 
 
     }
-}
+}*/
 
 
