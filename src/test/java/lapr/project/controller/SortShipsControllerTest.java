@@ -1,5 +1,5 @@
 package lapr.project.controller;
-/*
+
 import lapr.project.model.*;
 import lapr.project.utils.BST.BST;
 import lapr.project.utils.DTO.PositionDTO;
@@ -11,13 +11,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import static lapr.project.model.DistanceCalculator.getNumberOfMovements;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class SortShipsControllerTest {
     SortShipsController ctrSort = new SortShipsController();
     ImportShipsController ctrl = new ImportShipsController();
     SortShips sortShips = new SortShips();
+    PositionalMessagesController ctrlPositions = new PositionalMessagesController();
 
     @Test
     void getListShipMovementsTest() throws IOException {
@@ -25,7 +26,7 @@ class SortShipsControllerTest {
         BST<Ship> bst1 = ctrl.importShips("listShips.csv", "MMSI");
         BST<Position> bst2 = ctrl.importShipsPosition("listShips.csv");
 
-        Map<Ship, Set<Position>> map = PositionalMessagesController.associatePositions(bst2, bst1);
+        Map<Ship, Set<Position>> map = ctrlPositions.associatePositions(bst2, bst1);
 
         List<ShipMovements> listShips = new ArrayList<>();
 
@@ -44,7 +45,7 @@ class SortShipsControllerTest {
         BST<Ship> bst1 = ctrl.importShips("listShips.csv", "MMSI");
         BST<Position> bst2 = ctrl.importShipsPosition("listShips.csv");
 
-        Map<Ship, Set<Position>> map = PositionalMessagesController.associatePositions(bst2, bst1);
+        Map<Ship, Set<Position>> map = ctrlPositions.associatePositions(bst2, bst1);
 
         List<ShipMovements> list = new ArrayList<>();
         List<ShipMovements> expected = new ArrayList<>();
@@ -66,7 +67,7 @@ class SortShipsControllerTest {
         BST<Ship> bst1 = ctrl.importShips("listShips.csv", "MMSI");
         BST<Position> bst2 = ctrl.importShipsPosition("listShips.csv");
 
-        Map<Ship, Set<Position>> map = PositionalMessagesController.associatePositions(bst2, bst1);
+        Map<Ship, Set<Position>> map = ctrlPositions.associatePositions(bst2, bst1);
 
         List<ShipMovements> list = new ArrayList<>();
         List<ShipMovements> expected = new ArrayList<>();
@@ -79,4 +80,4 @@ class SortShipsControllerTest {
 
         assertEquals(expected, listResult);
     }
-}*/
+}

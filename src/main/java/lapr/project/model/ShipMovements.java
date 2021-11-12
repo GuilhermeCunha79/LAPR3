@@ -1,3 +1,5 @@
+
+
 package lapr.project.model;
 
 import lapr.project.utils.CommonMethods;
@@ -57,7 +59,13 @@ public class ShipMovements implements Comparable<ShipMovements> {
         setDeltaDistance(dto.getDeltaDistance());
     }
 
+    public ShipMovements(int mmsi, int nOfMov, double travelledDistance, double deltaDistance) {
 
+        this.mmsi = mmsi;
+        this.totalMovementTime = nOfMov;
+        this.travelledDistance = travelledDistance;
+        this.deltaDistance = deltaDistance;
+    }
 
 
     /**
@@ -203,7 +211,7 @@ public class ShipMovements implements Comparable<ShipMovements> {
      * @param totalMovementTime the total movement time
      */
     public void setTotalMovementTime(double totalMovementTime) {
-        if(totalMovementTime>=0) {
+        if (totalMovementTime >= 0) {
             this.totalMovementTime = totalMovementTime;
         } else {
             throw new IllegalArgumentException("Total movement time cannot be a negative number.");
@@ -225,7 +233,7 @@ public class ShipMovements implements Comparable<ShipMovements> {
      * @param totalNumberOfMovements the total number of movements
      */
     public void setTotalNumberOfMovements(double totalNumberOfMovements) {
-        if(totalNumberOfMovements>=0) {
+        if (totalNumberOfMovements >= 0) {
             this.totalNumberOfMovements = totalNumberOfMovements;
         } else {
             throw new IllegalArgumentException("Total number of movements cannot be a negative number.");
@@ -479,7 +487,7 @@ public class ShipMovements implements Comparable<ShipMovements> {
     public String toString() {
         return "\nSHIP MOVEMENTS" +
                 "\nMMSI: " + mmsi +
-                "\nIMO: " + imo  +
+                "\nIMO: " + imo +
                 "\nCall Sign: " + callSign +
                 "\nVessel Name: " + vesselName +
                 "\nStart Date Base Time:" + startBaseDateTime +
@@ -490,12 +498,12 @@ public class ShipMovements implements Comparable<ShipMovements> {
                 "\nMean SOG:" + meanSOG +
                 "\nMaximum COG:" + maxCOG +
                 "\nMean COG:" + meanCOG +
-                "\nDeparture Latitude:" + departureLatitude +"°"+
-                "\nDeparture Longitude:" + departureLongitude +"°"+
-                "\nArrival Latitude:" + arrivalLatitude +"°"+
-                "\nArrival Longitude:" + arrivalLongitude +"°"+
-                "\nTravelled Distance:" + travelledDistance +"m"+
-                "\nDelta Distance:" + deltaDistance + "m"+"\n";
+                "\nDeparture Latitude:" + departureLatitude + "°" +
+                "\nDeparture Longitude:" + departureLongitude + "°" +
+                "\nArrival Latitude:" + arrivalLatitude + "°" +
+                "\nArrival Longitude:" + arrivalLongitude + "°" +
+                "\nTravelled Distance:" + travelledDistance + "m" +
+                "\nDelta Distance:" + deltaDistance + "m" + "\n";
     }
 
     @Override
@@ -503,3 +511,4 @@ public class ShipMovements implements Comparable<ShipMovements> {
         return 0;
     }
 }
+

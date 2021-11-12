@@ -17,9 +17,9 @@ public class SortShipsController {
         sort = new SortShips();
     }
 
-    /*public List<ShipMovements> getListShipMovements(Map<Ship, Set<Position>> mapShips){
+    public List<ShipMovements> getListShipMovements(Map<Ship, Set<Position>> mapShips){
         return sort.listShipsMovements(mapShips);
-    }*/
+    }
 
     public List<ShipMovements> sortDescendingTravelled(List<ShipMovements> list){
         return sort.sortDescendingTravelled(list);
