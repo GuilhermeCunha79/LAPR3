@@ -7,7 +7,7 @@ import static lapr.project.model.DistanceCalculator.getNumberOfMovements;
 
 public class SortShips {
 
-
+/*
     public List<ShipMovements> listShipsMovements(Map<Ship, Set<Position>> mapShips) {
         List<ShipMovements> listShips = new ArrayList<>();
         List<Position> positions;
@@ -24,7 +24,7 @@ public class SortShips {
         }
 
         return listShips;
-    }
+    }*/
 
 
 
