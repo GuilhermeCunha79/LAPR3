@@ -2,7 +2,6 @@ package lapr.project.controller;
 
 import lapr.project.model.*;
 import lapr.project.utils.BST.BST;
-import lapr.project.utils.DTO.PositionDTO;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;

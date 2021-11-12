@@ -1,5 +1,5 @@
 package lapr.project.model;
-/*
+
 import lapr.project.controller.ImportShipsController;
 import lapr.project.controller.PositionalMessagesController;
 import lapr.project.model.*;
@@ -19,6 +19,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class SortShipsTest {
     ImportShipsController ctrl = new ImportShipsController();
     SortShips sortShips = new SortShips();
+    PositionalMessagesController ctrlPositions = new PositionalMessagesController();
 
 
     @Test
@@ -30,7 +31,7 @@ class SortShipsTest {
         BST<Ship> bst1 = ctrl.importShips("listShips.csv", "MMSI");
         BST<Position> bst2 = ctrl.importShipsPosition("listShips.csv");
 
-        Map<Ship, Set<Position>> map = PositionalMessagesController.associatePositions(bst2, bst1);
+        Map<Ship, Set<Position>> map = ctrlPositions.associatePositions(bst2, bst1);
 
         List<Position> mmsi1 = new ArrayList<>(); //210950000
         PositionDTO dto1 = new PositionDTO(210950000, "31/12/2020 17:19", 42.97875, -66.97001, 12.9, 13.1, 355, "B");
@@ -188,6 +189,6 @@ class SortShipsTest {
 
 
     }
-}*/
+}
 
 
